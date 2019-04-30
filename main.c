@@ -8,6 +8,7 @@ int main(int argc, char *argv[]) {
 //    if (argc >= 3) {
 
     Stack deck = STACK_fill_deck();
+    deck = STACK_randomize(&deck);
     STACK_show_stack(deck);
 
     int option;

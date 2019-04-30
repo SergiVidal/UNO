@@ -1,0 +1,3 @@
+/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles/UNO.dir
+/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles/edit_cache.dir

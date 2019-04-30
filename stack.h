@@ -1,7 +1,7 @@
 #ifndef UNO_STACK_H
 #define UNO_STACK_H
 
-#define MAXC 50
+#define MAXC            50
 #define NUMBER          0
 #define BLOCKTURN       1
 #define CHANGEDIRECTION 2
@@ -48,4 +48,7 @@ void STACK_show_stack(Stack stack);
 void STACK_create_card(Stack *stack, int value, int type, char color[MAXC]);
 
 Stack STACK_fill_deck();
+
+Stack STACK_randomize(Stack *s);
+
 #endif //UNO_STACK_H

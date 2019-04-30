@@ -68,7 +68,6 @@ void STACK_create_card(Stack *stack, int value, int type, char color[MAXC]){
     STACK_push(stack, card); // A cada push s'incrementa el stack.size +1
 }
 
-//Falta crearla random
 Stack STACK_fill_deck() {
     Stack stack = STACK_create();
     // Numbers
@@ -91,80 +90,71 @@ Stack STACK_fill_deck() {
         }
     }
 
-//    for(for i = 0; i < 2; i++) {
+    for(int i = 0; i < 2; i++) {
         // Block Turn
-
-//        card->value = -1; // Not number
-//        card->type = 1; // Block Turn Code
-//        strcpy(card->color, "red");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "yellow");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "green");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "blue");
-//        STACK_push(&stack, card);
+        STACK_create_card(&stack, -1, BLOCKTURN, "red");
+        STACK_create_card(&stack, -1, BLOCKTURN, "yellow");
+        STACK_create_card(&stack, -1, BLOCKTURN, "green");
+        STACK_create_card(&stack, -1, BLOCKTURN, "blue");
 
         // Change Direction
-//        card->type = 2; // Change Direction Code
-//        strcpy(card->color, "red");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "yellow");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "green");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "blue");
-//        STACK_push(&stack, card);
+        STACK_create_card(&stack, -1, CHANGEDIRECTION, "red");
+        STACK_create_card(&stack, -1, CHANGEDIRECTION, "yellow");
+        STACK_create_card(&stack, -1, CHANGEDIRECTION, "green");
+        STACK_create_card(&stack, -1, CHANGEDIRECTION, "blue");
 
         // Get +2
-//        card->type = 3; // Get +2 Code
-//        strcpy(card->color, "red");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "yellow");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "green");
-//        STACK_push(&stack, card);
-//
-//        strcpy(card->color, "blue");
-//        STACK_push(&stack, card);
-//    }
+        STACK_create_card(&stack, -1, GET2, "red");
+        STACK_create_card(&stack, -1, GET2, "yellow");
+        STACK_create_card(&stack, -1, GET2, "green");
+        STACK_create_card(&stack, -1, GET2, "blue");
+    }
 
     // Get +4
-//    card->type = 4; // Get +2 Code
-//    strcpy(card->color, "red");
-//    STACK_push(&stack, card);
-//
-//    strcpy(card->color, "yellow");
-//    STACK_push(&stack, card);
-//
-//    strcpy(card->color, "green");
-//    STACK_push(&stack, card);
-//
-//    strcpy(card->color, "blue");
-//    STACK_push(&stack, card);
+    STACK_create_card(&stack, -1, GET4, "red");
+    STACK_create_card(&stack, -1, GET4, "yellow");
+    STACK_create_card(&stack, -1, GET4, "green");
+    STACK_create_card(&stack, -1, GET4, "blue");
 
 
     // Change color
-//    card->type = 5; // Change color Code
-//    strcpy(card->color, "red");
-//    STACK_push(&stack, card);
-//
-//    strcpy(card->color, "yellow");
-//    STACK_push(&stack, card);
-//
-//    strcpy(card->color, "green");
-//    STACK_push(&stack, card);
-//
-//    strcpy(card->color, "blue");
-//    STACK_push(&stack, card);
+    STACK_create_card(&stack, -1, CHANGECOLOR, "red");
+    STACK_create_card(&stack, -1, CHANGECOLOR, "yellow");
+    STACK_create_card(&stack, -1, CHANGECOLOR, "green");
+    STACK_create_card(&stack, -1, CHANGECOLOR, "blue");
 
     return stack;
+}
+
+//SIEMPRE SALE MISMA COMBINACIÓN DE RANDOM!!!
+Stack STACK_randomize(Stack *s){
+    //Creo un array de nodos y lo lleno a partir del Stack (LIFO)
+    Node *node = (Node *) malloc(sizeof(Node) * s->size);
+
+    Node *aux = s->last;
+    int cont = 0;
+    while(aux != NULL){
+        node[cont] = *aux;
+        aux = aux->next;
+        cont++;
+    }
+    free(aux);
+
+    //Creo un nuevo stack, hago un random y lo voy llenando
+    Stack randomStack = STACK_create();
+    for(int i = 0; i < s->size; i++){
+        while(1){
+            int random = rand() % (s->size);
+            //Se comprueba si ya ha tocado el mismo num random
+            if(node[random].card != NULL){
+                STACK_push(&randomStack, node[random].card);
+                node[random].card = NULL;
+                break;
+            }else{
+                random = rand() % (s->size);
+            }
+        }
+    }
+    free(node);
+    return randomStack;
 }
