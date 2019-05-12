@@ -26,10 +26,6 @@ typedef struct {
     Node *last;
 } Stack; //Deck, Discard Deck
 
-typedef struct {
-    int size;
-    Card *cards;
-} Hand;
 
 Stack STACK_create();
 

@@ -2,20 +2,21 @@
 #define UNO_PLAYER_H
 
 #include "stack.h"
+#include "list.h"
 
-#define MAX    50
 
 typedef struct {
-    char name[MAX];
+    char name[MAXC];
+    char type[MAXC]; //2 - Agresivo, 1 - Calmado, 0 - Player
+    int num_cards;
     int wins;
     int loses;
-    int type; //2 - Agresivo, 1 - Calmado, 0 - Player
-    Hand *hand;
+    PDIList *pdiList;
 } Player;
 
-typedef struct {
-    char name[MAX];
-    int cartas_anteriores[MAX];
-} PlayerStat;
+//typedef struct {
+//    char name[MAXC];
+//    int cartas_anteriores[MAXC];
+//} PlayerStat;
 
 #endif //UNO_PLAYER_H

@@ -3,6 +3,8 @@
 
 #include "cli.h"
 #include "stack.h"
+#include "player.h"
+#include "game.h"
 
 int main(int argc, char *argv[]) {
 //    if (argc >= 3) {
@@ -10,6 +12,9 @@ int main(int argc, char *argv[]) {
     Stack deck = STACK_fill_deck();
     deck = STACK_randomize(&deck);
     STACK_show_stack(deck);
+
+    Player *bots = GAME_create_bots(argv[1]);
+    Player player = GAME_create_player(argv[2]);
 
     int option;
 
