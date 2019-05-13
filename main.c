@@ -12,21 +12,28 @@
 int main(int argc, char *argv[]) {
 //    if (argc >= 3) {
 
+    Game game = {0, 0, NULL, NULL};
     Stack deck;
-    Stack discardDeck = STACK_create();
+    Stack discardDeck;
 
     int option;
     do {
         option = CLI_get_option();
         switch (option) {
             case CLI_PLAY:
+
+                discardDeck = STACK_create(); // Genera baraja DESCARTE
+
                 deck = STACK_fill_deck(); // Genera baraja
                 deck = STACK_randomize(&deck); // Mezcla Baraja
 //                STACK_show_stack(deck);
 
-                Player *bots = GAME_create_bots(argv[1]); // Crea los bots
-                Player player = GAME_create_player(argv[2]); // Crea el jugador
-                GAME_init_hands(&deck, bots, &player); // Reparte cartas a los jugadores
+                Player *bots = GAME_create_bots(argv[1], &game); // Crea los bots
+                Player player = GAME_create_player(argv[2], &game); // Crea el jugador
+
+                printf("TotalPlayers: %d\n\n", game.total_players);
+
+                GAME_init_hands(&deck, bots, &player, &game); // Reparte cartas a los jugadores
 
 //                printf("After init hands:\n");
 //                STACK_show_stack(deck);
