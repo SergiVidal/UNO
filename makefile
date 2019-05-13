@@ -15,11 +15,14 @@ game.o: game.h game.c
 player.o: player.h player.c
 	gcc -c player.c -Wall -Wextra
 
-main.o: cli.h file.h stack.h game.h player.h main.c
+list.o: list.h list.c
+	gcc -c list.c -Wall -Wextra
+
+main.o: cli.h file.h stack.h game.h player.h list.h main.c
 	gcc -c main.c
 
-uno: cli.o file.o stack.o game.o player.o main.o
-	gcc cli.o file.o stack.o game.o player.o main.o -o uno
+uno: cli.o file.o stack.o game.o player.o list.o main.o
+	gcc cli.o file.o stack.o game.o player.o list.o main.o -o uno
 
 clean:
 	rm -f *.o uno

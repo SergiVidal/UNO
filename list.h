@@ -16,11 +16,11 @@ typedef struct {
 
 PDIList LIST_create();
 
-PDIList LIST_insert(PDIList list, int e);
+int LIST_insert(PDIList *list, Card *card);
 
 int LIST_remove(PDIList * list);
 
-int LIST_get(PDIList);
+Card* LIST_get(PDIList *);
 
 int LIST_is_empty(PDIList);
 
