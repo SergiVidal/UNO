@@ -21,8 +21,6 @@ Player* GAME_create_player_list(Player *bots, Player player, Game *game);
 
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game);
 
-void GAME_discard_card();
-
 void GAME_swap(Player *p1, Player *p2);
 
 void GAME_sort_by_name(Player *players, int length);
@@ -38,4 +36,8 @@ void GAME_show_cards(Player *player);
 void GAME_show_players(ListBi *list);
 
 void GAME_display_game_status(Game *game);
+
+void GAME_display_actions(Game *game);
+
+void GAME_get_card(Game *game);
 #endif //UNO_GAME_H

@@ -111,17 +111,17 @@ Stack STACK_fill_deck() {
     }
 
     // Get +4
-    STACK_create_card(&stack, -1, GET4, "red");
-    STACK_create_card(&stack, -1, GET4, "yellow");
-    STACK_create_card(&stack, -1, GET4, "green");
-    STACK_create_card(&stack, -1, GET4, "blue");
+    STACK_create_card(&stack, -1, GET4, "none");
+    STACK_create_card(&stack, -1, GET4, "none");
+    STACK_create_card(&stack, -1, GET4, "none");
+    STACK_create_card(&stack, -1, GET4, "none");
 
 
     // Change color
-    STACK_create_card(&stack, -1, CHANGECOLOR, "red");
-    STACK_create_card(&stack, -1, CHANGECOLOR, "yellow");
-    STACK_create_card(&stack, -1, CHANGECOLOR, "green");
-    STACK_create_card(&stack, -1, CHANGECOLOR, "blue");
+    STACK_create_card(&stack, -1, CHANGECOLOR, "none");
+    STACK_create_card(&stack, -1, CHANGECOLOR, "none");
+    STACK_create_card(&stack, -1, CHANGECOLOR, "none");
+    STACK_create_card(&stack, -1, CHANGECOLOR, "none");
 
     return stack;
 }

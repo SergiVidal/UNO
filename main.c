@@ -15,10 +15,8 @@ int main(int argc, char *argv[]) {
         Player *bots;
         Player player;
         Game game = {0, 0, NULL, NULL, NULL};
-
-        Player *aux;
-
         int option;
+
         do {
             option = CLI_get_option();
             switch (option) {
@@ -32,11 +30,9 @@ int main(int argc, char *argv[]) {
 
                     GAME_display_game_status(&game);
 
-                    //Show actual Player
-                    LISTBI_go_first(&game.player_list);
-                    aux = LISTBI_get(&game.player_list);
 
-                    GAME_show_cards(aux);
+                    LISTBI_go_first(&game.player_list);
+                    GAME_display_actions(&game);
 
                     players = NULL;
                     bots = NULL;
@@ -53,9 +49,7 @@ int main(int argc, char *argv[]) {
                     break;
             }
         } while (option != CLI_EXIT);
-
         return 0;
-
     } else {
         printf("Error, tienes que introducir 2 argumento!\n");
         return 1;
