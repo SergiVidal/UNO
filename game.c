@@ -135,12 +135,7 @@ void GAME_init_game(Game *game, Player *players) {
     for (int i = 0; i < game->total_players; ++i) {
         LISTBI_insert(&player_list, &players[i]);
     }
-
     game->player_list = player_list;
-
-    // Show players
-//    printf("LISTBI_show_players (Inside Function)\n");
-//    LISTBI_show_players(&game->player_list);
 
     // Reparte cartas a los jugadores
     GAME_init_hands(&game->deck, players, game);
@@ -178,9 +173,10 @@ void GAME_init_game(Game *game, Player *players) {
 
 void GAME_show_players(ListBi *list){
     LISTBI_go_first(list);
-
+    Player *player;
     while(list->pdi->next != NULL){
-        printf("\t%s - \t%d cards \n\n", list->pdi->player->name, list->pdi->player->num_cards); // player.wins, player.loses
+        player = LISTBI_get(*list);
+        printf("\t%s - \t%d cards \n\n", player->name, player->num_cards); // player.wins, player.loses
         list->pdi = list->pdi->next;
     }
 }

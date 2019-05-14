@@ -55,6 +55,7 @@ void LISTBI_go_first(ListBi *list){
     list->pdi = list->first->next;
 }
 
+//Util para pasar los turnos en direccion Horaria
 int LISTBI_next(ListBi *list){
     if (list->pdi != list->first && list->pdi != list->last) {
         if(list->pdi->next == list->last){
@@ -65,9 +66,6 @@ int LISTBI_next(ListBi *list){
     }
     return 1;
 }
-
-// Cambiar a game, aqui unicament implementar gofirst, get(player) y next
-
 
 Player* LISTBI_get(ListBi list){
     if (list.pdi == list.first || list.pdi == list.last) {
