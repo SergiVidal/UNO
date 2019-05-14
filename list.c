@@ -6,7 +6,6 @@ PDIList LIST_create() {
     PDIList list;
     
     list.size = 0; //check
-// creem el node fantasma
     list.first = (Node *) malloc(sizeof(Node));
     if (list.first == NULL) {
 // tractar error
@@ -34,6 +33,10 @@ int LIST_insert(PDIList *list, Card *card) {
     return 1;
 }
 
+void LIST_go_first(PDIList *list) {
+    list->last = list->first;
+}
+
 //int LIST_remove(PDIList * list){
 //    if (list->last->next == NULL) { // estem al final
 //        return 0;
@@ -45,30 +48,28 @@ int LIST_insert(PDIList *list, Card *card) {
 //}
 
 //Obte el element del punt de interes
-Card* LIST_get(PDIList *list) {
-    if (list->last == NULL) { // estem al final
-        return 0; // aka -1
-    }
-    return list->last->card;
-}
+//Card* LIST_get(PDIList *list) {
+//    if (list->last == NULL) { // estem al final
+//        return 0; // aka -1
+//    }
+//    return list->last->card;
+//}
 
 // NULL = 0 (direccion memoria 0x00000)
 //int LIST_is_empty(PDIList list) {
 //    return list.first->next == NULL; // Si es NULL retorna 1 (Si is empty)
 //}
 
-void LIST_go_first(PDIList *list) {
-    list->last = list->first;
-}
 
-//Desplaça el last 1 posició
-int LIST_next(PDIList *list){
-    if(list->last->next == NULL){
-        return 0;
-    }
-    list->last = list->last->next;
-    return 1;
-}
+//
+////Desplaça el last 1 posició
+//int LIST_next(PDIList *list){
+//    if(list->last->next == NULL){
+//        return 0;
+//    }
+//    list->last = list->last->next;
+//    return 1;
+//}
 
 //int LIST_end (PDIList list){
 //    return list.last->next == NULL; // Si es NULL retorna 1 (Si is empty)

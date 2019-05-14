@@ -67,10 +67,10 @@ int LISTBI_next(ListBi *list){
     return 1;
 }
 
-Player* LISTBI_get(ListBi list){
-    if (list.pdi == list.first || list.pdi == list.last) {
+Player* LISTBI_get(ListBi *list){
+    if (list->pdi == list->first || list->pdi == list->last) {
         printf("No existe ningun jugador!\n\n");
     }
 
-    return list.pdi->player;
+    return list->pdi->player;
 }

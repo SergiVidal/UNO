@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.hfRQvtKCam
+CMAKE_SOURCE_DIR = /tmp/tmp.BiGRO0AJqi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.hfRQvtKCam/cmake-build-debug
+CMAKE_BINARY_DIR = /tmp/tmp.BiGRO0AJqi/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/UNO.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/UNO.dir/flags.make
 
 CMakeFiles/UNO.dir/main.c.o: CMakeFiles/UNO.dir/flags.make
 CMakeFiles/UNO.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/UNO.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/main.c.o   -c /tmp/tmp.hfRQvtKCam/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/UNO.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/main.c.o   -c /tmp/tmp.BiGRO0AJqi/main.c
 
 CMakeFiles/UNO.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/UNO.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.hfRQvtKCam/main.c > CMakeFiles/UNO.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BiGRO0AJqi/main.c > CMakeFiles/UNO.dir/main.c.i
 
 CMakeFiles/UNO.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/UNO.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.hfRQvtKCam/main.c -o CMakeFiles/UNO.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BiGRO0AJqi/main.c -o CMakeFiles/UNO.dir/main.c.s
 
 CMakeFiles/UNO.dir/main.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/UNO.dir/main.c.o.provides.build: CMakeFiles/UNO.dir/main.c.o
 
 CMakeFiles/UNO.dir/cli.c.o: CMakeFiles/UNO.dir/flags.make
 CMakeFiles/UNO.dir/cli.c.o: ../cli.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/UNO.dir/cli.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/cli.c.o   -c /tmp/tmp.hfRQvtKCam/cli.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/UNO.dir/cli.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/cli.c.o   -c /tmp/tmp.BiGRO0AJqi/cli.c
 
 CMakeFiles/UNO.dir/cli.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/UNO.dir/cli.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.hfRQvtKCam/cli.c > CMakeFiles/UNO.dir/cli.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BiGRO0AJqi/cli.c > CMakeFiles/UNO.dir/cli.c.i
 
 CMakeFiles/UNO.dir/cli.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/UNO.dir/cli.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.hfRQvtKCam/cli.c -o CMakeFiles/UNO.dir/cli.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BiGRO0AJqi/cli.c -o CMakeFiles/UNO.dir/cli.c.s
 
 CMakeFiles/UNO.dir/cli.c.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/UNO.dir/cli.c.o.provides.build: CMakeFiles/UNO.dir/cli.c.o
 
 CMakeFiles/UNO.dir/file.c.o: CMakeFiles/UNO.dir/flags.make
 CMakeFiles/UNO.dir/file.c.o: ../file.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/UNO.dir/file.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/file.c.o   -c /tmp/tmp.hfRQvtKCam/file.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/UNO.dir/file.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/file.c.o   -c /tmp/tmp.BiGRO0AJqi/file.c
 
 CMakeFiles/UNO.dir/file.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/UNO.dir/file.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.hfRQvtKCam/file.c > CMakeFiles/UNO.dir/file.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BiGRO0AJqi/file.c > CMakeFiles/UNO.dir/file.c.i
 
 CMakeFiles/UNO.dir/file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/UNO.dir/file.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.hfRQvtKCam/file.c -o CMakeFiles/UNO.dir/file.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BiGRO0AJqi/file.c -o CMakeFiles/UNO.dir/file.c.s
 
 CMakeFiles/UNO.dir/file.c.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/UNO.dir/file.c.o.provides.build: CMakeFiles/UNO.dir/file.c.o
 
 CMakeFiles/UNO.dir/game.c.o: CMakeFiles/UNO.dir/flags.make
 CMakeFiles/UNO.dir/game.c.o: ../game.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/UNO.dir/game.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/game.c.o   -c /tmp/tmp.hfRQvtKCam/game.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/UNO.dir/game.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/game.c.o   -c /tmp/tmp.BiGRO0AJqi/game.c
 
 CMakeFiles/UNO.dir/game.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/UNO.dir/game.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.hfRQvtKCam/game.c > CMakeFiles/UNO.dir/game.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BiGRO0AJqi/game.c > CMakeFiles/UNO.dir/game.c.i
 
 CMakeFiles/UNO.dir/game.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/UNO.dir/game.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.hfRQvtKCam/game.c -o CMakeFiles/UNO.dir/game.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BiGRO0AJqi/game.c -o CMakeFiles/UNO.dir/game.c.s
 
 CMakeFiles/UNO.dir/game.c.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/UNO.dir/game.c.o.provides.build: CMakeFiles/UNO.dir/game.c.o
 
 CMakeFiles/UNO.dir/player.c.o: CMakeFiles/UNO.dir/flags.make
 CMakeFiles/UNO.dir/player.c.o: ../player.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/UNO.dir/player.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/player.c.o   -c /tmp/tmp.hfRQvtKCam/player.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/UNO.dir/player.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/player.c.o   -c /tmp/tmp.BiGRO0AJqi/player.c
 
 CMakeFiles/UNO.dir/player.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/UNO.dir/player.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.hfRQvtKCam/player.c > CMakeFiles/UNO.dir/player.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BiGRO0AJqi/player.c > CMakeFiles/UNO.dir/player.c.i
 
 CMakeFiles/UNO.dir/player.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/UNO.dir/player.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.hfRQvtKCam/player.c -o CMakeFiles/UNO.dir/player.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BiGRO0AJqi/player.c -o CMakeFiles/UNO.dir/player.c.s
 
 CMakeFiles/UNO.dir/player.c.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/UNO.dir/player.c.o.provides.build: CMakeFiles/UNO.dir/player.c.o
 
 CMakeFiles/UNO.dir/stack.c.o: CMakeFiles/UNO.dir/flags.make
 CMakeFiles/UNO.dir/stack.c.o: ../stack.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/UNO.dir/stack.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/stack.c.o   -c /tmp/tmp.hfRQvtKCam/stack.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/UNO.dir/stack.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/stack.c.o   -c /tmp/tmp.BiGRO0AJqi/stack.c
 
 CMakeFiles/UNO.dir/stack.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/UNO.dir/stack.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.hfRQvtKCam/stack.c > CMakeFiles/UNO.dir/stack.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BiGRO0AJqi/stack.c > CMakeFiles/UNO.dir/stack.c.i
 
 CMakeFiles/UNO.dir/stack.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/UNO.dir/stack.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.hfRQvtKCam/stack.c -o CMakeFiles/UNO.dir/stack.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BiGRO0AJqi/stack.c -o CMakeFiles/UNO.dir/stack.c.s
 
 CMakeFiles/UNO.dir/stack.c.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/UNO.dir/stack.c.o.provides.build: CMakeFiles/UNO.dir/stack.c.o
 
 CMakeFiles/UNO.dir/list.c.o: CMakeFiles/UNO.dir/flags.make
 CMakeFiles/UNO.dir/list.c.o: ../list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/UNO.dir/list.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/list.c.o   -c /tmp/tmp.hfRQvtKCam/list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/UNO.dir/list.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/list.c.o   -c /tmp/tmp.BiGRO0AJqi/list.c
 
 CMakeFiles/UNO.dir/list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/UNO.dir/list.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.hfRQvtKCam/list.c > CMakeFiles/UNO.dir/list.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BiGRO0AJqi/list.c > CMakeFiles/UNO.dir/list.c.i
 
 CMakeFiles/UNO.dir/list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/UNO.dir/list.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.hfRQvtKCam/list.c -o CMakeFiles/UNO.dir/list.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BiGRO0AJqi/list.c -o CMakeFiles/UNO.dir/list.c.s
 
 CMakeFiles/UNO.dir/list.c.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/UNO.dir/list.c.o.provides.build: CMakeFiles/UNO.dir/list.c.o
 
 CMakeFiles/UNO.dir/listbi.c.o: CMakeFiles/UNO.dir/flags.make
 CMakeFiles/UNO.dir/listbi.c.o: ../listbi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/UNO.dir/listbi.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/listbi.c.o   -c /tmp/tmp.hfRQvtKCam/listbi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/UNO.dir/listbi.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/UNO.dir/listbi.c.o   -c /tmp/tmp.BiGRO0AJqi/listbi.c
 
 CMakeFiles/UNO.dir/listbi.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/UNO.dir/listbi.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.hfRQvtKCam/listbi.c > CMakeFiles/UNO.dir/listbi.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BiGRO0AJqi/listbi.c > CMakeFiles/UNO.dir/listbi.c.i
 
 CMakeFiles/UNO.dir/listbi.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/UNO.dir/listbi.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.hfRQvtKCam/listbi.c -o CMakeFiles/UNO.dir/listbi.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BiGRO0AJqi/listbi.c -o CMakeFiles/UNO.dir/listbi.c.s
 
 CMakeFiles/UNO.dir/listbi.c.o.requires:
 
@@ -273,7 +273,7 @@ UNO: CMakeFiles/UNO.dir/list.c.o
 UNO: CMakeFiles/UNO.dir/listbi.c.o
 UNO: CMakeFiles/UNO.dir/build.make
 UNO: CMakeFiles/UNO.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable UNO"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable UNO"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/UNO.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -297,6 +297,6 @@ CMakeFiles/UNO.dir/clean:
 .PHONY : CMakeFiles/UNO.dir/clean
 
 CMakeFiles/UNO.dir/depend:
-	cd /tmp/tmp.hfRQvtKCam/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.hfRQvtKCam /tmp/tmp.hfRQvtKCam /tmp/tmp.hfRQvtKCam/cmake-build-debug /tmp/tmp.hfRQvtKCam/cmake-build-debug /tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.BiGRO0AJqi/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.BiGRO0AJqi /tmp/tmp.BiGRO0AJqi /tmp/tmp.BiGRO0AJqi/cmake-build-debug /tmp/tmp.BiGRO0AJqi/cmake-build-debug /tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/UNO.dir/depend
 

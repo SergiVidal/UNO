@@ -36,7 +36,7 @@ int LISTBI_next(ListBi *list);
 //
 //int PLIST_previous(ListBid *);
 //
-Player* LISTBI_get(ListBi);
+Player* LISTBI_get(ListBi *list);
 //
 //void PLIST_destroy(ListBid *);
 

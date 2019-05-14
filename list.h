@@ -3,11 +3,6 @@
 
 #include "stack.h"
 
-//typedef struct _node {
-//    Card *card;
-//    struct _node *next;
-//} Node;
-
 typedef struct {
     Node *first;
     Node *last; //o *pdi

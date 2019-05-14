@@ -11,18 +11,13 @@
 
 int main(int argc, char *argv[]) {
     if (argc >= 3) {
-
-        Stack deck;
-        Stack discardDeck;
-        ListBi player_list;
         Player *players;
         Player *bots;
         Player player;
+        Game game = {0, 0, NULL, NULL, NULL};
 
         Player *aux;
 
-        Game game = {0, 0, NULL, NULL, NULL};
-        Card *aux_card = NULL;
         int option;
         do {
             option = CLI_get_option();
@@ -32,23 +27,21 @@ int main(int argc, char *argv[]) {
                     bots = GAME_create_bots(argv[1], &game);
                     player = GAME_create_player(argv[2], &game);
                     players = GAME_create_player_list(bots, player, &game);
-                    free(bots);
 
                     GAME_init_game(&game, players);
-                    GAME_show_players(&game.player_list);
 
-                    // Printa la carta actual
-                    printf("### %d %s ###\n", game.discard_deck.last->card->value, game.discard_deck.last->card->color);
+                    GAME_display_game_status(&game);
 
-//                STACK_show_stack(game.deck);
-//                STACK_show_stack(game.discard_deck);
+                    //Show actual Player
+                    LISTBI_go_first(&game.player_list);
+                    aux = LISTBI_get(&game.player_list);
 
-//                GAME_show_cards(game.player_list, game.total_players);
-//
+                    GAME_show_cards(aux);
 
-//
-//                GAME_play(&game);
-
+                    players = NULL;
+                    bots = NULL;
+                    free(bots);
+                    free(players);
                     break;
                 case CLI_SHOW_STATS:
                     break;

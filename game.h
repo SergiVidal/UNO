@@ -33,8 +33,9 @@ void GAME_init_game(Game *game, Player *players);
 
 void GAME_play(Game *game);
 
-void GAME_show_cards(ListBi player_list, int length);
+void GAME_show_cards(Player *player);
 
 void GAME_show_players(ListBi *list);
 
+void GAME_display_game_status(Game *game);
 #endif //UNO_GAME_H

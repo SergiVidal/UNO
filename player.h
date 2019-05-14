@@ -11,7 +11,7 @@ typedef struct {
     int num_cards;
     int wins;
     int loses;
-    PDIList *pdiList;
+    PDIList *handList;
 } Player;
 
 //typedef struct {

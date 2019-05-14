@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/tmp/tmp.hfRQvtKCam/cli.c" "/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/cli.c.o"
-  "/tmp/tmp.hfRQvtKCam/file.c" "/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/file.c.o"
-  "/tmp/tmp.hfRQvtKCam/game.c" "/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/game.c.o"
-  "/tmp/tmp.hfRQvtKCam/list.c" "/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/list.c.o"
-  "/tmp/tmp.hfRQvtKCam/listbi.c" "/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/listbi.c.o"
-  "/tmp/tmp.hfRQvtKCam/main.c" "/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/main.c.o"
-  "/tmp/tmp.hfRQvtKCam/player.c" "/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/player.c.o"
-  "/tmp/tmp.hfRQvtKCam/stack.c" "/tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/UNO.dir/stack.c.o"
+  "/tmp/tmp.BiGRO0AJqi/cli.c" "/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/cli.c.o"
+  "/tmp/tmp.BiGRO0AJqi/file.c" "/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/file.c.o"
+  "/tmp/tmp.BiGRO0AJqi/game.c" "/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/game.c.o"
+  "/tmp/tmp.BiGRO0AJqi/list.c" "/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/list.c.o"
+  "/tmp/tmp.BiGRO0AJqi/listbi.c" "/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/listbi.c.o"
+  "/tmp/tmp.BiGRO0AJqi/main.c" "/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/main.c.o"
+  "/tmp/tmp.BiGRO0AJqi/player.c" "/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/player.c.o"
+  "/tmp/tmp.BiGRO0AJqi/stack.c" "/tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/UNO.dir/stack.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
