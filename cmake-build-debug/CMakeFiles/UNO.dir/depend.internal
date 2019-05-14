@@ -10,11 +10,18 @@ CMakeFiles/UNO.dir/file.c.o
 CMakeFiles/UNO.dir/game.c.o
  /users/home/alumnes/LS/s.vidal/CLION/UNO/game.c
  /users/home/alumnes/LS/s.vidal/CLION/UNO/game.h
+ /users/home/alumnes/LS/s.vidal/CLION/UNO/list.h
+ /users/home/alumnes/LS/s.vidal/CLION/UNO/player.h
+ /users/home/alumnes/LS/s.vidal/CLION/UNO/stack.h
 CMakeFiles/UNO.dir/main.c.o
  /users/home/alumnes/LS/s.vidal/CLION/UNO/cli.h
+ /users/home/alumnes/LS/s.vidal/CLION/UNO/game.h
+ /users/home/alumnes/LS/s.vidal/CLION/UNO/list.h
  /users/home/alumnes/LS/s.vidal/CLION/UNO/main.c
+ /users/home/alumnes/LS/s.vidal/CLION/UNO/player.h
  /users/home/alumnes/LS/s.vidal/CLION/UNO/stack.h
 CMakeFiles/UNO.dir/player.c.o
+ /users/home/alumnes/LS/s.vidal/CLION/UNO/list.h
  /users/home/alumnes/LS/s.vidal/CLION/UNO/player.c
  /users/home/alumnes/LS/s.vidal/CLION/UNO/player.h
  /users/home/alumnes/LS/s.vidal/CLION/UNO/stack.h

@@ -4,6 +4,7 @@
 
 PDIList LIST_create() {
     PDIList list;
+    
     list.size = 0; //check
 // creem el node fantasma
     list.first = (Node *) malloc(sizeof(Node));

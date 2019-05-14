@@ -5,9 +5,6 @@
 #include "game.h"
 #include "player.h"
 
-//Falta Implementar lista de cartas restantes de toodas las partidas
-
-
 // Error al guardar nombre y typo, se traga un \n
 Player *GAME_create_bots(char *filename, Game *game) {
     FILE *f = NULL;
@@ -56,7 +53,6 @@ Player GAME_create_player(char *filename, Game *game) {
     return player;
 }
 
-// Unir el player a la lista de bots, se renombrara a players
 Player *GAME_create_player_list(Player *bots, Player player, Game *game) {
     Player *players = NULL;
     players = (Player *) realloc(players, sizeof(Player) * game->total_players);
@@ -70,7 +66,7 @@ Player *GAME_create_player_list(Player *bots, Player player, Game *game) {
     return players;
 }
 
-void SORT_swap(Player *p1, Player *p2) {
+void GAME_swap(Player *p1, Player *p2) {
     Player tmp = *p1;
     *p1 = *p2;
     *p2 = tmp;
@@ -86,43 +82,68 @@ void GAME_sort_by_name(Player *players, int length) {
                 min_pos = j;
             }
         }
-        SORT_swap(&players[min_pos], &players[i]);
+        GAME_swap(&players[min_pos], &players[i]);
     }
 }
 
-//Se tiene que modificar para que trabaje con 1 sola lista de players, en vez de players y bots por separado - Despues de implementar GAME_create_player_list
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
     Card *card;
     PDIList *handList = NULL;
-    handList = (PDIList *) realloc(handList, sizeof(PDIList) * game->total_players); // 4 = TotalPlayers (Bots + Player)
 
-    int i = 0;
+    handList = (PDIList *) realloc(handList, sizeof(PDIList) * game->total_players);
 
-    for (i = 0; i < game->total_players; i++) { //i < totalbots
-
+    for (int i = 0; i < game->total_players; i++) { //i < totalbots
         handList[i] = LIST_create();
-        printf("%s", player_list[i].name);
         for (int j = 0; j < player_list[i].num_cards; j++) {
             card = STACK_pop(stack);
-            printf("Nº: %d, Value: %d, Type: %d, Color: %s\n", j, card->value, card->type, card->color);
             LIST_insert(&handList[i], card);
         }
-        printf("\n");
 
     }
 }
 
-void GAME_show_players(Player *player_list, int length) {
-    printf("\nPlayers:\n\n");
-    for (int i = 0; i < length; i++)
-        printf("\t%s \t%d cards \n\n", player_list[i].name, player_list[i].num_cards); // player.wins, player.loses
-}
-
-int GAME_is_end(Player *players, int total_players){
-    for (int i = 0; i < total_players; ++i) {
-        if (players[i].num_cards == 0){
+int GAME_is_end(Game *game){
+    LISTBI_go_first(game->player_list);
+    while(game->player_list->pdi->next != NULL){
+        if (game->player_list->pdi->player->num_cards == 0) {
             return 1; // Empty
         }
+        game->player_list->pdi = game->player_list->pdi->next;
+
     }
     return 0; // Not Empty
 }
+
+void GAME_init_game(Game *game, Player *players) {
+    Stack deck;
+    Stack discardDeck;
+    ListBi player_list;
+
+    // Genera y Mezcla BARAJA
+    deck = STACK_fill_deck();
+    deck = STACK_randomize(&deck);
+    game->deck = &deck;
+
+    // Genera baraja DESCARTE
+    discardDeck = STACK_create();
+    game->discard_deck = &discardDeck;
+
+    // Players
+    GAME_sort_by_name(players, game->total_players);
+    player_list = LISTBI_create();
+    for (int i = 0; i < game->total_players; ++i) {
+        LISTBI_insert(&player_list, &players[i]);
+    }
+    game->player_list = &player_list;
+    LISTBI_show_players(game->player_list);
+
+    // Reparte cartas a los jugadores
+    GAME_init_hands(game->deck, players, game);
+
+    // Quita una carta del deck (la que se va a jugar) y la pone en la pila de descarte
+    STACK_push(game->discard_deck, STACK_pop(game->deck));
+}
+
+//void GAME_play(Game *game){
+//    while(!GAME_is_end(game))
+//}

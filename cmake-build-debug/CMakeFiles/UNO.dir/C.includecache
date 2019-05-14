@@ -25,10 +25,24 @@ file.h
 /users/home/alumnes/LS/s.vidal/CLION/UNO/file.h
 
 /users/home/alumnes/LS/s.vidal/CLION/UNO/game.c
+stdlib.h
+-
+string.h
+-
+stdio.h
+-
 game.h
 /users/home/alumnes/LS/s.vidal/CLION/UNO/game.h
+player.h
+/users/home/alumnes/LS/s.vidal/CLION/UNO/player.h
 
 /users/home/alumnes/LS/s.vidal/CLION/UNO/game.h
+player.h
+/users/home/alumnes/LS/s.vidal/CLION/UNO/player.h
+
+/users/home/alumnes/LS/s.vidal/CLION/UNO/list.h
+stack.h
+/users/home/alumnes/LS/s.vidal/CLION/UNO/stack.h
 
 /users/home/alumnes/LS/s.vidal/CLION/UNO/main.c
 stdio.h
@@ -39,6 +53,10 @@ cli.h
 /users/home/alumnes/LS/s.vidal/CLION/UNO/cli.h
 stack.h
 /users/home/alumnes/LS/s.vidal/CLION/UNO/stack.h
+player.h
+/users/home/alumnes/LS/s.vidal/CLION/UNO/player.h
+game.h
+/users/home/alumnes/LS/s.vidal/CLION/UNO/game.h
 
 /users/home/alumnes/LS/s.vidal/CLION/UNO/player.c
 player.h
@@ -47,6 +65,8 @@ player.h
 /users/home/alumnes/LS/s.vidal/CLION/UNO/player.h
 stack.h
 /users/home/alumnes/LS/s.vidal/CLION/UNO/stack.h
+list.h
+/users/home/alumnes/LS/s.vidal/CLION/UNO/list.h
 
 /users/home/alumnes/LS/s.vidal/CLION/UNO/stack.c
 stdlib.h
