@@ -8,98 +8,110 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.hfRQvtKCam/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.hfRQvtKCam/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="UNO">
-				<Option output="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/UNO" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir=""/>
+				<Option output="/tmp/tmp.hfRQvtKCam/cmake-build-debug/UNO" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.hfRQvtKCam/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 UNO"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 UNO"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="UNO/fast">
-				<Option output="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/UNO" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir=""/>
+				<Option output="/tmp/tmp.hfRQvtKCam/cmake-build-debug/UNO" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.hfRQvtKCam/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 UNO/fast"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 UNO/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug"/>
+				<Option working_dir="/tmp/tmp.hfRQvtKCam/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.hfRQvtKCam/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/cli.c">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/cli.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/cli.h">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/cli.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/file.c">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/file.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/file.h">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/file.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/game.c">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/game.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/game.h">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/game.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/main.c">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/list.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/player.c">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/list.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/player.h">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/listbi.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/stack.c">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/listbi.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/stack.h">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/main.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/CMakeLists.txt">
+		<Unit filename="/tmp/tmp.hfRQvtKCam/player.c">
+			<Option target="UNO"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.hfRQvtKCam/player.h">
+			<Option target="UNO"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.hfRQvtKCam/stack.c">
+			<Option target="UNO"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.hfRQvtKCam/stack.h">
+			<Option target="UNO"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.hfRQvtKCam/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

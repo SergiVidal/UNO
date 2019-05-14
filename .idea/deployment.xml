@@ -2,13 +2,12 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="Matagalls (972008c7-58aa-4a87-bdc0-2a9300000d6e)">
+      <paths name="Matagalls (3a8b6533-5495-4dba-9a54-f143a84eb357)">
         <serverdata>
           <mappings>
             <mapping deploy="/users/home/alumnes/LS/s.vidal/CLION/UNO" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
           </excludedPaths>
         </serverdata>

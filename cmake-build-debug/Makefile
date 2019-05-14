@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /users/home/alumnes/LS/s.vidal/CLION/UNO
+CMAKE_SOURCE_DIR = /tmp/tmp.hfRQvtKCam
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug
+CMAKE_BINARY_DIR = /tmp/tmp.hfRQvtKCam/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles /users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles /tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.hfRQvtKCam/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,60 @@ game.c.s:
 	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/game.c.s
 .PHONY : game.c.s
 
+list.o: list.c.o
+
+.PHONY : list.o
+
+# target to build an object file
+list.c.o:
+	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/list.c.o
+.PHONY : list.c.o
+
+list.i: list.c.i
+
+.PHONY : list.i
+
+# target to preprocess a source file
+list.c.i:
+	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/list.c.i
+.PHONY : list.c.i
+
+list.s: list.c.s
+
+.PHONY : list.s
+
+# target to generate assembly for a file
+list.c.s:
+	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/list.c.s
+.PHONY : list.c.s
+
+listbi.o: listbi.c.o
+
+.PHONY : listbi.o
+
+# target to build an object file
+listbi.c.o:
+	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/listbi.c.o
+.PHONY : listbi.c.o
+
+listbi.i: listbi.c.i
+
+.PHONY : listbi.i
+
+# target to preprocess a source file
+listbi.c.i:
+	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/listbi.c.i
+.PHONY : listbi.c.i
+
+listbi.s: listbi.c.s
+
+.PHONY : listbi.s
+
+# target to generate assembly for a file
+listbi.c.s:
+	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/listbi.c.s
+.PHONY : listbi.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -303,6 +357,12 @@ help:
 	@echo "... game.o"
 	@echo "... game.i"
 	@echo "... game.s"
+	@echo "... list.o"
+	@echo "... list.i"
+	@echo "... list.s"
+	@echo "... listbi.o"
+	@echo "... listbi.i"
+	@echo "... listbi.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

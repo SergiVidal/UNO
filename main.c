@@ -35,9 +35,6 @@ int main(int argc, char *argv[]) {
                 free(bots);
                 GAME_init_game(&game, players);
 
-
-//                STACK_show_stack(*game.deck);
-
                 //Revisar porque peta si se hace desde el init_game()
                 //Todoo desde el main funciona
                 printf("LISTBI_show_players (Outside Function)\n");
@@ -75,7 +72,7 @@ int main(int argc, char *argv[]) {
 //
 //                // Printa la carta actual
 //                printf("### %d %s ###\n", game.discard_deck->last->card->value, game.discard_deck->last->card->color);
-
+//
 
 
 //                GAME_play(&game);
