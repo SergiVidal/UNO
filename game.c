@@ -85,7 +85,7 @@ void GAME_sort_by_name(Player *players, int length) {
         GAME_swap(&players[min_pos], &players[i]);
     }
 }
-
+// TODO: Falta añadir la handList a cada uno de los players
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
     Card *card;
     PDIList *handList = NULL;
@@ -98,7 +98,7 @@ void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
             card = STACK_pop(stack);
             LIST_insert(&handList[i], card);
         }
-
+        //Falta añadir la handList a cada uno de los players
     }
 }
 
