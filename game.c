@@ -115,6 +115,7 @@ int GAME_is_end(Game *game){
 }
 
 void GAME_init_game(Game *game, Player *players) {
+    // Init
     Stack deck;
     Stack discardDeck;
     ListBi player_list;
@@ -135,6 +136,8 @@ void GAME_init_game(Game *game, Player *players) {
         LISTBI_insert(&player_list, &players[i]);
     }
     game->player_list = &player_list;
+
+    // Show players
     printf("LISTBI_show_players (Inside Function)\n");
     LISTBI_show_players(game->player_list);
 

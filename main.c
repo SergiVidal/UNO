@@ -38,7 +38,8 @@ int main(int argc, char *argv[]) {
 
 //                STACK_show_stack(*game.deck);
 
-                //Revisar porque peta si se hace el init_game()
+                //Revisar porque peta si se hace desde el init_game()
+                //Todoo desde el main funciona
                 printf("LISTBI_show_players (Outside Function)\n");
                 LISTBI_show_players(game.player_list);
 
