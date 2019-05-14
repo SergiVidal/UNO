@@ -31,14 +31,12 @@ void LISTBI_go_first(ListBi *list);
 
 int LISTBI_next(ListBi *list);
 
-void LISTBI_show_players(ListBi *);
 //int PLIST_remove(ListBid *);
 //
-//int PLIST_next(ListBid *);
 //
 //int PLIST_previous(ListBid *);
 //
-//Player* LISTBI_get(ListBi);
+Player* LISTBI_get(ListBi);
 //
 //void PLIST_destroy(ListBid *);
 

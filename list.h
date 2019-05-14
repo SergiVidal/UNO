@@ -26,7 +26,7 @@ int LIST_is_empty(PDIList);
 
 void LIST_go_first(PDIList *);
 
-void LIST_next(PDIList *);
+int LIST_next(PDIList *);
 
 int LIST_end (PDIList);
 

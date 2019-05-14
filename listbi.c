@@ -66,20 +66,13 @@ int LISTBI_next(ListBi *list){
     return 1;
 }
 
+// Cambiar a game, aqui unicament implementar gofirst, get(player) y next
 
-void LISTBI_show_players(ListBi *list){
-    LISTBI_go_first(list);
 
-    while(list->pdi->next != NULL){
-        printf("\t%s - \t%d cards \n\n", list->pdi->player->name, list->pdi->player->num_cards); // player.wins, player.loses
-        list->pdi = list->pdi->next;
+Player* LISTBI_get(ListBi list){
+    if (list.pdi == list.first || list.pdi == list.last) {
+        printf("No existe ningun jugador!\n\n");
     }
-}
 
-//Player* LISTBI_get(ListBi list){
-//    if (list.pdi == list.first || list.pdi == list.last) {
-//        printf("No existe ningun jugador!\n\n");
-//    }
-//
-//    return list.pdi->player;
-//}
+    return list.pdi->player;
+}

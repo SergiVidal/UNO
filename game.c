@@ -102,7 +102,7 @@ void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
     }
 }
 
-int GAME_is_end(Game *game){
+//int GAME_is_end(Game *game){
 //    LISTBI_go_first(game->player_list);
 //    while(game->player_list->pdi->next != NULL){
 //        if (game->player_list->pdi->player->num_cards == 0) {
@@ -111,8 +111,8 @@ int GAME_is_end(Game *game){
 //        game->player_list->pdi = game->player_list->pdi->next;
 //
 //    }
-    return 0; // Not Empty
-}
+//    return 0; // Not Empty
+//}
 
 void GAME_init_game(Game *game, Player *players) {
     // Init
@@ -149,17 +149,38 @@ void GAME_init_game(Game *game, Player *players) {
     STACK_push(&game->discard_deck, STACK_pop(&game->deck));
 }
 
-void GAME_play(Game *game){
-    Player *player;
+//void GAME_play(Game *game){
+//    Player *player;
+//
+//    LISTBI_go_first(&game->player_list);
+//    while(!GAME_is_end(game)){
+//        player = game->player_list.pdi->player;
+//        if(player != NULL) {
+//            printf("actual: %s\n", player->name);
+//        } else{
+//            printf("Error, Player NULL\n");
+//            return;
+//        }
+//    }
+//}
 
-    LISTBI_go_first(&game->player_list);
-    while(!GAME_is_end(game)){
-        player = game->player_list.pdi->player;
-        if(player != NULL) {
-            printf("actual: %s\n", player->name);
-        } else{
-            printf("Error, Player NULL\n");
-            return;
-        }
+//void GAME_show_cards(ListBi player_list, int length){
+//    LISTBI_go_first(&player_list);
+//    for(int i = 0; i < length; i++){
+//        player_list.pdi->player->pdiList
+//        Player---
+//        LISTBI_next(&player_list);
+//
+//
+//    }
+//
+//}
+
+void GAME_show_players(ListBi *list){
+    LISTBI_go_first(list);
+
+    while(list->pdi->next != NULL){
+        printf("\t%s - \t%d cards \n\n", list->pdi->player->name, list->pdi->player->num_cards); // player.wins, player.loses
+        list->pdi = list->pdi->next;
     }
 }

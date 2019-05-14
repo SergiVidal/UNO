@@ -57,18 +57,18 @@ Card* LIST_get(PDIList *list) {
 //    return list.first->next == NULL; // Si es NULL retorna 1 (Si is empty)
 //}
 
-//void LIST_go_first(PDIList *list) {
-//    list->last = list->first;
-//}
+void LIST_go_first(PDIList *list) {
+    list->last = list->first;
+}
 
 //Desplaça el last 1 posició
-//void LIST_next(PDIList *list){
-//    if(list->last->next == NULL){
-//        return 0;
-//    }
-//    list->last = list->last->next;
-//    return 1;
-//}
+int LIST_next(PDIList *list){
+    if(list->last->next == NULL){
+        return 0;
+    }
+    list->last = list->last->next;
+    return 1;
+}
 
 //int LIST_end (PDIList list){
 //    return list.last->next == NULL; // Si es NULL retorna 1 (Si is empty)
