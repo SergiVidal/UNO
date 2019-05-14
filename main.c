@@ -38,8 +38,9 @@ int main(int argc, char *argv[]) {
                 //Revisar porque peta si se hace desde el init_game()
                 //Todoo desde el main funciona
                 printf("LISTBI_show_players (Outside Function)\n");
-                LISTBI_show_players(game.player_list);
-
+                LISTBI_show_players(&game.player_list);
+                STACK_show_stack(game.deck);
+                STACK_show_stack(game.discard_deck);
 //                // Genera y Mezcla BARAJA
 //                deck = STACK_fill_deck();
 //                deck = STACK_randomize(&deck);

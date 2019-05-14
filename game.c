@@ -103,14 +103,14 @@ void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
 }
 
 int GAME_is_end(Game *game){
-    LISTBI_go_first(game->player_list);
-    while(game->player_list->pdi->next != NULL){
-        if (game->player_list->pdi->player->num_cards == 0) {
-            return 1; // Empty
-        }
-        game->player_list->pdi = game->player_list->pdi->next;
-
-    }
+//    LISTBI_go_first(game->player_list);
+//    while(game->player_list->pdi->next != NULL){
+//        if (game->player_list->pdi->player->num_cards == 0) {
+//            return 1; // Empty
+//        }
+//        game->player_list->pdi = game->player_list->pdi->next;
+//
+//    }
     return 0; // Not Empty
 }
 
@@ -123,11 +123,11 @@ void GAME_init_game(Game *game, Player *players) {
     // Genera y Mezcla BARAJA
     deck = STACK_fill_deck();
     deck = STACK_randomize(&deck);
-    game->deck = &deck;
+    game->deck = deck;
 
     // Genera baraja DESCARTE
     discardDeck = STACK_create();
-    game->discard_deck = &discardDeck;
+    game->discard_deck = discardDeck;
 
     // Players
     GAME_sort_by_name(players, game->total_players);
@@ -135,25 +135,26 @@ void GAME_init_game(Game *game, Player *players) {
     for (int i = 0; i < game->total_players; ++i) {
         LISTBI_insert(&player_list, &players[i]);
     }
-    game->player_list = &player_list;
+
+    game->player_list = player_list;
 
     // Show players
-    printf("LISTBI_show_players (Inside Function)\n");
-    LISTBI_show_players(game->player_list);
+//    printf("LISTBI_show_players (Inside Function)\n");
+//    LISTBI_show_players(&game->player_list);
 
     // Reparte cartas a los jugadores
-    GAME_init_hands(game->deck, players, game);
+    GAME_init_hands(&game->deck, players, game);
 
     // Quita una carta del deck (la que se va a jugar) y la pone en la pila de descarte
-    STACK_push(game->discard_deck, STACK_pop(game->deck));
+    STACK_push(&game->discard_deck, STACK_pop(&game->deck));
 }
 
 void GAME_play(Game *game){
     Player *player;
 
-    LISTBI_go_first(game->player_list);
+    LISTBI_go_first(&game->player_list);
     while(!GAME_is_end(game)){
-        player = game->player_list->pdi->player;
+        player = game->player_list.pdi->player;
         if(player != NULL) {
             printf("actual: %s\n", player->name);
         } else{

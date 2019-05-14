@@ -7,9 +7,9 @@
 typedef struct {
     int total_players;
     int direction; // 0 = horario, 1 = antihorario
-    ListBi *player_list;
-    Stack *deck;
-    Stack *discard_deck;
+    ListBi player_list;
+    Stack deck;
+    Stack discard_deck;
 } Game;
 
 
