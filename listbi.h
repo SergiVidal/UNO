@@ -38,7 +38,7 @@ void LISTBI_show_players(ListBi *);
 //
 //int PLIST_previous(ListBid *);
 //
-//ListBid PLIST_get(ListBid);
+//Player* LISTBI_get(ListBi);
 //
 //void PLIST_destroy(ListBid *);
 

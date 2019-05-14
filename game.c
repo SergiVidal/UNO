@@ -135,6 +135,7 @@ void GAME_init_game(Game *game, Player *players) {
         LISTBI_insert(&player_list, &players[i]);
     }
     game->player_list = &player_list;
+    printf("LISTBI_show_players (Inside Function)\n");
     LISTBI_show_players(game->player_list);
 
     // Reparte cartas a los jugadores
@@ -144,6 +145,17 @@ void GAME_init_game(Game *game, Player *players) {
     STACK_push(game->discard_deck, STACK_pop(game->deck));
 }
 
-//void GAME_play(Game *game){
-//    while(!GAME_is_end(game))
-//}
+void GAME_play(Game *game){
+    Player *player;
+
+    LISTBI_go_first(game->player_list);
+    while(!GAME_is_end(game)){
+        player = game->player_list->pdi->player;
+        if(player != NULL) {
+            printf("actual: %s\n", player->name);
+        } else{
+            printf("Error, Player NULL\n");
+            return;
+        }
+    }
+}

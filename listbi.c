@@ -75,3 +75,11 @@ void LISTBI_show_players(ListBi *list){
         list->pdi = list->pdi->next;
     }
 }
+
+//Player* LISTBI_get(ListBi list){
+//    if (list.pdi == list.first || list.pdi == list.last) {
+//        printf("No existe ningun jugador!\n\n");
+//    }
+//
+//    return list.pdi->player;
+//}
