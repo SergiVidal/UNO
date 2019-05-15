@@ -8,7 +8,7 @@
 
 //uno fichero_bots.uno fichero_usuario.uno
 
-
+// TODO: Error al jugar otra vez! (CLI_PLAY)
 int main(int argc, char *argv[]) {
     if (argc >= 3) {
         Player *players;
@@ -28,11 +28,8 @@ int main(int argc, char *argv[]) {
 
                     GAME_init_game(&game, players);
 
-                    GAME_display_game_status(&game);
+                    GAME_play(&game);
 
-
-                    LISTBI_go_first(&game.player_list);
-                    GAME_display_actions(&game);
 
                     players = NULL;
                     bots = NULL;

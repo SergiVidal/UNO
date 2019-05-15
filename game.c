@@ -6,7 +6,7 @@
 #include "player.h"
 #include "cli.h"
 
-// Error al guardar nombre y typo, se traga un \n
+// TODO: Error al guardar nombre y tipo, se traga un \n
 Player *GAME_create_bots(char *filename, Game *game) {
     FILE *f = NULL;
     Player *players = NULL;
@@ -34,7 +34,7 @@ Player *GAME_create_bots(char *filename, Game *game) {
     return players;
 }
 
-// Error al guardar nombre y typo, se traga un \n
+// TODO: Error al guardar nombre y tipo, se traga un \n
 Player GAME_create_player(char *filename, Game *game) {
     FILE *f = NULL;
     Player player;
@@ -87,7 +87,6 @@ void GAME_sort_by_name(Player *players, int length) {
     }
 }
 
-// TODO: Falta añadir la handList a cada uno de los players
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
     Card *card;
     PDIList *handList = NULL;
@@ -185,6 +184,7 @@ void GAME_display_game_status(Game *game) {
     printf("\t### %d %s ###\n\n", card->value, card->color); // Printa la carta actual
 }
 
+// TODO: No funciona fuera del main (No obtiene el player con player = LISTBI_get())
 void GAME_display_actions(Game *game) {
     //Show actual Player cards
     Player *player;
@@ -243,29 +243,50 @@ void GAME_get_card(Game *game) {
 //    GAME_show_cards(player);
 }
 
-//int GAME_is_end(Game *game){
-//    LISTBI_go_first(game->player_list);
-//    while(game->player_list->pdi->next != NULL){
-//        if (game->player_list->pdi->player->num_cards == 0) {
-//            return 1; // Empty
-//        }
-//        game->player_list->pdi = game->player_list->pdi->next;
-//
-//    }
-//    return 0; // Not Empty
-//}
-
-//void GAME_play(Game *game){
-//    Player *player;
-//
+// TODO: Bucle infinto al usar GAME_is_end()
+int GAME_is_end(Game *game){
 //    LISTBI_go_first(&game->player_list);
+    while(game->player_list.pdi->next != NULL){
+        if (game->player_list.pdi->player->num_cards == 0) {
+            return 1; // Empty
+        }
+        game->player_list.pdi = game->player_list.pdi->next;
+
+    }
+    return 0; // Not Empty
+}
+
+// TODO: Terminar
+void GAME_play(Game *game){
+    Player *player;
+    LISTBI_go_first(&game->player_list);
+
+    //Test - Obligar turno Player
+//    LISTBI_next(&game->player_list);
+//    LISTBI_next(&game->player_list);
+    //Test - Obligar turno Player
+
 //    while(!GAME_is_end(game)){
-//        player = game->player_list.pdi->player;
-//        if(player != NULL) {
-//            printf("actual: %s\n", player->name);
-//        } else{
-//            printf("Error, Player NULL\n");
-//            return;
+        player = LISTBI_get(&game->player_list);
+        if(strcmp(player->type, "Player") == 0) {
+            printf("1.actual: %s - %s\n", player->name, player->type);
+//            GAME_display_game_status(game);
+//            GAME_display_actions(game);
+
+
+        } else if (strcmp(player->type, "Calmado") == 0){
+            printf("2.actual: %s -%s-\n", player->name, player->type);
+
+        } else { // Agresivo
+            printf("3.actual: %s - %s-\n", player->name, player->type);
+            GAME_display_game_status(game); // Debe estar en if Player
+            GAME_display_actions(game); // Debe estar en if Player
+        }
+//        Segun la direccion de la partida - Horaria 0 / Antihoraria 1
+//        if(game->direction == 0) {
+//            LISTBI_next(&game->player_list);
+//        }else{
+//            //TODO: Create LISTBI_previous(&game->player_list);
 //        }
 //    }
-//}
+}

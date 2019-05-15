@@ -8,7 +8,6 @@
 ListBi LISTBI_create(){
     ListBi list;
 
-    // creem els nodes fantasma
     list.first = (NodeBi *) malloc(sizeof(NodeBi));
     list.last = (NodeBi *) malloc(sizeof(NodeBi));
 
@@ -71,6 +70,5 @@ Player* LISTBI_get(ListBi *list){
     if (list->pdi == list->first || list->pdi == list->last) {
         printf("No existe ningun jugador!\n\n");
     }
-
     return list->pdi->player;
 }
