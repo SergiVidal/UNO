@@ -12,6 +12,7 @@ typedef struct {
     Stack discard_deck;
 } Game;
 
+//Game GAME_create_game();
 
 Player* GAME_create_bots(char * filename, Game *game); //Player*
 
@@ -31,9 +32,9 @@ void GAME_init_game(Game *game, Player *players);
 
 void GAME_play(Game *game);
 
-void GAME_show_cards(Player *player);
+void GAME_show_cards(Player player);
 
-void GAME_show_players(ListBi *list);
+//void GAME_show_players(ListBi *list);
 
 void GAME_display_game_status(Game *game);
 

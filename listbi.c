@@ -39,7 +39,7 @@ int LISTBI_insert(ListBi *list, Player *player){
     if (n == NULL) {
         printf("Error al insertar una canción!\n");
     } else {
-        n->player = player; //Asignar song a N
+        n->player = *player; //Asignar song a N
         n->next = list->pdi->next; // El Next de N es el antiguo Next del PDI
         n->prev = list->pdi; // El Prev de N es el antiguo PDI
         list->pdi->next->prev = n; // El que iba despues del antiguo PDI, su Prev pasa a ser N
@@ -67,12 +67,30 @@ int LISTBI_next(ListBi *list){
 }
 
 //TODO: Create LISTBI_previous(&game->player_list);
-//int LISTBI_previous(ListBi *list){
-//
-//}
-Player* LISTBI_get(ListBi *list){
+int LISTBI_previous(ListBi *list){
+    if (list->pdi != list->first && list->pdi != list->last) {
+        if(list->pdi->prev == list->first){
+            list->pdi = list->last->prev;
+        }else{
+            list->pdi = list->pdi->prev;
+        }
+    }
+    return 1;
+}
+
+Player LISTBI_get(ListBi *list){
     if (list->pdi == list->first || list->pdi == list->last) {
         printf("No existe ningun jugador!\n\n");
     }
     return list->pdi->player;
+}
+
+void LISTBI_show_list(ListBi *player_list) {
+    Player player;
+    NodeBi *n = player_list->first->next;
+    while (n->next != NULL) {
+        player = n->player;
+        printf("\t%s - %d cards \n\n", player.name, player.num_cards); // player.wins, player.loses
+        n = n->next;
+    }
 }

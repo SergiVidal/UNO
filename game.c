@@ -6,7 +6,12 @@
 #include "player.h"
 #include "cli.h"
 
-// TODO: Error al guardar nombre y tipo, se traga un \n
+// TODO: Fix function to create game and lets play another game
+//Game GAME_create_game(){
+//    Game game = {0, 0, NULL, NULL, NULL};
+//    return game;
+//}
+
 Player *GAME_create_bots(char *filename, Game *game) {
     FILE *f = NULL;
     Player *players = NULL;
@@ -21,20 +26,19 @@ Player *GAME_create_bots(char *filename, Game *game) {
         fscanf(f, "%c", &skip);
         players = (Player *) realloc(players, sizeof(Player) * total);
         for (int i = 0; i < total; i++) {
-            fscanf(f, "%c", &skip);
             fgets(players[i].name, MAXC, f);
+            players[i].name[strlen(players[i].name) - 1] = '\0';
             fgets(players[i].type, MAXC, f);
+            players[i].type[strlen(players[i].type) - 1] = '\0';
             fscanf(f, "%d", &players[i].num_cards);
             fscanf(f, "%c", &skip);
             (game->total_players)++;
         }
-
         fclose(f);
     }
     return players;
 }
 
-// TODO: Error al guardar nombre y tipo, se traga un \n
 Player GAME_create_player(char *filename, Game *game) {
     FILE *f = NULL;
     Player player;
@@ -44,6 +48,7 @@ Player GAME_create_player(char *filename, Game *game) {
         printf("Error intentando abrir el fichero %s\n", filename);
     } else {
         fgets(player.name, MAXC, f);
+        player.name[strlen(player.name) - 1] = '\0';
         fscanf(f, "%d", &player.wins);
         fscanf(f, "%d", &player.loses);
         strcpy(player.type, "Player");
@@ -133,46 +138,36 @@ void GAME_init_game(Game *game, Player *players) {
     STACK_push(&game->discard_deck, STACK_pop(&game->deck));
 }
 
-//Muestra los players junto al num total de cartas
-void GAME_show_players(ListBi *player_list) {
-    LISTBI_go_first(player_list);
-    Player *player;
-    while (player_list->pdi->next != NULL) {
-        player = LISTBI_get(player_list);
-        printf("\t%s \t%d cards \n\n", player->name, player->num_cards); // player.wins, player.loses
-        player_list->pdi = player_list->pdi->next;
-    }
-}
 
 //Show Player Cards Available
-void GAME_show_cards(Player *player) {
-    LIST_go_first(player->handList);
+void GAME_show_cards(Player player) {
+    LIST_go_first(player.handList);
     int cont = 0;
     char value[MAXC];
 
-    printf("%s", player->name);
-    while (player->handList->last->next != NULL) {
+    printf("%s - Tienes %d cartas: \n", player.name, player.num_cards);
+    while (player.handList->last->next != NULL) {
         cont++;
-        if (player->handList->last->next->card->type == 1) {
+        if (player.handList->last->next->card->type == 1) {
             strcpy(value, "Block Turn");
-            printf("\t%d. %s - %s\n", cont, value, player->handList->last->next->card->color);
-        } else if (player->handList->last->next->card->type == 2) {
+            printf("\t%d. [%s %s]\n", cont, value, player.handList->last->next->card->color);
+        } else if (player.handList->last->next->card->type == 2) {
             strcpy(value, "Change Direction");
-            printf("\t%d. %s - %s\n", cont, value, player->handList->last->next->card->color);
-        } else if (player->handList->last->next->card->type == 3) {
+            printf("\t%d. [%s %s]\n", cont, value, player.handList->last->next->card->color);
+        } else if (player.handList->last->next->card->type == 3) {
             strcpy(value, "Get +2");
-            printf("\t%d. %s - %s\n", cont, value, player->handList->last->next->card->color);
-        } else if (player->handList->last->next->card->type == 4) {
+            printf("\t%d. [%s %s]\n", cont, value, player.handList->last->next->card->color);
+        } else if (player.handList->last->next->card->type == 4) {
             strcpy(value, "Get +4");
-            printf("\t%d. %s\n", cont, value);
-        } else if (player->handList->last->next->card->type == 2) {
+            printf("\t%d. [%s]\n", cont, value);
+        } else if (player.handList->last->next->card->type == 2) {
             strcpy(value, "Change Color");
-            printf("\t%d. %s\n", cont, value);
+            printf("\t%d. [%s]\n", cont, value);
         } else {
-            printf("\t%d. %d - %s\n", cont, player->handList->last->next->card->value,
-                   player->handList->last->next->card->color);
+            printf("\t%d. [%d - %s]\n", cont, player.handList->last->next->card->value,
+                   player.handList->last->next->card->color);
         }
-        player->handList->last = player->handList->last->next;
+        player.handList->last = player.handList->last->next;
     }
 }
 
@@ -180,17 +175,17 @@ void GAME_show_cards(Player *player) {
 // + La carta actual
 void GAME_display_game_status(Game *game) {
     Card *card = game->discard_deck.last->card;
-    GAME_show_players(&game->player_list);
+    LISTBI_show_list(&game->player_list);
     printf("\t### %d %s ###\n\n", card->value, card->color); // Printa la carta actual
 }
 
-// TODO: No funciona fuera del main (No obtiene el player con player = LISTBI_get())
 void GAME_display_actions(Game *game) {
     //Show actual Player cards
-    Player *player;
+    Player player;
+//    LISTBI_go_first(&game->player_list);
     player = LISTBI_get(&game->player_list);
 
-    printf("Enter an option -> %s\n", player->name);
+    printf("Enter an option -> %s\n", player.name);
     int option;
     do {
         option = CLI_get_action();
@@ -209,15 +204,15 @@ void GAME_display_actions(Game *game) {
 }
 
 void GAME_get_card(Game *game) {
-    Player *player;
+    Player player;
     Card *card;
-
     player = LISTBI_get(&game->player_list);
+//    GAME_show_cards(player);
 
     card = STACK_pop(&game->deck); // Saca una carta del Deck
-    LIST_insert(player->handList, card); // Inserta una carta en la PDIList
+    LIST_insert(player.handList, card); // Inserta una carta en la PDIList
 
-    (player->num_cards)++;
+    (player.num_cards)++;
 
     char value[MAXC];
 
@@ -243,50 +238,38 @@ void GAME_get_card(Game *game) {
 //    GAME_show_cards(player);
 }
 
-// TODO: Bucle infinto al usar GAME_is_end()
 int GAME_is_end(Game *game){
-//    LISTBI_go_first(&game->player_list);
-    while(game->player_list.pdi->next != NULL){
-        if (game->player_list.pdi->player->num_cards == 0) {
+    NodeBi *n = game->player_list.first->next;
+    while (n->next != NULL) {
+        if (n->player.num_cards == 0) {
             return 1; // Empty
         }
-        game->player_list.pdi = game->player_list.pdi->next;
-
+        n = n->next;
     }
     return 0; // Not Empty
 }
 
-// TODO: Terminar, comprobar GAME_display_actions() + no entra bien en los ifs por el \n
+// TODO: Terminar
 void GAME_play(Game *game){
-    Player *player;
+    Player player;
     LISTBI_go_first(&game->player_list);
 
-    //Test - Obligar turno Player
-//    LISTBI_next(&game->player_list);
-//    LISTBI_next(&game->player_list);
-    //Test - Obligar turno Player
-
-//    while(!GAME_is_end(game)){
+    while(!GAME_is_end(game)){
         player = LISTBI_get(&game->player_list);
-        if(strcmp(player->type, "Player") == 0) {
-            printf("1.actual: %s - %s\n", player->name, player->type);
-//            GAME_display_game_status(game);
-//            GAME_display_actions(game);
-
-
-        } else if (strcmp(player->type, "Calmado") == 0){
-            printf("2.actual: %s -%s-\n", player->name, player->type);
-
+        if(strcmp(player.type, "Player") == 0) {
+            GAME_display_game_status(game);
+            GAME_display_actions(game);
+            printf("%s - %s\n", player.type, player.name);
+        } else if (strcmp(player.type, "Calmado") == 0){
+            printf("%s - %s\n", player.type, player.name);
         } else { // Agresivo
-            printf("3.actual: %s - %s-\n", player->name, player->type);
-            GAME_display_game_status(game); // Debe estar en if Player
-            GAME_display_actions(game); // Debe estar en if Player
+            printf("%s - %s\n", player.type, player.name);
         }
 //        Segun la direccion de la partida - Horaria 0 / Antihoraria 1
-//        if(game->direction == 0) {
-//            LISTBI_next(&game->player_list);
-//        }else{
-//            LISTBI_previous(&game->player_list);
-//        }
-//    }
+        if(game->direction == 0) {
+            LISTBI_next(&game->player_list);
+        }else{
+            LISTBI_previous(&game->player_list);
+        }
+    }
 }

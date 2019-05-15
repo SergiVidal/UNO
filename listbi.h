@@ -11,7 +11,7 @@
 
 
 typedef struct _nodebi {
-    Player *player;
+    Player player;
     struct _nodebi *next;
     struct _nodebi *prev;
 } NodeBi;
@@ -38,8 +38,10 @@ int LISTBI_previous(ListBi *list);
 //
 //int PLIST_previous(ListBid *);
 //
-Player* LISTBI_get(ListBi *list);
+Player LISTBI_get(ListBi *list);
 //
 //void PLIST_destroy(ListBid *);
+
+void LISTBI_show_list(ListBi *player_list);
 
 #endif //UNO_LISTBI_H
