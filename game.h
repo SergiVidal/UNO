@@ -26,19 +26,20 @@ void GAME_swap(Player *p1, Player *p2);
 
 void GAME_sort_by_name(Player *players, int length);
 
-int GAME_is_end(Game *game);
-
 void GAME_init_game(Game *game, Player *players);
 
-void GAME_play(Game *game);
-
-void GAME_show_cards(Player player);
-
-//void GAME_show_players(ListBi *list);
+int GAME_is_end(Game *game);
 
 void GAME_display_game_status(Game *game);
 
-void GAME_display_actions(Game *game);
+void GAME_show_cards(Player player);
 
 void GAME_get_card(Game *game);
+
+void GAME_display_actions(Game *game);
+
+void GAME_play(Game *game);
+
+void GAME_play_bot(Game *game, Player player);
+
 #endif //UNO_GAME_H

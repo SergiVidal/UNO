@@ -139,6 +139,25 @@ void GAME_init_game(Game *game, Player *players) {
 }
 
 
+int GAME_is_end(Game *game) {
+    NodeBi *n = game->player_list.first->next;
+    while (n->next != NULL) {
+        if (n->player.num_cards == 0) {
+            return 1; // Empty
+        }
+        n = n->next;
+    }
+    return 0; // Not Empty
+}
+
+// Muestra los players y la cantidad de cartas
+// + La carta actual
+void GAME_display_game_status(Game *game) {
+    Card *card = game->discard_deck.last->card;
+    LISTBI_show_list(&game->player_list);
+    printf("\t### %d %s ###\n\n", card->value, card->color); // Printa la carta actual
+}
+
 //Show Player Cards Available
 void GAME_show_cards(Player player) {
     LIST_go_first(player.handList);
@@ -171,12 +190,36 @@ void GAME_show_cards(Player player) {
     }
 }
 
-// Muestra los players y la cantidad de cartas
-// + La carta actual
-void GAME_display_game_status(Game *game) {
-    Card *card = game->discard_deck.last->card;
-    LISTBI_show_list(&game->player_list);
-    printf("\t### %d %s ###\n\n", card->value, card->color); // Printa la carta actual
+void GAME_get_card(Game *game) {
+    Player player;
+    Card *card;
+    char value[MAXC];
+
+    player = LISTBI_get(&game->player_list);
+    card = STACK_pop(&game->deck); // Saca una carta del Deck
+    LIST_insert(player.handList, card); // Inserta una carta en la PDIList
+    (player.num_cards)++;
+
+    if (card->type == 1) {
+        strcpy(value, "Block Turn");
+        printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [S/N]\n", value, card->color);
+    } else if (card->type == 2) {
+        strcpy(value, "Change Direction");
+        printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [S/N]\n", value, card->color);
+    } else if (card->type == 3) {
+        strcpy(value, "Get +2");
+        printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [S/N]\n", value, card->color);
+    } else if (card->type == 4) {
+        strcpy(value, "Get +4");
+        printf("Se ha robado un %s. ¿Deseas jugarlo? [S/N]\n", value);
+    } else if (card->type == 2) {
+        strcpy(value, "Change Color");
+        printf("Se ha robado un %s. ¿Deseas jugarlo? [S/N]\n", value);
+    } else {
+        printf("Se ha robado un %d - %s. ¿Deseas jugarlo? [S/N]\n", card->value, card->color);
+    }
+
+//    GAME_show_cards(player);
 }
 
 void GAME_display_actions(Game *game) {
@@ -203,72 +246,30 @@ void GAME_display_actions(Game *game) {
     } while (option < 1 || option > 2);
 }
 
-void GAME_get_card(Game *game) {
-    Player player;
-    Card *card;
-    player = LISTBI_get(&game->player_list);
-//    GAME_show_cards(player);
+void GAME_play_bot(Game *game, Player player){
 
-    card = STACK_pop(&game->deck); // Saca una carta del Deck
-    LIST_insert(player.handList, card); // Inserta una carta en la PDIList
-
-    (player.num_cards)++;
-
-    char value[MAXC];
-
-    if (card->type == 1) {
-        strcpy(value, "Block Turn");
-        printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [S/N]\n", value, card->color);
-    } else if (card->type == 2) {
-        strcpy(value, "Change Direction");
-        printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [S/N]\n", value, card->color);
-    } else if (card->type == 3) {
-        strcpy(value, "Get +2");
-        printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [S/N]\n", value, card->color);
-    } else if (card->type == 4) {
-        strcpy(value, "Get +4");
-        printf("Se ha robado un %s. ¿Deseas jugarlo? [S/N]\n", value);
-    } else if (card->type == 2) {
-        strcpy(value, "Change Color");
-        printf("Se ha robado un %s. ¿Deseas jugarlo? [S/N]\n", value);
-    } else {
-        printf("Se ha robado un %d - %s. ¿Deseas jugarlo? [S/N]\n", card->value, card->color);
-    }
-
-//    GAME_show_cards(player);
-}
-
-int GAME_is_end(Game *game){
-    NodeBi *n = game->player_list.first->next;
-    while (n->next != NULL) {
-        if (n->player.num_cards == 0) {
-            return 1; // Empty
-        }
-        n = n->next;
-    }
-    return 0; // Not Empty
 }
 
 // TODO: Terminar
-void GAME_play(Game *game){
+void GAME_play(Game *game) {
     Player player;
     LISTBI_go_first(&game->player_list);
 
-    while(!GAME_is_end(game)){
+    while (!GAME_is_end(game)) {
         player = LISTBI_get(&game->player_list);
-        if(strcmp(player.type, "Player") == 0) {
+        if (strcmp(player.type, "Player") == 0) {
             GAME_display_game_status(game);
             GAME_display_actions(game);
             printf("%s - %s\n", player.type, player.name);
-        } else if (strcmp(player.type, "Calmado") == 0){
+        } else if (strcmp(player.type, "Calmado") == 0) {
             printf("%s - %s\n", player.type, player.name);
         } else { // Agresivo
             printf("%s - %s\n", player.type, player.name);
         }
 //        Segun la direccion de la partida - Horaria 0 / Antihoraria 1
-        if(game->direction == 0) {
+        if (game->direction == 0) {
             LISTBI_next(&game->player_list);
-        }else{
+        } else {
             LISTBI_previous(&game->player_list);
         }
     }

@@ -7,6 +7,7 @@
 #include "game.h"
 
 //uno fichero_bots.uno fichero_usuario.uno
+// /users/home/alumnes/LS/s.vidal/CLION/UNO
 
 // TODO: Error al jugar otra vez! (CLI_PLAY)
 // TODO: No se puede empezar la partida con un +2, +4
