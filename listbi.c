@@ -66,6 +66,10 @@ int LISTBI_next(ListBi *list){
     return 1;
 }
 
+//TODO: Create LISTBI_previous(&game->player_list);
+//int LISTBI_previous(ListBi *list){
+//
+//}
 Player* LISTBI_get(ListBi *list){
     if (list->pdi == list->first || list->pdi == list->last) {
         printf("No existe ningun jugador!\n\n");

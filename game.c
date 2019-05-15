@@ -256,7 +256,7 @@ int GAME_is_end(Game *game){
     return 0; // Not Empty
 }
 
-// TODO: Terminar
+// TODO: Terminar, comprobar GAME_display_actions() + no entra bien en los ifs por el \n
 void GAME_play(Game *game){
     Player *player;
     LISTBI_go_first(&game->player_list);
@@ -286,7 +286,7 @@ void GAME_play(Game *game){
 //        if(game->direction == 0) {
 //            LISTBI_next(&game->player_list);
 //        }else{
-//            //TODO: Create LISTBI_previous(&game->player_list);
+//            LISTBI_previous(&game->player_list);
 //        }
 //    }
 }

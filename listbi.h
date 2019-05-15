@@ -31,6 +31,8 @@ void LISTBI_go_first(ListBi *list);
 
 int LISTBI_next(ListBi *list);
 
+int LISTBI_previous(ListBi *list);
+
 //int PLIST_remove(ListBid *);
 //
 //
