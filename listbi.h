@@ -42,6 +42,4 @@ Player LISTBI_get(ListBi *list);
 //
 //void PLIST_destroy(ListBid *);
 
-void LISTBI_show_list(ListBi *player_list);
-
 #endif //UNO_LISTBI_H

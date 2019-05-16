@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
 
         do {
             option = CLI_get_option();
+            printf("\n");
             switch (option) {
                 case CLI_PLAY:
                     // Crea Bots y Jugador

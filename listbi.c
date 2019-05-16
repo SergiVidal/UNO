@@ -66,7 +66,6 @@ int LISTBI_next(ListBi *list){
     return 1;
 }
 
-//TODO: Create LISTBI_previous(&game->player_list);
 int LISTBI_previous(ListBi *list){
     if (list->pdi != list->first && list->pdi != list->last) {
         if(list->pdi->prev == list->first){
@@ -85,12 +84,3 @@ Player LISTBI_get(ListBi *list){
     return list->pdi->player;
 }
 
-void LISTBI_show_list(ListBi *player_list) {
-    Player player;
-    NodeBi *n = player_list->first->next;
-    while (n->next != NULL) {
-        player = n->player;
-        printf("\t%s - %d cards \n\n", player.name, player.num_cards); // player.wins, player.loses
-        n = n->next;
-    }
-}

@@ -6,7 +6,7 @@
 #include "player.h"
 #include "cli.h"
 
-// TODO: Fix function to create game and lets play another game
+// Fix function to create game and lets play another game
 //Game GAME_create_game(){
 //    Game game = {0, 0, NULL, NULL, NULL};
 //    return game;
@@ -138,6 +138,27 @@ void GAME_init_game(Game *game, Player *players) {
     STACK_push(&game->discard_deck, STACK_pop(&game->deck));
 }
 
+
+void GAME_show_player_list(Game *game) {
+    Player player;
+    NodeBi *n = game->player_list.first->next;
+    char direction[MAXC];
+    while (n->next != NULL) {
+        player = n->player;
+        if (strcmp(player.type, "Player") == 0) {
+            if (game->direction == 0) {
+                strcpy(direction, "v");
+            } else {
+                strcpy(direction, "^");
+            }
+            printf("\t%s - %d cards \t%s \n\n", player.name, player.num_cards, direction); // player.wins, player.loses
+        } else {
+            printf("\t%s - %d cards \n\n", player.name, player.num_cards); // player.wins, player.loses
+        }
+        n = n->next;
+    }
+}
+
 Player GAME_get_itself(Game *game) {
     NodeBi *n = game->player_list.first->next;
     while (n->next != NULL) {
@@ -170,7 +191,8 @@ int GAME_is_end(Game *game) {
 // + La carta actual
 void GAME_display_game_status(Game *game) {
     Card *card = STACK_top(&game->discard_deck);
-    LISTBI_show_list(&game->player_list);
+    printf("\n");
+    GAME_show_player_list(game);
     char value[MAXC];
 
     if (card->type == 1) {
@@ -195,6 +217,7 @@ void GAME_display_game_status(Game *game) {
     } else {
         printf("\t### %d %s ###\n", card->value, card->color);
     }
+    printf("\n");
 }
 
 //Show Player Cards Available
@@ -204,7 +227,7 @@ void GAME_show_cards(Game *game) {
     LIST_go_first(player.handList);
     int cont = 0;
     char value[MAXC];
-
+    printf("\n");
     printf("%s - Tienes %d cartas: \n", player.name, player.num_cards);
 
     while (player.handList->last->next != NULL) {
@@ -236,12 +259,30 @@ void GAME_show_cards(Game *game) {
     }
     LIST_go_first(player.handList);
 
+    printf("\n%s, escoge una acción:\n", player.name);
+    int option;
+    do {
+        option = CLI_get_more_action();
+        switch (option) {
+            case CLI_PLAY_CARD:
+                GAME_throw_card(game);
+                break;
+            case CLI_GET_CARD:
+                GAME_player_pick_card(game);
+                break;
+            default:
+                printf("Opcion incorrecta\n\n");
+                break;
+        }
+    } while (option < 1 || option > 2);
+
+
 }
 
 void GAME_display_actions(Game *game) {
     Player player = LISTBI_get(&game->player_list);
 
-    printf("Enter an option -> %s\n", player.name);
+    printf("%s, escoge una acción:\n", player.name);
     int option;
     do {
         option = CLI_get_action();
@@ -259,6 +300,7 @@ void GAME_display_actions(Game *game) {
     } while (option < 1 || option > 2);
 }
 
+
 void GAME_player_pick_card(Game *game) {
     char value[MAXC];
     Player player = LISTBI_get(&game->player_list);
@@ -267,8 +309,8 @@ void GAME_player_pick_card(Game *game) {
 
     (game->player_list.pdi->player.num_cards)++; // Aumenta el num de cartas del player actual
 
-    if (strcmp(LISTBI_get(&game->player_list).type, "Player") == 0) {
-        printf("Player roba cartA");
+    if (strcmp(player.type, "Player") == 0) {
+        printf("%s, has robado una carta\n\n", player.name);
         if (card->type == 1) {
             strcpy(value, "Block Turn");
             printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [S/N]\n", value, card->color);
@@ -293,7 +335,7 @@ void GAME_player_pick_card(Game *game) {
     } else {
 
     }
-
+    printf("\n");
 //    GAME_show_cards(player);
 }
 
@@ -328,10 +370,24 @@ void GAME_card_behaviour(Game *game) {
 
 }
 
-
-// TODO: Cambiar a eleccion del usuario que carta quiere eliminar
 void GAME_throw_card(Game *game) {
     Player player = LISTBI_get(&game->player_list);
+    int option = 0;
+
+    if(strcmp(player.type, "Player") == 0) {
+        while (option < 1 || option > player.num_cards) {
+            option = CLI_choose_card();
+            if (option < 1 || option > player.num_cards) {
+                printf("\nError al seleccionar la carta\n");
+            } else {
+                for (int i = 0; i < option - 1; i++) {
+                    LIST_next(player.handList);
+                }
+
+            }
+            printf("\n");
+        }
+    }
 
     Card *card = LIST_get(player.handList);
     STACK_push(&game->discard_deck, card);
@@ -408,7 +464,6 @@ void GAME_play_bot(Game *game) {
         LIST_next(player.handList);
 
     }
-
 }
 
 // TODO: Terminar
@@ -421,9 +476,8 @@ void GAME_play(Game *game) {
         if (strcmp(player.type, "Player") == 0) {
             GAME_display_game_status(game);
             GAME_display_actions(game);
-            printf("%s - %s\n", player.type, player.name);
         } else {
-            printf("%s - %s\n", player.type, player.name);
+            printf("%s - Ha sido su turno\n", player.name);
             //GAME_play_bot(game);
         }
 //        Segun la direccion de la partida - Horaria 0 / Antihoraria 1

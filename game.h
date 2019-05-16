@@ -47,4 +47,6 @@ void GAME_play_bot(Game *game);
 Player GAME_get_itself(Game *game);
 
 void GAME_card_behaviour(Game *game);
+
+void GAME_show_player_list(Game *game);
 #endif //UNO_GAME_H
