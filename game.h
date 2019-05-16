@@ -32,14 +32,19 @@ int GAME_is_end(Game *game);
 
 void GAME_display_game_status(Game *game);
 
-void GAME_show_cards(Player player);
+void GAME_show_cards(Game *game);
 
-void GAME_get_card(Game *game);
+void GAME_player_pick_card(Game *game);
 
 void GAME_display_actions(Game *game);
 
 void GAME_play(Game *game);
 
-void GAME_play_bot(Game *game, Player player);
+void GAME_throw_card(Game *game);
 
+void GAME_play_bot(Game *game);
+
+Player GAME_get_itself(Game *game);
+
+void GAME_card_behaviour(Game *game);
 #endif //UNO_GAME_H
