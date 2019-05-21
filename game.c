@@ -455,21 +455,28 @@ void GAME_get_card(Game *game, Player player, Card *card) {
     (game->player_list.pdi->player.num_cards)++;
 }
 
-// TODO: Faltan los cambios de colores
+// TODO: Posible coredumped en los +2/+4, el +4 no salta bien el turno a los bots
 // Se ejecuta una vez la carta tirada esta en la pila de descarte
 void GAME_card_behaviour(Game *game) {
     Card *card = game->discard_deck.last->card;
+    Card *actual_card = NULL;
     Player player = LISTBI_get(&game->player_list);
     int value;
     int option = 0;
+    int red = 0, blue = 0, green = 0, yellow = 0;
+    char color[MAXC];
     if (card->type == 1) { // Block turn
-        if (strcmp(player.name, "Player") != 0) {
+        if (strcmp(player.type, "Player") != 0) {
             printf("%s juega un Salto de Turno %s!\n", player.name, card->color);
         }
         // Se pasa un turno (+ despues de cada jugada hay un salto de turno implicito)
-        LISTBI_next(&game->player_list);
+        if (game->direction == 0) {
+            LISTBI_next(&game->player_list);
+        } else {
+            LISTBI_previous(&game->player_list);
+        }
     } else if (card->type == 2) { // Change direction
-        if (strcmp(player.name, "Player") != 0) {
+        if (strcmp(player.type, "Player") != 0) {
             printf("%s juega un Cambio de Sentido %s!\n", player.name, card->color);
         }
         if (game->direction == 0) {
@@ -479,7 +486,7 @@ void GAME_card_behaviour(Game *game) {
         }
 
     } else if (card->type == 3) { // Get +2
-        if (strcmp(player.name, "Player") != 0) {
+        if (strcmp(player.type, "Player") != 0) {
             printf("%s juega un +2!\n", player.name);
         }
 
@@ -488,30 +495,65 @@ void GAME_card_behaviour(Game *game) {
                 printf("Se han acabado las cartas, recargando!\n");
                 GAME_refill_deck(game);
             }
-            GAME_get_card(game, game->player_list.pdi->next->player, STACK_pop(&game->deck));
+            LIST_insert(game->player_list.pdi->next->player.handList, card); // Inserta una carta en la PDIList
             game->player_list.pdi->next->player.num_cards++;
 
 
         }
-
+        if (game->direction == 0) {
+            LISTBI_next(&game->player_list);
+        } else {
+            LISTBI_previous(&game->player_list);
+        }
 
     } else if (card->type == 4) { // Get +4
-        if (strcmp(player.name, "Player") != 0) {
-            printf("%s juega un +4!\n", player.name);
-            // Cambio color bot
-
-        }
         for (int i = 0; i < 4; i++) {
             if (STACK_is_empty(game->deck)) {
                 printf("Se han acabado las cartas, recargando!\n");
                 GAME_refill_deck(game);
             }
-            GAME_get_card(game, game->player_list.pdi->next->player, STACK_pop(&game->deck));
+            LIST_insert(game->player_list.pdi->next->player.handList, card); // Inserta una carta en la PDIList
             game->player_list.pdi->next->player.num_cards++;
 
-        }
 
-        if (strcmp(player.type, "Player") == 0) {
+        }
+        if (strcmp(player.type, "Player") != 0) {
+            printf("%s juega un +4!\n", player.name);
+            LIST_go_first(player.handList);
+            // Cambio color bot
+            while (player.handList->last->next != NULL) {
+                //GET CARD
+                actual_card = LIST_get(player.handList);
+
+                if (strcmp(actual_card->color, "red") == 0) {
+                    red++;
+                } else if (strcmp(actual_card->color, "blue") == 0) {
+                    blue++;
+                } else if (strcmp(actual_card->color, "green") == 0) {
+                    green++;
+                } else if (strcmp(actual_card->color, "yellow") == 0) {
+                    yellow++;
+                }
+                LIST_next(player.handList);
+            }
+
+            if (red >= blue && red >= green && red >= yellow) {
+                strcpy(color, "red");
+            } else if (blue >= red && blue >= green && blue >= yellow) {
+                strcpy(color, "blue");
+            } else if (green >= red && green >= blue && green >= yellow) {
+                strcpy(color, "green");
+            } else if (yellow >= red && yellow >= blue && yellow >= green) {
+                strcpy(color, "yellow");
+            }
+            STACK_create_card(&game->discard_deck, 10, NUMBER, color);// 10= identificador
+            printf("%s ha cambiado al color %s\n", player.name, color);
+            if (game->direction == 0) {
+                LISTBI_next(&game->player_list);
+            } else {
+                LISTBI_previous(&game->player_list);
+            }
+        } else {
             do {
                 option = CLI_which_color();
                 if (option < 1 || option > 4) {
@@ -531,11 +573,43 @@ void GAME_card_behaviour(Game *game) {
             } while (option < 1 || option > 4);
         }
         // Se pasa un turno (+ despues de cada jugada hay un salto de turno implicito)
-        LISTBI_next(&game->player_list);
-        // Funcion que devuelve el color que mas posee un jugador.
+        if (game->direction == 0) {
+            LISTBI_next(&game->player_list);
+        } else {
+            LISTBI_previous(&game->player_list);
+        }
     } else if (card->type == 5) { // Change Color
         if (strcmp(player.type, "Player") != 0) {
+            printf("%s juega un +4!\n", player.name);
+            LIST_go_first(player.handList);
             // Cambio color bot
+            while (player.handList->last->next != NULL) {
+                //GET CARD
+                actual_card = LIST_get(player.handList);
+
+                if (strcmp(actual_card->color, "red") == 0) {
+                    red++;
+                } else if (strcmp(actual_card->color, "blue") == 0) {
+                    blue++;
+                } else if (strcmp(actual_card->color, "green") == 0) {
+                    green++;
+                } else if (strcmp(actual_card->color, "yellow") == 0) {
+                    yellow++;
+                }
+                LIST_next(player.handList);
+
+            }
+
+            if (red >= blue && red >= green && red >= yellow) {
+                strcpy(color, "red");
+            } else if (blue >= red && blue >= green && blue >= yellow) {
+                strcpy(color, "blue");
+            } else if (green >= red && green >= blue && green >= yellow) {
+                strcpy(color, "green");
+            } else if (yellow >= red && yellow >= blue && yellow >= green) {
+                strcpy(color, "yellow");
+            }
+            STACK_create_card(&game->discard_deck, 10, NUMBER, color);// 10= identificador
 
         } else {
             do {
@@ -557,7 +631,7 @@ void GAME_card_behaviour(Game *game) {
             } while (option < 1 || option > 4);
         }
     } else {
-        if (strcmp(player.name, "Player") != 0) {
+        if (strcmp(player.type, "Player") != 0) {
             printf("%s juega un %d %s!\n", player.name, card->value, card->color);
         }
     }
