@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4911799-ce69-47c3-8713-9da311e4f5df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.c" beforeDir="false" afterPath="$PROJECT_DIR$/game.c" afterDir="false" />
     </list>
@@ -29,11 +28,26 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="143" column="45" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
+            <state relative-caret-position="7735">
+              <caret line="699" column="2" selection-start-line="699" selection-start-column="2" selection-end-line="699" selection-end-column="2" />
+              <folding>
+                <element signature="e#1183#1727#0" />
+                <element signature="e#1729#2076#0" />
+                <element signature="e#2078#2172#0" />
+                <element signature="e#2174#2538#0" />
+                <element signature="e#4020#4695#0" />
+                <element signature="e#4697#4954#0" />
+                <element signature="e#4956#5277#0" />
+                <element signature="e#5280#6023#0" />
+                <element signature="e#6025#7245#0" />
+                <element signature="e#7247#7830#0" />
+                <element signature="e#7833#9798#0" />
+                <element signature="e#9800#10369#0" />
+                <element signature="e#10371#10634#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="-381">
+              <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -92,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stack.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="95" column="59" lean-forward="true" selection-start-line="95" selection-start-column="59" selection-end-line="95" selection-end-column="59" />
+            <state relative-caret-position="340">
+              <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -102,9 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>show_stack</find>
-      <find>LISTBI_get</find>
-      <find>printf</find>
       <find>LISTBI_next</find>
       <find>enter an</find>
       <find>Get Card</find>
@@ -114,7 +125,6 @@
       <find>game-&gt;deck.size</find>
       <find>)++</find>
       <find>)--</find>
-      <find>STACK_pop</find>
       <find>STACK_is_empty(game-&gt;deck)</find>
       <find>Quedan</find>
       <find>refill</find>
@@ -132,6 +142,10 @@
       <find>is_end</find>
       <find>play_bot</find>
       <find>se ha sa</find>
+      <find>STACK_pop</find>
+      <find>juega</find>
+      <find>bot</find>
+      <find>play_bo</find>
     </findStrings>
     <replaceStrings>
       <replace>MAXC</replace>
@@ -172,9 +186,9 @@
         <option value="$PROJECT_DIR$/listbi.c" />
         <option value="$PROJECT_DIR$/listbi.h" />
         <option value="$PROJECT_DIR$/game.h" />
+        <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/game.c" />
         <option value="$PROJECT_DIR$/stack.c" />
-        <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
   </component>
@@ -272,12 +286,12 @@
       <workItem from="1558384489253" duration="13878000" />
       <workItem from="1558405565038" duration="3816000" />
       <workItem from="1558435298459" duration="8081000" />
-      <workItem from="1558452526593" duration="809000" />
+      <workItem from="1558452526593" duration="2992000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118459000" />
+    <option name="totallyTimeSpent" value="120642000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -293,7 +307,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15355521" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15355521" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32969603" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.20949264" />
@@ -501,24 +515,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-381">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/stack.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="95" column="59" lean-forward="true" selection-start-line="95" selection-start-column="59" selection-end-line="95" selection-end-column="59" />
+        <state relative-caret-position="340">
+          <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/game.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="143" column="45" selection-start-line="143" selection-start-column="45" selection-end-line="143" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="7735">
+          <caret line="699" column="2" selection-start-line="699" selection-start-column="2" selection-end-line="699" selection-end-column="2" />
+          <folding>
+            <element signature="e#1183#1727#0" />
+            <element signature="e#1729#2076#0" />
+            <element signature="e#2078#2172#0" />
+            <element signature="e#2174#2538#0" />
+            <element signature="e#4020#4695#0" />
+            <element signature="e#4697#4954#0" />
+            <element signature="e#4956#5277#0" />
+            <element signature="e#5280#6023#0" />
+            <element signature="e#6025#7245#0" />
+            <element signature="e#7247#7830#0" />
+            <element signature="e#7833#9798#0" />
+            <element signature="e#9800#10369#0" />
+            <element signature="e#10371#10634#0" />
+          </folding>
         </state>
       </provider>
     </entry>
