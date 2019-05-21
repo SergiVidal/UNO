@@ -490,32 +490,36 @@ void GAME_card_behaviour(Game *game) {
             printf("%s juega un +2!\n", player.name);
         }
 
-        for (int i = 0; i < 2; i++) {
-            if (STACK_is_empty(game->deck)) {
-                printf("Se han acabado las cartas, recargando!\n");
-                GAME_refill_deck(game);
-            }
-            LIST_insert(game->player_list.pdi->next->player.handList, card); // Inserta una carta en la PDIList
-            game->player_list.pdi->next->player.num_cards++;
-
-
-        }
         if (game->direction == 0) {
             LISTBI_next(&game->player_list);
         } else {
             LISTBI_previous(&game->player_list);
         }
 
+        for (int i = 0; i < 2; i++) {
+            if (STACK_is_empty(game->deck)) {
+                printf("Se han acabado las cartas, recargando!\n");
+                GAME_refill_deck(game);
+            }
+            GAME_get_card(game, LISTBI_get(&game->player_list),STACK_pop(&game->deck));
+
+        }
+
+
     } else if (card->type == 4) { // Get +4
+        // Se pasa un turno (+ despues de cada jugada hay un salto de turno implicito)
+        if (game->direction == 0) {
+            LISTBI_next(&game->player_list);
+        } else {
+            LISTBI_previous(&game->player_list);
+        }
+
         for (int i = 0; i < 4; i++) {
             if (STACK_is_empty(game->deck)) {
                 printf("Se han acabado las cartas, recargando!\n");
                 GAME_refill_deck(game);
             }
-            LIST_insert(game->player_list.pdi->next->player.handList, card); // Inserta una carta en la PDIList
-            game->player_list.pdi->next->player.num_cards++;
-
-
+            GAME_get_card(game, LISTBI_get(&game->player_list),STACK_pop(&game->deck));
         }
         if (strcmp(player.type, "Player") != 0) {
             printf("%s juega un +4!\n", player.name);
@@ -548,11 +552,6 @@ void GAME_card_behaviour(Game *game) {
             }
             STACK_create_card(&game->discard_deck, 10, NUMBER, color);// 10= identificador
             printf("%s ha cambiado al color %s\n", player.name, color);
-            if (game->direction == 0) {
-                LISTBI_next(&game->player_list);
-            } else {
-                LISTBI_previous(&game->player_list);
-            }
         } else {
             do {
                 option = CLI_which_color();
@@ -571,12 +570,6 @@ void GAME_card_behaviour(Game *game) {
                     }
                 }
             } while (option < 1 || option > 4);
-        }
-        // Se pasa un turno (+ despues de cada jugada hay un salto de turno implicito)
-        if (game->direction == 0) {
-            LISTBI_next(&game->player_list);
-        } else {
-            LISTBI_previous(&game->player_list);
         }
     } else if (card->type == 5) { // Change Color
         if (strcmp(player.type, "Player") != 0) {
