@@ -93,7 +93,7 @@ void GAME_sort_by_name(Player *players, int length) {
 }
 
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
-    Card *card;
+    Card card;
     PDIList *handList = NULL;
 
     handList = (PDIList *) realloc(handList, sizeof(PDIList) * game->total_players);
@@ -138,7 +138,7 @@ void GAME_init_game(Game *game, Player *players) {
     // Quita una carta valida del deck (la que se va a jugar) y la pone en la pila de descarte
     do {
         STACK_push(&game->discard_deck, STACK_pop(&game->deck));
-    } while (game->discard_deck.last->card->type != 0);
+    } while (game->discard_deck.last->card.type != 0);
 }
 
 
@@ -173,17 +173,16 @@ Player GAME_get_itself(Game *game) {
     return n->player;
 }
 
-int GAME_check_card(Game *game, Card *card) {
-    Card *actual_card = game->discard_deck.last->card;
+int GAME_check_card(Game *game, Card card) {
+    Card actual_card = game->discard_deck.last->card;
     // = Color o = Valor
-    if (strcmp(card->color, actual_card->color) == 0 || card->value == actual_card->value || card->type == 4 ||
-        card->type == 5) {
+    if (strcmp(card.color, actual_card.color) == 0 || card.value == actual_card.value || card.type == 4 ||
+        card.type == 5) {
         return 1;
     } else {
         return 0;
     }
 }
-
 
 int GAME_is_end(Game *game) {
     NodeBi *n = game->player_list.first->next;
@@ -210,36 +209,36 @@ int GAME_is_end(Game *game) {
 // Muestra los players y la cantidad de cartas
 // + La carta actual
 void GAME_display_game_status(Game *game) {
-    Card *card = STACK_top(&game->discard_deck);
+    Card card = STACK_top(&game->discard_deck);
     printf("\n");
     GAME_show_player_list(game);
     char value[MAXC];
 
-    if (card->type == 1) {
+    if (card.type == 1) {
         strcpy(value, "Block Turn");
-        printf("\t### %s %s ###\n", value, card->color);
+        printf("\t### %s %s ###\n", value, card.color);
 
-    } else if (card->type == 2) {
+    } else if (card.type == 2) {
         strcpy(value, "Change Direction");
-        printf("\t### %s %s ###\n", value, card->color);
+        printf("\t### %s %s ###\n", value, card.color);
 
-    } else if (card->type == 3) {
+    } else if (card.type == 3) {
         strcpy(value, "Get +2");
-        printf("\t### %s %s ###\n", value, card->color);
+        printf("\t### %s %s ###\n", value, card.color);
 
-    } else if (card->type == 4) {
+    } else if (card.type == 4) {
         strcpy(value, "Get +4");
         printf("\t### %s ###\n", value);
 
-    } else if (card->type == 5) {
+    } else if (card.type == 5) {
         strcpy(value, "Change Color");
         printf("\t### %s ###\n", value);
     } else {
-        if (card->value == 10) {
-            printf("\t### X %s ###\n", card->color);
+        if (card.value == 10) {
+            printf("\t### X %s ###\n", card.color);
 
         } else {
-            printf("\t### %d %s ###\n", card->value, card->color);
+            printf("\t### %d %s ###\n", card.value, card.color);
         }
     }
     printf("\n");
@@ -274,7 +273,7 @@ void GAME_choose_action(Game *game) {
 //Show Player Cards Available
 void GAME_show_cards(Game *game) {
     Player player = LISTBI_get(&game->player_list);
-    Card *card;
+    Card card;
     LIST_go_first(player.handList);
     int cont = 0;
     char value[MAXC];
@@ -284,39 +283,39 @@ void GAME_show_cards(Game *game) {
     while (player.handList->last->next != NULL) {
         card = LIST_get(player.handList);
         cont++;
-        if (card->type == 1) {
+        if (card.type == 1) {
             strcpy(value, "Block Turn");
             if (!GAME_check_card(game, card)) {
-                printf("\t%d. [%s %s]\n", cont, value, card->color);
+                printf("\t%d. [%s %s]\n", cont, value, card.color);
             } else {
-                printf("\t%d. [%s %s] \t * \n", cont, value, card->color);
+                printf("\t%d. [%s %s] \t * \n", cont, value, card.color);
             }
-        } else if (card->type == 2) {
+        } else if (card.type == 2) {
             strcpy(value, "Change Direction");
             if (!GAME_check_card(game, card)) {
-                printf("\t%d. [%s %s]\n", cont, value, card->color);
+                printf("\t%d. [%s %s]\n", cont, value, card.color);
             } else {
-                printf("\t%d. [%s %s] \t * \n", cont, value, card->color);
+                printf("\t%d. [%s %s] \t * \n", cont, value, card.color);
             }
-        } else if (card->type == 3) {
+        } else if (card.type == 3) {
             strcpy(value, "Get +2");
             if (!GAME_check_card(game, card)) {
-                printf("\t%d. [%s %s]\n", cont, value, card->color);
+                printf("\t%d. [%s %s]\n", cont, value, card.color);
             } else {
-                printf("\t%d. [%s %s] \t * \n", cont, value, card->color);
+                printf("\t%d. [%s %s] \t * \n", cont, value, card.color);
             }
-        } else if (card->type == 4) {
+        } else if (card.type == 4) {
             strcpy(value, "Get +4");
             printf("\t%d. [%s] \t * \n", cont, value);
 
-        } else if (card->type == 5) {
+        } else if (card.type == 5) {
             strcpy(value, "Change Color");
             printf("\t%d. [%s] \t * \n", cont, value);
         } else {
             if (!GAME_check_card(game, card)) {
-                printf("\t%d. [%d - %s]\n", cont, card->value, card->color);
+                printf("\t%d. [%d - %s]\n", cont, card.value, card.color);
             } else {
-                printf("\t%d. [%d - %s] * \n", cont, card->value, card->color);
+                printf("\t%d. [%d - %s] * \n", cont, card.value, card.color);
             }
         }
         LIST_next(player.handList);
@@ -362,7 +361,7 @@ void GAME_refill_deck(Game *game) {
         return;
     }
 
-    Card *card = STACK_pop(&game->discard_deck); // La ultima jugada no se quita.
+    Card card = STACK_pop(&game->discard_deck); // La ultima jugada no se quita.
     while (!STACK_is_empty(game->discard_deck)) {
         STACK_push(&game->deck, STACK_pop(&game->discard_deck));
     }
@@ -373,7 +372,7 @@ void GAME_player_pick_card(Game *game) {
     char value[MAXC];
     int option;
     Player player = LISTBI_get(&game->player_list);
-    Card *card;
+    Card card;
     if (STACK_is_empty(game->deck)) {
         printf("Se han acabado las cartas, recargando!\n");
         GAME_refill_deck(game);
@@ -386,28 +385,28 @@ void GAME_player_pick_card(Game *game) {
     (game->player_list.pdi->player.num_cards)++;
 
     if (strcmp(player.type, "Player") == 0) {
-        if (card->type == 1) {
+        if (card.type == 1) {
             strcpy(value, "Block Turn");
-        } else if (card->type == 2) {
+        } else if (card.type == 2) {
             strcpy(value, "Change Direction");
-        } else if (card->type == 3) {
+        } else if (card.type == 3) {
             strcpy(value, "Get +2");
-        } else if (card->type == 4) {
+        } else if (card.type == 4) {
             strcpy(value, "Get +4");
-        } else if (card->type == 5) {
+        } else if (card.type == 5) {
             strcpy(value, "Change Color");
         } else {
-            sprintf(value, "%d", card->value);
+            sprintf(value, "%d", card.value);
         }
 
         if (!GAME_check_card(game, card)) {
-            printf("Se ha robado un %s - %s. No se puede jugar.\n\n", value, card->color);
+            printf("Se ha robado un %s - %s. No se puede jugar.\n\n", value, card.color);
             return;
         } else {
-            if (card->type == 4 || card->type == 5) {
+            if (card.type == 4 || card.type == 5) {
                 printf("Se ha robado un %s. ¿Deseas jugarlo? [1 = Si/2 = No]\n", value);
             } else {
-                printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [1 = Si/2 = No]\n", value, card->color);
+                printf("Se ha robado un %s - %s. ¿Deseas jugarlo? [1 = Si/2 = No]\n", value, card.color);
             }
             do {
                 option = CLI_want_throw();
@@ -433,55 +432,55 @@ void GAME_player_pick_card(Game *game) {
 }
 
 // TODO: No cuenta bien las cartas
-void GAME_count_cards(Game *game) {
-    int red = 0, blue = 0, green = 0, yellow = 0;
-    char max[MAXC];
-    Player player = LISTBI_get(&game->player_list);
-    Card *card;
+//void GAME_count_cards(Game *game) {
+//    int red = 0, blue = 0, green = 0, yellow = 0;
+//    char max[MAXC];
+//    Player player = LISTBI_get(&game->player_list);
+//    Card card;
+//
+//    while (player.handList->last->next != NULL) {
+//        //GET CARD
+//        card = LIST_get(player.handList);
+//
+//        if (strcmp(card->color, "red") == 0) {
+//            red++;
+//        } else if (strcmp(card->color, "blue") == 0) {
+//            blue++;
+//        } else if (strcmp(card->color, "green") == 0) {
+//            green++;
+//        } else if (strcmp(card->color, "yellow") == 0) {
+//            yellow++;
+//        }
+//    }
+//
+//    if (red >= blue && red >= green && red >= yellow) {
+//        strcpy(max, "red");
+//    } else if (blue >= red && blue >= green && blue >= yellow) {
+//        strcpy(max, "blue");
+//    } else if (green >= red && green >= blue && green >= yellow) {
+//        strcpy(max, "green");
+//    } else if (yellow >= red && yellow >= blue && yellow >= green) {
+//        strcpy(max, "green");
+//    }
+//}
 
-    while (player.handList->last->next != NULL) {
-        //GET CARD
-        card = LIST_get(player.handList);
-
-        if (strcmp(card->color, "red") == 0) {
-            red++;
-        } else if (strcmp(card->color, "blue") == 0) {
-            blue++;
-        } else if (strcmp(card->color, "green") == 0) {
-            green++;
-        } else if (strcmp(card->color, "yellow") == 0) {
-            yellow++;
-        }
-    }
-
-    if (red >= blue && red >= green && red >= yellow) {
-        strcpy(max, "red");
-    } else if (blue >= red && blue >= green && blue >= yellow) {
-        strcpy(max, "blue");
-    } else if (green >= red && green >= blue && green >= yellow) {
-        strcpy(max, "green");
-    } else if (yellow >= red && yellow >= blue && yellow >= green) {
-        strcpy(max, "green");
-    }
-}
-
-void GAME_get_card(Game *game, Player player, Card *card) {
+void GAME_get_card(Game *game, Player player, Card card) {
     LIST_insert(player.handList, card); // Inserta una carta en la PDIList
     (game->player_list.pdi->player.num_cards)++;
 }
 
 // Se ejecuta una vez la carta tirada esta en la pila de descarte
 void GAME_card_behaviour(Game *game) {
-    Card *card = game->discard_deck.last->card;
-    Card *actual_card = NULL;
+    Card card = game->discard_deck.last->card;
+    Card actual_card;
     Player player = LISTBI_get(&game->player_list);
     int value;
     int option = 0;
     int red = 0, blue = 0, green = 0, yellow = 0;
     char color[MAXC];
-    if (card->type == 1) { // Block turn
+    if (card.type == 1) { // Block turn
         if (strcmp(player.type, "Player") != 0) {
-            printf("%s juega un Salto de Turno %s!\n", player.name, card->color);
+            printf("%s juega un Salto de Turno %s!\n", player.name, card.color);
         }
         // Se pasa un turno (+ despues de cada jugada hay un salto de turno implicito)
         if (game->direction == 0) {
@@ -489,9 +488,9 @@ void GAME_card_behaviour(Game *game) {
         } else {
             LISTBI_previous(&game->player_list);
         }
-    } else if (card->type == 2) { // Change direction
+    } else if (card.type == 2) { // Change direction
         if (strcmp(player.type, "Player") != 0) {
-            printf("%s juega un Cambio de Sentido %s!\n", player.name, card->color);
+            printf("%s juega un Cambio de Sentido %s!\n", player.name, card.color);
         }
         if (game->direction == 0) {
             game->direction = 1;
@@ -499,7 +498,7 @@ void GAME_card_behaviour(Game *game) {
             game->direction = 0;
         }
 
-    } else if (card->type == 3) { // Get +2
+    } else if (card.type == 3) { // Get +2
         if (strcmp(player.type, "Player") != 0) {
             printf("%s juega un +2!\n", player.name);
         }
@@ -521,7 +520,7 @@ void GAME_card_behaviour(Game *game) {
         }
 
 
-    } else if (card->type == 4) { // Get +4
+    } else if (card.type == 4) { // Get +4
         if (strcmp(player.type, "Player") != 0) {
             printf("%s juega un +4!\n", player.name);
             LIST_go_first(player.handList);
@@ -530,13 +529,13 @@ void GAME_card_behaviour(Game *game) {
                 //GET CARD
                 actual_card = LIST_get(player.handList);
 
-                if (strcmp(actual_card->color, "red") == 0) {
+                if (strcmp(actual_card.color, "red") == 0) {
                     red++;
-                } else if (strcmp(actual_card->color, "blue") == 0) {
+                } else if (strcmp(actual_card.color, "blue") == 0) {
                     blue++;
-                } else if (strcmp(actual_card->color, "green") == 0) {
+                } else if (strcmp(actual_card.color, "green") == 0) {
                     green++;
-                } else if (strcmp(actual_card->color, "yellow") == 0) {
+                } else if (strcmp(actual_card.color, "yellow") == 0) {
                     yellow++;
                 }
                 LIST_next(player.handList);
@@ -589,7 +588,7 @@ void GAME_card_behaviour(Game *game) {
 //            GAME_get_card(game, LISTBI_get(&game->player_list), STACK_pop(&game->deck));
         }
 
-    } else if (card->type == 5) { // Change Color
+    } else if (card.type == 5) { // Change Color
         if (strcmp(player.type, "Player") != 0) {
             printf("%s juega un Cambio de color!\n", player.name);
             LIST_go_first(player.handList);
@@ -598,13 +597,13 @@ void GAME_card_behaviour(Game *game) {
                 //GET CARD
                 actual_card = LIST_get(player.handList);
 
-                if (strcmp(actual_card->color, "red") == 0) {
+                if (strcmp(actual_card.color, "red") == 0) {
                     red++;
-                } else if (strcmp(actual_card->color, "blue") == 0) {
+                } else if (strcmp(actual_card.color, "blue") == 0) {
                     blue++;
-                } else if (strcmp(actual_card->color, "green") == 0) {
+                } else if (strcmp(actual_card.color, "green") == 0) {
                     green++;
-                } else if (strcmp(actual_card->color, "yellow") == 0) {
+                } else if (strcmp(actual_card.color, "yellow") == 0) {
                     yellow++;
                 }
                 LIST_next(player.handList);
@@ -642,14 +641,14 @@ void GAME_card_behaviour(Game *game) {
         }
     } else {
         if (strcmp(player.type, "Player") != 0) {
-            printf("%s juega un %d %s!\n", player.name, card->value, card->color);
+            printf("%s juega un %d %s!\n", player.name, card.value, card.color);
         }
     }
 }
 
 void GAME_check_card_to_throw(Game *game) {
     Player player = LISTBI_get(&game->player_list);
-    Card *card = NULL;
+    Card card;
     int option = 0;
     int cont = 0;
     LIST_go_first(player.handList);
@@ -715,17 +714,17 @@ void GAME_check_card_to_throw(Game *game) {
 //TODO: Falta implementar caracter (Agresivo/Calmado)
 void GAME_play_bot(Game *game) {
     Player player = LISTBI_get(&game->player_list);
-    Card *actual_card = game->discard_deck.last->card;
-    Card *player_card;
+    Card actual_card = game->discard_deck.last->card;
+    Card player_card;
 
     while (player.handList->last->next != NULL) {
         //GET CARD
         player_card = LIST_get(player.handList);
 
         //  1. Zeros
-        if (player_card->value == 0) {
+        if (player_card.value == 0) {
             //  1.1 Zeros = color
-            if (strcmp(player_card->color, actual_card->color) == 0) {
+            if (strcmp(player_card.color, actual_card.color) == 0) {
 //                GAME_throw_card(game, player, player_card);
                 STACK_push(&game->discard_deck, player_card);
                 LIST_remove(game->player_list.pdi->player.handList);
@@ -734,7 +733,7 @@ void GAME_play_bot(Game *game) {
                 GAME_card_behaviour(game);
                 return;
                 // 1.2 Zeros != color
-            } else if (actual_card->value == 0) {
+            } else if (actual_card.value == 0) {
 //                GAME_throw_card(game, player, player_card);
                 STACK_push(&game->discard_deck, player_card);
                 LIST_remove(game->player_list.pdi->player.handList);
@@ -745,11 +744,11 @@ void GAME_play_bot(Game *game) {
 
             }
             // 2. No Zeros/Comodines
-        } else if (player_card->type != 4 && player_card->type != 5) {
+        } else if (player_card.type != 4 && player_card.type != 5) {
             // 2.1 = Color
-            if (strcmp(player_card->color, actual_card->color) == 0) {
+            if (strcmp(player_card.color, actual_card.color) == 0) {
                 // 2.2 = Color / Numero
-                if (actual_card->type == 0) {
+                if (actual_card.type == 0) {
 //                    GAME_throw_card(game, player, player_card);
                     STACK_push(&game->discard_deck, player_card);
                     LIST_remove(game->player_list.pdi->player.handList);
@@ -771,7 +770,7 @@ void GAME_play_bot(Game *game) {
                 }
             }
             // 3. Comodines
-        } else if (player_card->type == 4 || player_card->type == 5) {
+        } else if (player_card.type == 4 || player_card.type == 5) {
 //            GAME_throw_card(game, player, player_card);
             STACK_push(&game->discard_deck, player_card);
             LIST_remove(game->player_list.pdi->player.handList);

@@ -54,11 +54,11 @@ void GAME_card_behaviour(Game *game);
 
 void GAME_show_player_list(Game *game);
 
-int GAME_check_card(Game *game, Card *card);
+int GAME_check_card(Game *game, Card card);
 
 void GAME_choose_action(Game *game);
 
-void GAME_get_card(Game *game, Player player, Card *card);
+void GAME_get_card(Game *game, Player player, Card card);
 
 
 #endif //UNO_GAME_H

@@ -17,7 +17,7 @@ PDIList LIST_create() {
     return list;
 }
 
-int LIST_insert(PDIList *list, Card *card) {
+int LIST_insert(PDIList *list, Card card) {
     Node *n = (Node *) malloc(sizeof(Node));
 
     if (n == NULL)
@@ -49,10 +49,10 @@ int LIST_remove(PDIList *list) {
 }
 
 //Obte el element del punt de interes
-Card *LIST_get(PDIList *list) {
-    if (list->last == NULL) { // estem al final
-        return 0; // aka -1
-    }
+Card LIST_get(PDIList *list) {
+//    if (list->last == NULL) { // estem al final
+//        return 0; // aka -1
+//    }
     return list->last->next->card;
 }
 

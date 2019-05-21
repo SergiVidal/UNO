@@ -17,7 +17,7 @@ typedef struct {
 } Card;
 
 typedef struct _node{
-    Card *card;
+    Card card;
     struct _node *next;
 } Node;
 
@@ -29,11 +29,11 @@ typedef struct {
 
 Stack STACK_create();
 
-int STACK_push(Stack *, Card *);
+int STACK_push(Stack *, Card);
 
-Card* STACK_pop(Stack *);
+Card STACK_pop(Stack *);
 
-Card* STACK_top(Stack *);
+Card STACK_top(Stack *);
 
 int STACK_is_empty(Stack);
 

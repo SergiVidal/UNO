@@ -10,7 +10,7 @@ Stack STACK_create() {
     return s;
 }
 
-int STACK_push(Stack *stack, Card *card) {
+int STACK_push(Stack *stack, Card card) {
     Node *node = (Node *) malloc(sizeof(Node));
 
     if (node == NULL) // memory error
@@ -23,9 +23,10 @@ int STACK_push(Stack *stack, Card *card) {
     return 1;
 }
 
-Card* STACK_pop(Stack *stack) {
+// Pre: stack is not empty
+Card STACK_pop(Stack *stack) {
     if (stack->last == NULL) // vacía
-        return NULL;
+        return stack->last->card;
 
     Node *tmp = stack->last;
     stack->last = stack->last->next;
@@ -34,26 +35,29 @@ Card* STACK_pop(Stack *stack) {
     return tmp->card;
 }
 
-Card* STACK_top(Stack *stack) {
+Card STACK_top(Stack *stack) {
     if (stack->last == NULL)
-        return 0;
+        return stack->last->card;
 
     return stack->last->card;
 }
 
 int STACK_is_empty(Stack stack) {
-    return stack.last == NULL;
+    if(stack.last == NULL){
+        return 1;
+    }
+    return 0;
 }
 
 void STACK_delete(Stack *stack) {
-    while (STACK_pop(stack));
+    while (STACK_pop(stack).type != -1);
 }
 
 void STACK_show_stack(Stack stack) {
     Node *aux = stack.last;
     int cont = 1;
     while (aux != NULL) {
-        printf("%d = Value: %d - Type: %d - Color: %s\n", cont, aux->card->value, aux->card->type, aux->card->color);
+        printf("%d = Value: %d - Type: %d - Color: %s\n", cont, aux->card.value, aux->card.type, aux->card.color);
         aux = aux->next;
         cont++;
     }
@@ -61,10 +65,10 @@ void STACK_show_stack(Stack stack) {
 }
 
 void STACK_create_card(Stack *stack, int value, int type, char color[MAXC]){
-    Card *card = (Card *) malloc (sizeof(Card));
-    card->value = value;
-    card->type = type;
-    strcpy(card->color, color);
+    Card card;
+    card.value = value;
+    card.type = type;
+    strcpy(card.color, color);
     STACK_push(stack, card); // A cada push s'incrementa el stack.size +1
 }
 
@@ -80,11 +84,11 @@ Stack STACK_fill_deck() {
             STACK_create_card(&stack, i, NUMBER, "blue");
         } else {
             // Other Numbers
-            for (int j = 0; j < 2; j++) {
+            for (int j = 0; j < 1; j++) {
                 STACK_create_card(&stack, i, NUMBER, "red");
                 STACK_create_card(&stack, i, NUMBER, "yellow");
-                STACK_create_card(&stack, i, NUMBER, "green");
-                STACK_create_card(&stack, i, NUMBER, "blue");
+//                STACK_create_card(&stack, i, NUMBER, "green");
+//                STACK_create_card(&stack, i, NUMBER, "blue");
             }
 
         }
@@ -146,9 +150,9 @@ Stack STACK_randomize(Stack *s){
         while(1){
             int random = rand() % (s->size);
             //Se comprueba si ya ha tocado el mismo num random
-            if(node[random].card != NULL){
+            if(node[random].card.type != -1){
                 STACK_push(&randomStack, node[random].card);
-                node[random].card = NULL;
+                node[random].card.type = -1;
                 break;
             }else{
                 random = rand() % (s->size);
