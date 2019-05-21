@@ -50,7 +50,9 @@ int STACK_is_empty(Stack stack) {
 }
 
 void STACK_delete(Stack *stack) {
-    while (STACK_pop(stack).type != -1);
+    while (stack->last != NULL){
+        STACK_pop(stack);
+    }
 }
 
 void STACK_show_stack(Stack stack) {
@@ -84,11 +86,11 @@ Stack STACK_fill_deck() {
             STACK_create_card(&stack, i, NUMBER, "blue");
         } else {
             // Other Numbers
-            for (int j = 0; j < 1; j++) {
+            for (int j = 0; j < 2; j++) {
                 STACK_create_card(&stack, i, NUMBER, "red");
                 STACK_create_card(&stack, i, NUMBER, "yellow");
-//                STACK_create_card(&stack, i, NUMBER, "green");
-//                STACK_create_card(&stack, i, NUMBER, "blue");
+                STACK_create_card(&stack, i, NUMBER, "green");
+                STACK_create_card(&stack, i, NUMBER, "blue");
             }
 
         }

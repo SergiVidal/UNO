@@ -13,13 +13,9 @@ void CLI_wait();
 
 int CLI_get_option();
 
-char CLI_get_action();
-
 int CLI_which_color();
 
 int CLI_want_throw();
-
-char CLI_get_more_action();
 
 int CLI_choose_card();
 #endif

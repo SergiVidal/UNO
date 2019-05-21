@@ -22,8 +22,9 @@ int main(int argc, char *argv[]) {
         players = GAME_create_player_list(bots, player, &game);
 
 
-        CLI_wait();
         do {
+            CLI_wait();
+
             system("clear");
             option = CLI_get_option();
             printf("\n");

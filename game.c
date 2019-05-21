@@ -6,6 +6,12 @@
 #include "player.h"
 #include "cli.h"
 
+/* ***** AUXILIAR FUNCTIONS ****** */
+
+char to_upper();
+
+/* ***** PUBLIC ***** */
+
 // TODO: Check player pick card and throw, try to use function
 
 Player *GAME_create_bots(char *filename, Game *game) {
@@ -250,11 +256,14 @@ void GAME_display_game_status(Game *game) {
 
 void GAME_choose_action(Game *game) {
     Player player = LISTBI_get(&game->player_list);
+    char option;
 
     printf("\n%s, escoge una acción:\n", player.name);
-    char option;
     do {
-        option = CLI_get_more_action();
+        printf("A. Throw card\n");
+        printf("B. Get card\n");
+        printf("Enter an option:\n");
+        option = to_upper();
         switch (option) {
             case CLI_PLAY_CARD:
                 GAME_check_card_to_throw(game);
@@ -266,7 +275,7 @@ void GAME_choose_action(Game *game) {
                 printf("Opcion incorrecta\n\n");
                 break;
         }
-    } while (option != 'A' && option != 'B' && option != 'a' && option != 'b');
+    } while (option != 'A' && option != 'B');
 }
 
 
@@ -327,11 +336,15 @@ void GAME_show_cards(Game *game) {
 
 void GAME_display_actions(Game *game) {
     Player player = LISTBI_get(&game->player_list);
+    char option;
 
     printf("%s, escoge una acción:\n", player.name);
-    char option;
     do {
-        option = CLI_get_action();
+        printf("A. Show card\n");
+        printf("B. Get card\n");
+        printf("Enter an option:\n");
+
+        option = to_upper();
         switch (option) {
             case CLI_SHOW_HAND:
                 GAME_show_cards(game);
@@ -343,7 +356,7 @@ void GAME_display_actions(Game *game) {
                 printf("Opcion incorrecta\n\n");
                 break;
         }
-    } while (option != 'A' && option != 'B' && option != 'a' && option != 'b');
+    } while (option != 'A' && option != 'B');
 }
 
 void GAME_throw_card(Game *game) {
@@ -848,4 +861,16 @@ void GAME_play(Game *game) {
             return;
         }
     }
+}
+
+/* ***** PRIVADAS ***** */
+char to_upper(){
+    char input[5];
+    fgets(input, 5, stdin);
+
+    if (input[0] >= 'a' && input[0] <= 'z') {
+        input[0] = input[0] - ('a' - 'A');
+        return input[0];
+    }
+    return input[0];
 }
