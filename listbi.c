@@ -84,3 +84,38 @@ Player LISTBI_get(ListBi *list){
     return list->pdi->player;
 }
 
+int LISTBI_remove(ListBi *list){
+    if (list->pdi == list->first || list->pdi == list->last) { // No puedes eliminar los nodos fantasmas first o last
+        //printf("Error no se ha podido eliminar la canción\n\n");
+        return 0;
+    }
+    NodeBi *tmp = list->pdi; // Serveix per eliminar de memoria
+
+    list->pdi->prev->next = list->pdi->next;
+    list->pdi->next->prev = list->pdi->prev;
+
+    if(list->pdi->next == list->last){ // Si el next del pdi es el last..
+        list->pdi = list->first->next; // el pdi sera el next del
+
+        if(list->pdi == list->last){ // en el caso de que la lista se vacie completamente
+            list->pdi = list->first;// pdi es el first
+        }
+
+    }else{
+        list->pdi = list->pdi->next;
+
+    }
+
+    free(tmp);
+    return 1;
+}
+
+void LISTBI_destroy(ListBi *list){
+    while (list->first->next != list->last) { // llista no buida
+        LISTBI_remove(list);
+    }
+    free(list->first); // elimino el node fantasma
+    free(list->pdi); // elimino el node fantasma
+    free(list->last); // elimino el node fantasma
+    list->first = list->last = list->pdi = NULL;
+}

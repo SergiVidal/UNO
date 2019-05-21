@@ -33,13 +33,10 @@ int LISTBI_next(ListBi *list);
 
 int LISTBI_previous(ListBi *list);
 
-//int PLIST_remove(ListBid *);
-//
-//
-//int PLIST_previous(ListBid *);
-//
+int LISTBI_remove(ListBi *list);
+
 Player LISTBI_get(ListBi *list);
-//
-//void PLIST_destroy(ListBid *);
+
+void LISTBI_destroy(ListBi *);
 
 #endif //UNO_LISTBI_H

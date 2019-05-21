@@ -34,7 +34,7 @@ void GAME_display_game_status(Game *game);
 
 void GAME_show_cards(Game *game);
 
-void GAME_throw_card(Game *game, Player player, Card *card);
+void GAME_throw_card(Game *game);
 
 void GAME_player_pick_card(Game *game);
 

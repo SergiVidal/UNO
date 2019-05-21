@@ -9,7 +9,6 @@
 //uno fichero_bots.uno fichero_usuario.uno
 // /users/home/alumnes/LS/s.vidal/CLION/UNO
 
-// TODO: Error al jugar otra vez! (CLI_PLAY)
 // TODO: No se puede empezar la partida con un +2, +4
 int main(int argc, char *argv[]) {
     if (argc >= 3) {
@@ -24,6 +23,7 @@ int main(int argc, char *argv[]) {
             printf("\n");
             switch (option) {
                 case CLI_PLAY:
+
                     // Crea Bots y Jugador
                     bots = GAME_create_bots(argv[1], &game);
                     player = GAME_create_player(argv[2], &game);
