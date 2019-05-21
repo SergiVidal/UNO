@@ -10,9 +10,18 @@ int is_number(char *option);
 
 /* ***** PUBLIC ***** */
 
+void CLI_wait(){
+    char aux;
+    do{
+        printf("Press ENTER to continue...\n");
+        scanf("%c", &aux);
+    }while(aux != '\n');
+}
+
 int CLI_get_option() {
     char str_option[5];
     int option;
+    printf("UNO\n");
     printf("1. Play\n");
     printf("2. Show statistics\n");
     printf("3. Exit\n");
@@ -85,41 +94,40 @@ int CLI_want_throw(){
 }
 
 
-int CLI_get_action() {
+char CLI_get_action() {
     char str_option[5];
-    int option;
-    printf("1. Show hand\n");
-    printf("2. Get card\n");
+    printf("A. Show card\n");
+    printf("B. Get card\n");
     printf("Enter an option:\n");
     fgets(str_option, 5, stdin);
-    str_option[strlen(str_option) - 1] = '\0';
-
-    //Si is_number = 0 , option = -1
-    //Si no, devuelve el integer (asci to int) de la opcion seleccionada
-    if (!is_number(str_option))
-        option = -1;
-    else option = atoi(str_option);
-
-    return option;
+    return str_option[0];
 }
 
-int CLI_get_more_action(){
+char CLI_get_more_action(){
     char str_option[5];
-    int option;
-    printf("1. Throw card\n");
-    printf("2. Get card\n");
+    printf("A. Throw card\n");
+    printf("B. Get card\n");
     printf("Enter an option:\n");
     fgets(str_option, 5, stdin);
-    str_option[strlen(str_option) - 1] = '\0';
-
-    //Si is_number = 0 , option = -1
-    //Si no, devuelve el integer (asci to int) de la opcion seleccionada
-    if (!is_number(str_option))
-        option = -1;
-    else option = atoi(str_option);
-
-    return option;
+    return str_option[0];
 }
+//int CLI_get_more_action(){
+//    char str_option[5];
+//    int option;
+//    printf("A. Throw card\n");
+//    printf("B. Get card\n");
+//    printf("Enter an option:\n");
+//    fgets(str_option, 5, stdin);
+//    str_option[strlen(str_option) - 1] = '\0';
+//
+//    //Si is_number = 0 , option = -1
+//    //Si no, devuelve el integer (asci to int) de la opcion seleccionada
+//    if (!is_number(str_option))
+//        option = -1;
+//    else option = atoi(str_option);
+//
+//    return option;
+//}
 
 /* ***** PRIVADAS ***** */
 int is_number(char *option) {

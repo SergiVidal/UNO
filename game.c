@@ -253,7 +253,7 @@ void GAME_choose_action(Game *game) {
     Player player = LISTBI_get(&game->player_list);
 
     printf("\n%s, escoge una acción:\n", player.name);
-    int option;
+    char option;
     do {
         option = CLI_get_more_action();
         switch (option) {
@@ -267,7 +267,7 @@ void GAME_choose_action(Game *game) {
                 printf("Opcion incorrecta\n\n");
                 break;
         }
-    } while (option < 1 || option > 2);
+    } while (option != 'A' && option != 'B' && option != 'a' && option != 'b');
 }
 
 
@@ -330,7 +330,7 @@ void GAME_display_actions(Game *game) {
     Player player = LISTBI_get(&game->player_list);
 
     printf("%s, escoge una acción:\n", player.name);
-    int option;
+    char option;
     do {
         option = CLI_get_action();
         switch (option) {
@@ -344,7 +344,7 @@ void GAME_display_actions(Game *game) {
                 printf("Opcion incorrecta\n\n");
                 break;
         }
-    } while (option < 1 || option > 2);
+    } while (option != 'A' && option != 'B' && option != 'a' && option != 'b');
 }
 
 void GAME_throw_card(Game *game) {
@@ -401,7 +401,7 @@ void GAME_player_pick_card(Game *game) {
         }
 
         if (!GAME_check_card(game, card)) {
-            printf("\nSe ha robado un %s - %s. No se puede jugar.\n", value, card->color);
+            printf("Se ha robado un %s - %s. No se puede jugar.\n\n", value, card->color);
             return;
         } else {
             if (card->type == 4 || card->type == 5) {
@@ -651,6 +651,21 @@ void GAME_check_card_to_throw(Game *game) {
     Player player = LISTBI_get(&game->player_list);
     Card *card = NULL;
     int option = 0;
+    int cont = 0;
+    LIST_go_first(player.handList);
+    while (player.handList->last->next != NULL) {
+        card = LIST_get(player.handList);
+        if (GAME_check_card(game, card)) {
+            cont++;
+        }
+        LIST_next(player.handList);
+    }
+    if(cont == 0){
+        printf("\nNo puedes tirar ninguna carta, robando...\n");
+        GAME_player_pick_card(game);
+        return;
+    }
+
 
     if (strcmp(player.type, "Player") == 0) {
         do {

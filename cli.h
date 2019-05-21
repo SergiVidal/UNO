@@ -5,19 +5,21 @@
 #define CLI_SHOW_STATS              2
 #define CLI_EXIT                    3
 
-#define CLI_SHOW_HAND               1
-#define CLI_GET_CARD                2
-#define CLI_PLAY_CARD               1
+#define CLI_SHOW_HAND               'A'
+#define CLI_GET_CARD                'B'
+#define CLI_PLAY_CARD               'A'
+
+void CLI_wait();
 
 int CLI_get_option();
 
-int CLI_get_action();
+char CLI_get_action();
 
 int CLI_which_color();
 
 int CLI_want_throw();
 
-int CLI_get_more_action();
+char CLI_get_more_action();
 
 int CLI_choose_card();
 #endif

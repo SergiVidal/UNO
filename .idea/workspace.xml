@@ -13,7 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a4911799-ce69-47c3-8713-9da311e4f5df" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli.c" beforeDir="false" afterPath="$PROJECT_DIR$/cli.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli.h" beforeDir="false" afterPath="$PROJECT_DIR$/cli.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.c" beforeDir="false" afterPath="$PROJECT_DIR$/game.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,65 +31,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7735">
-              <caret line="699" column="2" selection-start-line="699" selection-start-column="2" selection-end-line="699" selection-end-column="2" />
-              <folding>
-                <element signature="e#1183#1727#0" />
-                <element signature="e#1729#2076#0" />
-                <element signature="e#2078#2172#0" />
-                <element signature="e#2174#2538#0" />
-                <element signature="e#4020#4695#0" />
-                <element signature="e#4697#4954#0" />
-                <element signature="e#4956#5277#0" />
-                <element signature="e#5280#6023#0" />
-                <element signature="e#6025#7245#0" />
-                <element signature="e#7247#7830#0" />
-                <element signature="e#7833#9798#0" />
-                <element signature="e#9800#10369#0" />
-                <element signature="e#10371#10634#0" />
-              </folding>
+            <state relative-caret-position="177">
+              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/list.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-381">
-              <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/listbi.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1904">
-              <caret line="112" column="5" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/listbi.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-              <folding>
-                <element signature="e#86#104#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -94,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/game.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+            <state relative-caret-position="578">
+              <caret line="34" column="4" selection-start-line="34" selection-end-line="34" selection-end-column="4" />
               <folding>
                 <element signature="e#39#58#0" expanded="true" />
               </folding>
@@ -104,10 +62,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stack.c">
+        <entry file="file://$PROJECT_DIR$/stack.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
+            <state relative-caret-position="289">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cli.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cli.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -116,15 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>LISTBI_next</find>
-      <find>enter an</find>
-      <find>Get Card</find>
-      <find>LISTBI_show_list</find>
-      <find>GAME_show_player_list</find>
-      <find>want</find>
-      <find>game-&gt;deck.size</find>
-      <find>)++</find>
-      <find>)--</find>
       <find>STACK_is_empty(game-&gt;deck)</find>
       <find>Quedan</find>
       <find>refill</find>
@@ -145,7 +112,16 @@
       <find>STACK_pop</find>
       <find>juega</find>
       <find>bot</find>
+      <find>escoge</find>
       <find>play_bo</find>
+      <find>strcmp</find>
+      <find>CLI_SHOW</find>
+      <find>show_ca</find>
+      <find>GAME_show_cards</find>
+      <find>GAME_display_actions</find>
+      <find>Se ha robado</find>
+      <find>se ha</find>
+      <find>option</find>
     </findStrings>
     <replaceStrings>
       <replace>MAXC</replace>
@@ -171,24 +147,24 @@
         <option value="$PROJECT_DIR$/card.h" />
         <option value="$PROJECT_DIR$/config/fichero_usuario.uno" />
         <option value="$PROJECT_DIR$/config/fichero_bots.uno" />
-        <option value="$PROJECT_DIR$/cli.c" />
-        <option value="$PROJECT_DIR$/cli.h" />
         <option value="$PROJECT_DIR$/file.c" />
         <option value="$PROJECT_DIR$/file.h" />
         <option value="$PROJECT_DIR$/list.h" />
         <option value="$PROJECT_DIR$/makefile" />
         <option value="$PROJECT_DIR$/player.c" />
         <option value="$PROJECT_DIR$/player.h" />
-        <option value="$PROJECT_DIR$/stack.h" />
         <option value="$PROJECT_DIR$/fichero_bots.uno" />
         <option value="$PROJECT_DIR$/fichero_usuario.uno" />
         <option value="$PROJECT_DIR$/list.c" />
         <option value="$PROJECT_DIR$/listbi.c" />
         <option value="$PROJECT_DIR$/listbi.h" />
-        <option value="$PROJECT_DIR$/game.h" />
-        <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/game.c" />
         <option value="$PROJECT_DIR$/stack.c" />
+        <option value="$PROJECT_DIR$/game.h" />
+        <option value="$PROJECT_DIR$/game.c" />
+        <option value="$PROJECT_DIR$/stack.h" />
+        <option value="$PROJECT_DIR$/cli.h" />
+        <option value="$PROJECT_DIR$/cli.c" />
+        <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
   </component>
@@ -205,7 +181,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,6 +192,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -286,12 +262,13 @@
       <workItem from="1558384489253" duration="13878000" />
       <workItem from="1558405565038" duration="3816000" />
       <workItem from="1558435298459" duration="8081000" />
-      <workItem from="1558452526593" duration="2992000" />
+      <workItem from="1558452526593" duration="4382000" />
+      <workItem from="1558457398264" duration="3831000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120642000" />
+    <option name="totallyTimeSpent" value="125863000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -307,7 +284,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15355521" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15582451" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32969603" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.20949264" />
@@ -401,20 +378,6 @@
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/cli.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cli.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/file.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -460,13 +423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stack.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fichero_usuario.uno">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -498,27 +454,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <element signature="e#39#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/list.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-381">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -529,25 +468,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/game.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="4" selection-start-line="34" selection-end-line="34" selection-end-column="4" />
+          <folding>
+            <element signature="e#39#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stack.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cli.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/game.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7735">
-          <caret line="699" column="2" selection-start-line="699" selection-start-column="2" selection-end-line="699" selection-end-column="2" />
-          <folding>
-            <element signature="e#1183#1727#0" />
-            <element signature="e#1729#2076#0" />
-            <element signature="e#2078#2172#0" />
-            <element signature="e#2174#2538#0" />
-            <element signature="e#4020#4695#0" />
-            <element signature="e#4697#4954#0" />
-            <element signature="e#4956#5277#0" />
-            <element signature="e#5280#6023#0" />
-            <element signature="e#6025#7245#0" />
-            <element signature="e#7247#7830#0" />
-            <element signature="e#7833#9798#0" />
-            <element signature="e#9800#10369#0" />
-            <element signature="e#10371#10634#0" />
-          </folding>
+        <state relative-caret-position="177">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cli.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
         </state>
       </provider>
     </entry>
