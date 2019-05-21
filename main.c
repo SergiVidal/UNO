@@ -9,7 +9,6 @@
 //uno fichero_bots.uno fichero_usuario.uno
 // /users/home/alumnes/LS/s.vidal/CLION/UNO
 
-// TODO: No se puede empezar la partida con un +2, +4
 int main(int argc, char *argv[]) {
     if (argc >= 3) {
         Player *players;

@@ -137,7 +137,13 @@ void GAME_init_game(Game *game, Player *players) {
     game->player_list = player_list;
 
     // Quita una carta del deck (la que se va a jugar) y la pone en la pila de descarte
-    STACK_push(&game->discard_deck, STACK_pop(&game->deck));
+    Card *aux;
+    do{
+        aux = STACK_top(&game->deck);
+        STACK_pop(&game->deck);
+        STACK_push(&game->discard_deck, aux);
+    }while (aux->type != 0);
+//    STACK_push(&game->discard_deck, STACK_pop(&game->deck));
 }
 
 
@@ -815,7 +821,7 @@ void GAME_play(Game *game) {
 //            printf("-----------------------\n");
 //            printf("Before playbot\n");
 //            GAME_show_cards(game);
-            GAME_play_bot(game);
+//            GAME_play_bot(game);
 //            printf("After playbot\n");
 //            GAME_show_cards(game);
 //            printf("-----------------------\n");
