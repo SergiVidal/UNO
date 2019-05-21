@@ -11,7 +11,6 @@
 
 // TODO: Error al jugar otra vez! (CLI_PLAY)
 // TODO: No se puede empezar la partida con un +2, +4
-// TODO: Cuando Deck este vacio, llenarlo con las cartas de DiscardDeck y mezclar
 int main(int argc, char *argv[]) {
     if (argc >= 3) {
         Player *players;

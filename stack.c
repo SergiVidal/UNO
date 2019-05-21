@@ -30,7 +30,7 @@ Card* STACK_pop(Stack *stack) {
     Node *tmp = stack->last;
     stack->last = stack->last->next;
     //free(tmp);
-
+    (stack->size)--;
     return tmp->card;
 }
 

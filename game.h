@@ -34,19 +34,31 @@ void GAME_display_game_status(Game *game);
 
 void GAME_show_cards(Game *game);
 
+void GAME_throw_card(Game *game, Player player, Card *card);
+
 void GAME_player_pick_card(Game *game);
 
 void GAME_display_actions(Game *game);
 
 void GAME_play(Game *game);
 
-void GAME_throw_card(Game *game);
+void GAME_check_card_to_throw(Game *game);
 
 void GAME_play_bot(Game *game);
 
 Player GAME_get_itself(Game *game);
 
+void GAME_count_cards(Game *game);
+
 void GAME_card_behaviour(Game *game);
 
 void GAME_show_player_list(Game *game);
+
+int GAME_check_card(Game *game, Card *card);
+
+void GAME_choose_action(Game *game);
+
+void GAME_get_card(Game *game, Player player, Card *card);
+
+
 #endif //UNO_GAME_H
