@@ -72,9 +72,9 @@ int LIST_next(PDIList *list) {
     return 1;
 }
 
-//int LIST_end (PDIList list){
-//    return list.last->next == NULL; // Si es NULL retorna 1 (Si is empty)
-//}
+int LIST_end (PDIList list){
+    return list.last->next == NULL; // Si es NULL retorna 1 (Si is empty)
+}
 
 //void LIST_destroy (PDIList *list) {
 //    PDI_LIST_go_first(list);
