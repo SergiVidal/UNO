@@ -43,6 +43,10 @@ int main(int argc, char *argv[]) {
                     break;
                 case CLI_EXIT:
                     printf("Fin del programa.\n");
+                    players = NULL;
+                    bots = NULL;
+                    free(bots);
+                    free(players);
                     break;
                 default:
                     printf("Opcion incorrecta\n\n");

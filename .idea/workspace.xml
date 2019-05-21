@@ -12,10 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4911799-ce69-47c3-8713-9da311e4f5df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/game.c" beforeDir="false" afterPath="$PROJECT_DIR$/game.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.h" beforeDir="false" afterPath="$PROJECT_DIR$/game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listbi.c" beforeDir="false" afterPath="$PROJECT_DIR$/listbi.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listbi.h" beforeDir="false" afterPath="$PROJECT_DIR$/listbi.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -56,8 +52,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="816">
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -277,12 +273,12 @@
       <workItem from="1558002613178" duration="5441000" />
       <workItem from="1558384489253" duration="13878000" />
       <workItem from="1558405565038" duration="3816000" />
-      <workItem from="1558435298459" duration="7956000" />
+      <workItem from="1558435298459" duration="7995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117525000" />
+    <option name="totallyTimeSpent" value="117564000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,10 +294,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15143085" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15143085" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32969603" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.21044427" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.21044427" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.3289689" />
@@ -526,8 +522,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="816">
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
         </state>
       </provider>
     </entry>
