@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
         Player *players;
         Player *bots;
         Player player;
+        Player aux;
         Game game = {0, 0, NULL, NULL, NULL};
         int option;
 
@@ -30,20 +31,32 @@ int main(int argc, char *argv[]) {
             printf("\n");
             switch (option) {
                 case CLI_PLAY:
-
-
-
                     GAME_init_game(&game, players);
-
                     GAME_play(&game);
 
-
-                    players = NULL;
-                    bots = NULL;
-                    free(bots);
-                    free(players);
+                    GAME_restart_game(&game);
                     break;
                 case CLI_SHOW_STATS:
+
+                    printf("UNO - Stats\n");
+                    do {
+                        option = CLI_show_stats();
+                        switch (option) {
+                            case CLI_PLAYER:
+                                printf("UNO - Player Stats\n");
+                                GAME_show_player_stats(player);
+                                break;
+                            case CLI_BOTS:
+                                printf("UNO - Bots Stats\n");
+                                GAME_show_bots_stats(bots, game.total_players);
+                                break;
+                            case CLI_BACK:
+                                break;
+                            default:
+                                printf("Opcion incorrecta\n\n");
+                                break;
+                        }
+                    } while (option != CLI_BACK);
                     break;
                 case CLI_EXIT:
                     printf("Fin del programa.\n");

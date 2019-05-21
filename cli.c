@@ -93,41 +93,27 @@ int CLI_want_throw(){
     return option;
 }
 
-
-char CLI_get_action() {
+int CLI_show_stats(){
     char str_option[5];
-    printf("A. Show card\n");
-    printf("B. Get card\n");
-    printf("Enter an option:\n");
+    int option;
+
+    printf("Enter statistic option:\n");
+    printf("1. Player\n");
+    printf("2. Bots\n");
+    printf("3. Back to menu\n");
     fgets(str_option, 5, stdin);
-    return str_option[0];
+    str_option[strlen(str_option) - 1] = '\0';
+
+    //Si is_number = 0 , option = -1
+    //Si no, devuelve el integer (asci to int) de la opcion seleccionada
+    if (!is_number(str_option))
+        option = -1;
+    else option = atoi(str_option);
+
+    return option;
 }
 
-char CLI_get_more_action(){
-    char str_option[5];
-    printf("A. Throw card\n");
-    printf("B. Get card\n");
-    printf("Enter an option:\n");
-    fgets(str_option, 5, stdin);
-    return str_option[0];
-}
-//int CLI_get_more_action(){
-//    char str_option[5];
-//    int option;
-//    printf("A. Throw card\n");
-//    printf("B. Get card\n");
-//    printf("Enter an option:\n");
-//    fgets(str_option, 5, stdin);
-//    str_option[strlen(str_option) - 1] = '\0';
-//
-//    //Si is_number = 0 , option = -1
-//    //Si no, devuelve el integer (asci to int) de la opcion seleccionada
-//    if (!is_number(str_option))
-//        option = -1;
-//    else option = atoi(str_option);
-//
-//    return option;
-//}
+
 
 /* ***** PRIVADAS ***** */
 int is_number(char *option) {

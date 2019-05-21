@@ -15,6 +15,8 @@ char to_upper();
 
 void swap(Player *p1, Player *p2);
 
+int roundnear(int n);
+
 /* ***** PUBLIC ***** */
 
 Player *GAME_create_bots(char *filename, Game *game) {
@@ -22,7 +24,6 @@ Player *GAME_create_bots(char *filename, Game *game) {
     Player *players = NULL;
     char skip;
     int total = 0;
-
     f = fopen(filename, "r");
     if (f == NULL) {
         printf("Error intentando abrir el fichero %s\n", filename);
@@ -196,8 +197,8 @@ int GAME_is_end(Game *game) {
                 printf("%s ha ganado la partida. Te quedaban %d en mano.\n", n->player.name,
                        GAME_get_itself(game).num_cards);
             }
+            CLI_wait();
 //            LISTBI_destroy(&game->player_list);
-            game->total_players = 0;
             game->direction = 0;
             STACK_delete(&game->deck);
             STACK_delete(&game->discard_deck);
@@ -599,7 +600,7 @@ void GAME_check_card_to_throw(Game *game) {
         }
         LIST_next(player.handList);
     }
-    if(cont == 0){
+    if (cont == 0) {
         printf("\nNo puedes tirar ninguna carta, robando...\n");
         GAME_player_pick_card(game);
         return;
@@ -644,8 +645,6 @@ void GAME_check_card_to_throw(Game *game) {
  4.2 Agresivo - Si roba un comodin lo tirara
  */
 
-
-//TODO: Falta implementar caracter (Agresivo/Calmado)
 void GAME_play_bot(Game *game) {
     Player player = LISTBI_get(&game->player_list);
     Card actual_card = game->discard_deck.last->card;
@@ -673,7 +672,7 @@ void GAME_play_bot(Game *game) {
                     GAME_throw_card(game, player, player_card);
                     return;
                     // 2.3 = Color / Especial
-                } else if (actual_card.type > 0 && actual_card.type < 4){
+                } else if (actual_card.type > 0 && actual_card.type < 4) {
                     GAME_throw_card(game, player, player_card);
                     return;
                 }
@@ -728,8 +727,66 @@ void GAME_play(Game *game) {
     }
 }
 
+void GAME_restart_game(Game *game) {
+    Player player;
+    LISTBI_go_first(&game->player_list);
+    for (int i = 0; i < game->total_players; i++) {
+        player = LISTBI_get(&game->player_list);
+        LIST_destroy(player.handList);
+        game->player_list.pdi->player.num_cards = 0;
+        LISTBI_next(&game->player_list);
+    }
+}
+
+// TODO: check roundwins
+void GAME_show_player_stats(Player player) {
+    printf("Nombre: %s\n\n", player.name);
+
+    int total = player.wins + player.loses;
+    float wins = ((float) player.wins / total) * 100;
+    float loses = ((float) player.loses / total) * 100;
+
+    char visual_wins[MAXC];
+    char visual_loses[MAXC];
+
+//    int winpoints = (int)wins % 10;
+//    printf("%d\n", winpoints);
+
+    int roundwins = roundnear((int) wins) / 10;
+    printf("%d\n", roundwins);
+    for (int i = 0; i < roundwins; i++) {
+        visual_wins[i] = '.';
+    }
+
+    int roundloses = roundnear((int) loses) / 10;
+    printf("%d\n", roundloses);
+    for (int i = 0; i < roundloses; i++) {
+        visual_loses[i] = '.';
+    }
+
+    printf("Games Stats:\n");
+    printf("\t Wins: %s %d (%.2f percent)\n", visual_wins, player.wins, wins);
+    printf("\t Loses: %s %d (%.2f percent)\n", visual_loses, player.loses, loses);
+
+    CLI_wait();
+
+}
+
+void GAME_show_bots_stats(Player *bots, int total) {
+    printf("Name \t\t\t Wins \t\t\t Loses\n");
+    printf("---------------------------------------------------------------------\n");
+    for (int i = 0; i < total; ++i) {
+        printf("%s \t\t\t \n", bots[i].name);
+
+    }
+    printf("---------------------------------------------------------------------\n");
+
+
+}
+
+
 /* ***** PRIVADAS ***** */
-char to_upper(){
+char to_upper() {
     char input[5];
     fgets(input, 5, stdin);
 
@@ -744,4 +801,15 @@ void swap(Player *p1, Player *p2) {
     Player tmp = *p1;
     *p1 = *p2;
     *p2 = tmp;
+}
+
+int roundnear(int n) {
+    // Smaller multiple
+    int a = (n / 10) * 10;
+
+    // Larger multiple
+    int b = a + 10;
+
+    // Return of closest of two
+    return (n - a > b - n) ? b : a;
 }

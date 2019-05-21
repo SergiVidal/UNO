@@ -38,12 +38,13 @@ void LIST_go_first(PDIList *list) {
 }
 
 int LIST_remove(PDIList *list) {
-    if (list->last->next == NULL) { // estem al final
+    if (LIST_end(*list)) { // estem al final
         return 0;
     }
     Node *tmp = list->last->next; // Serveix per eliminar de memoria
     list->last->next = list->last->next->next; // Equivalent: list->last->next = tmp->next:
     free(tmp);
+    (list->size)--;
 
     return 1;
 }
@@ -57,9 +58,9 @@ Card LIST_get(PDIList *list) {
 }
 
 // NULL = 0 (direccion memoria 0x00000)
-//int LIST_is_empty(PDIList list) {
-//    return list.first->next == NULL; // Si es NULL retorna 1 (Si is empty)
-//}
+int LIST_is_empty(PDIList list) {
+    return list.first->next == NULL; // Si es NULL retorna 1 (Si is empty)
+}
 
 
 //
@@ -76,11 +77,11 @@ int LIST_end (PDIList list){
     return list.last->next == NULL; // Si es NULL retorna 1 (Si is empty)
 }
 
-//void LIST_destroy (PDIList *list) {
-//    PDI_LIST_go_first(list);
-//    while (!PDI_LIST_is_empty(List*)) { // llista no buida
-//        PDI_LIST_remove(list);
-//    }
-//    free(list->fist); // elimino el node fantasma
-//    list->first = list->last = NULL;
-//}
+void LIST_destroy (PDIList *list) {
+    LIST_go_first(list);
+    while (!LIST_is_empty(*list)) { // llista no buida
+        LIST_remove(list);
+    }
+    free(list->first); // elimino el node fantasma
+    list->first = list->last = NULL;
+}

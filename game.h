@@ -56,4 +56,10 @@ void GAME_choose_action(Game *game);
 
 void GAME_get_card(Game *game, Player player, Card card);
 
+void GAME_restart_game(Game *game);
+
+void GAME_show_player_stats(Player player);
+
+void GAME_show_bots_stats(Player *bots, int total);
+
 #endif //UNO_GAME_H
