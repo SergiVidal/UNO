@@ -11,7 +11,7 @@
 //    Game game = {0, 0, NULL, NULL, NULL};
 //    return game;
 //}
-// TODO: Check player pick card and throw
+// TODO: Check player pick card and throw, try to use function
 
 Player *GAME_create_bots(char *filename, Game *game) {
     FILE *f = NULL;
@@ -431,7 +431,7 @@ void GAME_player_pick_card(Game *game) {
 //    GAME_show_cards(player);
 }
 
-// TODO: Crear funcion que devuelva el color que mas posee un jugador
+// TODO: No cuenta bien las cartas
 void GAME_count_cards(Game *game) {
     int red = 0, blue = 0, green = 0, yellow = 0;
     char max[MAXC];
@@ -469,7 +469,6 @@ void GAME_get_card(Game *game, Player player, Card *card) {
     (game->player_list.pdi->player.num_cards)++;
 }
 
-// TODO: Posible coredumped en los +2/+4, el +4 no salta bien el turno a los bots
 // Se ejecuta una vez la carta tirada esta en la pila de descarte
 void GAME_card_behaviour(Game *game) {
     Card *card = game->discard_deck.last->card;
