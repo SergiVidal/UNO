@@ -61,10 +61,10 @@ Player GAME_create_player(char *filename, Game *game) {
         fscanf(f, "%d", &player.wins);
         fscanf(f, "%d", &player.loses);
         total = player.wins + player.loses;
-        printf("Total games: %d\n", total);
-//        for (int i = 0; i < total; ++i) {
-//            fscanf(f, "%d", &player.previous_games[i]);
-//        }
+//        printf("Total games (Create player): %d\n", total);
+        for (int i = 0; i < total; ++i) {
+            fscanf(f, "%d", &player.previous_games[i]);
+        }
 
         strcpy(player.type, "Player");
         player.num_cards = 7;
@@ -90,8 +90,8 @@ Player *GAME_create_player_list(Player *bots, Player player, Game *game) {
 void GAME_refresh_file(Game *game) {
     FILE *f = NULL;
     Player player = GAME_get_itself(game);
-//    int total = player.wins + player.loses;
-
+    int total = 0;
+    total = player.wins + player.loses;
     f = fopen(PLAYER_FILE, "w");
     if (f == NULL) {
         printf("Error intentando abrir el fichero %s\n", PLAYER_FILE);
@@ -105,9 +105,11 @@ void GAME_refresh_file(Game *game) {
 
         fprintf(f, "%d", player.loses);
         fprintf(f, "%s", "\n");
-//        for (int i = 0; i < total; ++i) {
-//            fprintf(f, "%d", player.previous_games[i]);
-//        }
+        for (int i = 0; i < total; ++i) {
+            fprintf(f, "%d", player.previous_games[i]);
+            fprintf(f, "%s", "\n");
+
+        }
 
     }
 
@@ -220,21 +222,24 @@ int GAME_check_card(Game *game, Card card) {
     }
 }
 
-//TODO: Escribir en fichero los resultados
+//TODO: Escribir en fichero los resultados, primer partida funciona, las demas no
 int GAME_is_end(Game *game) {
-//    GAME_refresh_file(game);
     NodeBi *n = game->player_list.first->next;
+    int total = 0;
     while (n->next != NULL) {
-        if (n->player.num_cards == 0) {
+//        if (n->player.num_cards == 0) {
             if (strcmp(n->player.type, "Player") == 0) {
                 printf("Has ganado la partida!\n");
                 n->player.wins++;
-//                GAME_refresh_file(game);
-            } else {
-                printf("%s ha ganado la partida. Te quedaban %d en mano.\n", n->player.name,
-                       GAME_get_itself(game).num_cards);
-                n->player.wins++;
-            }
+                printf("Wins: %d\n", n->player.wins);
+                total = n->player.wins + n->player.loses;
+                n->player.previous_games[total - 1] = n->player.num_cards;
+                GAME_refresh_file(game);
+//            } else {
+//                printf("%s ha ganado la partida. Te quedaban %d en mano.\n", n->player.name,
+//                       GAME_get_itself(game).num_cards);
+//                n->player.wins++;
+//            }
             GAME_restart_game(game);
 
             return 1; // Empty
@@ -794,13 +799,13 @@ void GAME_show_player_stats(Player player) {
 //    printf("%d\n", winpoints);
 
     int roundwins = roundnear((int) wins) / 10;
-    printf("%d\n", roundwins);
+//    printf("%d\n", roundwins);
     for (int i = 0; i < roundwins; i++) {
         visual_wins[i] = '.';
     }
 
     int roundloses = roundnear((int) loses) / 10;
-    printf("%d\n", roundloses);
+//    printf("%d\n", roundloses);
     for (int i = 0; i < roundloses; i++) {
         visual_loses[i] = '.';
     }
