@@ -4,6 +4,8 @@
 #include "player.h"
 #include "listbi.h"
 
+#define PLAYER_FILE "fichero_usuario.uno"
+
 typedef struct {
     int total_players;
     int direction; // 0 = horario, 1 = antihorario
@@ -17,6 +19,8 @@ Player* GAME_create_bots(char * filename, Game *game);
 Player GAME_create_player(char * filename, Game *game);
 
 Player* GAME_create_player_list(Player *bots, Player player, Game *game);
+
+void GAME_refresh_file(Game *game);
 
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game);
 

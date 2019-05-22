@@ -8,110 +8,104 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/tmp/tmp.BiGRO0AJqi/cmake-build-debug"/>
+				<Option working_dir="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/tmp/tmp.BiGRO0AJqi/cmake-build-debug"/>
+				<Option working_dir="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="UNO">
-				<Option output="/tmp/tmp.BiGRO0AJqi/cmake-build-debug/UNO" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.BiGRO0AJqi/cmake-build-debug"/>
+				<Option output="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/UNO" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 UNO"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 UNO"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="UNO/fast">
-				<Option output="/tmp/tmp.BiGRO0AJqi/cmake-build-debug/UNO" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/tmp/tmp.BiGRO0AJqi/cmake-build-debug"/>
+				<Option output="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/UNO" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir=""/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 UNO/fast"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 UNO/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/tmp/tmp.BiGRO0AJqi/cmake-build-debug"/>
+				<Option working_dir="/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/tmp/tmp.BiGRO0AJqi/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/cli.c">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/cli.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/cli.h">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/cli.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/file.c">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/game.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/file.h">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/game.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/game.c">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/list.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/game.h">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/list.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/list.c">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/listbi.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/list.h">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/listbi.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/listbi.c">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/main.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/listbi.h">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/player.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/main.c">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/player.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/player.c">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/stack.c">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/player.h">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/stack.h">
 			<Option target="UNO"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/stack.c">
-			<Option target="UNO"/>
-		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/stack.h">
-			<Option target="UNO"/>
-		</Unit>
-		<Unit filename="/tmp/tmp.BiGRO0AJqi/CMakeLists.txt">
+		<Unit filename="/users/home/alumnes/LS/s.vidal/CLION/UNO/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -51,7 +51,7 @@ Player *GAME_create_bots(char *filename, Game *game) {
 Player GAME_create_player(char *filename, Game *game) {
     FILE *f = NULL;
     Player player;
-
+    int total = 0;
     f = fopen(filename, "r");
     if (f == NULL) {
         printf("Error intentando abrir el fichero %s\n", filename);
@@ -60,6 +60,12 @@ Player GAME_create_player(char *filename, Game *game) {
         player.name[strlen(player.name) - 1] = '\0';
         fscanf(f, "%d", &player.wins);
         fscanf(f, "%d", &player.loses);
+        total = player.wins + player.loses;
+        printf("Total games: %d\n", total);
+//        for (int i = 0; i < total; ++i) {
+//            fscanf(f, "%d", &player.previous_games[i]);
+//        }
+
         strcpy(player.type, "Player");
         player.num_cards = 7;
         (game->total_players)++;
@@ -80,6 +86,34 @@ Player *GAME_create_player_list(Player *bots, Player player, Game *game) {
 
     return players;
 }
+
+void GAME_refresh_file(Game *game) {
+    FILE *f = NULL;
+    Player player = GAME_get_itself(game);
+//    int total = player.wins + player.loses;
+
+    f = fopen(PLAYER_FILE, "w");
+    if (f == NULL) {
+        printf("Error intentando abrir el fichero %s\n", PLAYER_FILE);
+    } else {
+
+        fprintf(f, "%s", player.name);
+        fprintf(f, "%s", "\n");
+
+        fprintf(f, "%d", player.wins);
+        fprintf(f, "%s", "\n");
+
+        fprintf(f, "%d", player.loses);
+        fprintf(f, "%s", "\n");
+//        for (int i = 0; i < total; ++i) {
+//            fprintf(f, "%d", player.previous_games[i]);
+//        }
+
+    }
+
+    fclose(f);
+}
+
 
 void GAME_sort_by_name(Player *players, int length) {
     int min_pos;
@@ -188,17 +222,21 @@ int GAME_check_card(Game *game, Card card) {
 
 //TODO: Escribir en fichero los resultados
 int GAME_is_end(Game *game) {
+//    GAME_refresh_file(game);
     NodeBi *n = game->player_list.first->next;
     while (n->next != NULL) {
         if (n->player.num_cards == 0) {
             if (strcmp(n->player.type, "Player") == 0) {
                 printf("Has ganado la partida!\n");
                 n->player.wins++;
+//                GAME_refresh_file(game);
             } else {
                 printf("%s ha ganado la partida. Te quedaban %d en mano.\n", n->player.name,
                        GAME_get_itself(game).num_cards);
                 n->player.wins++;
             }
+            GAME_restart_game(game);
+
             return 1; // Empty
         }
         n = n->next;
@@ -789,10 +827,10 @@ void GAME_show_bots_stats(Player *bots, int total_players) {
     printf("---------------------------------------------------------------------\n");
     for (int i = 0; i < total_players - 1; ++i) {
         printf("%s \t\t\t %d \t\t\t\t %d\n", bots[i].name, bots[i].wins, bots[i].loses);
-        if(strcmp(bots[i].type, "Agresivo") == 0){
+        if (strcmp(bots[i].type, "Agresivo") == 0) {
             aggree_wins = aggree_wins + bots[i].wins;
             aggre_loses = aggre_loses + bots[i].loses;
-        } else{
+        } else {
             calm_wins = calm_wins + bots[i].wins;
             calm_loses = calm_loses + bots[i].loses;
         }
@@ -810,10 +848,13 @@ void GAME_show_bots_stats(Player *bots, int total_players) {
     float total_winsper = ((float) total_wins / total) * 100;
     float total_losesper = ((float) total_loses / total) * 100;
     printf("---------------------------------------------------------------------\n");
-    printf("Agresivo \t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", aggree_wins, aggree_winsper, aggre_loses, aggreelosesper);
-    printf("Calmados \t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", calm_wins, calm_winsper, calm_loses, calm_losesper);
+    printf("Agresivo \t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", aggree_wins, aggree_winsper, aggre_loses,
+           aggreelosesper);
+    printf("Calmados \t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", calm_wins, calm_winsper, calm_loses,
+           calm_losesper);
     printf("---------------------------------------------------------------------\n");
-    printf("Total \t\t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", total_wins, total_winsper, total_loses, total_losesper);
+    printf("Total \t\t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", total_wins, total_winsper, total_loses,
+           total_losesper);
     printf("---------------------------------------------------------------------\n");
 }
 

@@ -12,6 +12,7 @@ typedef struct {
     int wins;
     int loses;
     PDIList *handList;
+//    int previous_games[MAXC];
 } Player;
 
 //typedef struct {

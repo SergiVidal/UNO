@@ -34,7 +34,6 @@ int main(int argc, char *argv[]) {
                     GAME_init_game(&game, players);
                     GAME_play(&game);
 
-                    GAME_restart_game(&game);
                     break;
                 case CLI_SHOW_STATS:
 

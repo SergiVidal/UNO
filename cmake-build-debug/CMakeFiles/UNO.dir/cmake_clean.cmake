@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/UNO.dir/main.c.o"
   "CMakeFiles/UNO.dir/cli.c.o"
-  "CMakeFiles/UNO.dir/file.c.o"
   "CMakeFiles/UNO.dir/game.c.o"
   "CMakeFiles/UNO.dir/player.c.o"
   "CMakeFiles/UNO.dir/stack.c.o"

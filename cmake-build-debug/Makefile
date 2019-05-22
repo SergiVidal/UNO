@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.BiGRO0AJqi
+CMAKE_SOURCE_DIR = /users/home/alumnes/LS/s.vidal/CLION/UNO
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.BiGRO0AJqi/cmake-build-debug
+CMAKE_BINARY_DIR = /users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles /tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles /users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/tmp.BiGRO0AJqi/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /users/home/alumnes/LS/s.vidal/CLION/UNO/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -149,33 +149,6 @@ cli.s: cli.c.s
 cli.c.s:
 	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/cli.c.s
 .PHONY : cli.c.s
-
-file.o: file.c.o
-
-.PHONY : file.o
-
-# target to build an object file
-file.c.o:
-	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/file.c.o
-.PHONY : file.c.o
-
-file.i: file.c.i
-
-.PHONY : file.i
-
-# target to preprocess a source file
-file.c.i:
-	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/file.c.i
-.PHONY : file.c.i
-
-file.s: file.c.s
-
-.PHONY : file.s
-
-# target to generate assembly for a file
-file.c.s:
-	$(MAKE) -f CMakeFiles/UNO.dir/build.make CMakeFiles/UNO.dir/file.c.s
-.PHONY : file.c.s
 
 game.o: game.c.o
 
@@ -351,9 +324,6 @@ help:
 	@echo "... cli.o"
 	@echo "... cli.i"
 	@echo "... cli.s"
-	@echo "... file.o"
-	@echo "... file.i"
-	@echo "... file.s"
 	@echo "... game.o"
 	@echo "... game.i"
 	@echo "... game.s"
