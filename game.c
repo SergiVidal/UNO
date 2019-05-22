@@ -67,7 +67,7 @@ Player GAME_create_player(char *filename, Game *game) {
         }
 
         strcpy(player.type, "Player");
-        player.num_cards = 0;
+        player.num_cards = 7;
         (game->total_players)++;
         fclose(f);
     }
@@ -237,7 +237,7 @@ int GAME_is_end(Game *game, Player *players) {
     while (n->next != NULL) {
         //Si alguno HA GANADO
         if (n->player.num_cards == 0) {
-            // Si gana el player = 0k
+            // Si gana el player = OK
             if (strcmp(n->player.type, "Player") == 0) {
                 printf("\n\nHas ganado la partida!\n");
 
@@ -267,9 +267,9 @@ int GAME_is_end(Game *game, Player *players) {
                         printf("%s - Wins: %d\n", players[i].name, players[i].wins);
                     } else {
                         players[i].loses++;
-                        printf("%s - Wins: %d\n", players[i].name, players[i].loses);
+                        printf("%s - Loses: %d\n", players[i].name, players[i].loses);
                         if (strcmp(players[i].type, "Player") == 0) {
-                            printf("%s ha ganado la partida. Te quedaban %d en mano.\n", players[i].name,
+                            printf("%s ha ganado la partida. Te quedaban %d en mano.\n", n->player.name,
                                    players[i].num_cards);
                             //Add Cards
                             total = players[i].wins + players[i].loses;
