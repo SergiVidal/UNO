@@ -24,6 +24,7 @@ int main(int argc, char *argv[]) {
         players = GAME_create_player_list(bots, player, &game);
 
         do {
+            GAME_init_game(&game, players);
             CLI_wait();
 
             system("clear");
@@ -31,8 +32,7 @@ int main(int argc, char *argv[]) {
             printf("\n");
             switch (option) {
                 case CLI_PLAY:
-                    GAME_init_game(&game, players);
-                    GAME_play(&game);
+                    GAME_play(&game, players);
 
                     break;
                 case CLI_SHOW_STATS:
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
                         switch (option) {
                             case CLI_PLAYER:
                                 printf("UNO - Player Stats\n");
-                                GAME_show_player_stats(player);
+                                GAME_show_player_stats(&game);
                                 break;
                             case CLI_BOTS:
                                 printf("UNO - Bots Stats\n");

@@ -20,7 +20,7 @@ Player GAME_create_player(char * filename, Game *game);
 
 Player* GAME_create_player_list(Player *bots, Player player, Game *game);
 
-void GAME_refresh_file(Game *game);
+void GAME_refresh_file(Game *game, Player *players);
 
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game);
 
@@ -28,7 +28,7 @@ void GAME_sort_by_name(Player *players, int length);
 
 void GAME_init_game(Game *game, Player *players);
 
-int GAME_is_end(Game *game);
+int GAME_is_end(Game *game, Player *players);
 
 void GAME_display_game_status(Game *game);
 
@@ -40,7 +40,7 @@ void GAME_player_pick_card(Game *game);
 
 void GAME_display_actions(Game *game);
 
-void GAME_play(Game *game);
+void GAME_play(Game *game, Player *players);
 
 void GAME_check_card_to_throw(Game *game);
 
@@ -62,7 +62,7 @@ void GAME_get_card(Game *game, Player player, Card card);
 
 void GAME_restart_game(Game *game);
 
-void GAME_show_player_stats(Player player);
+void GAME_show_player_stats(Game *game);
 
 void GAME_show_bots_stats(Player *bots, int total);
 
