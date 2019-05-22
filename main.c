@@ -5,6 +5,7 @@
 #include "stack.h"
 #include "player.h"
 #include "game.h"
+#include "file.h"
 
 //uno fichero_bots.uno fichero_usuario.uno
 // /users/home/alumnes/LS/s.vidal/CLION/UNO
@@ -18,8 +19,8 @@ int main(int argc, char *argv[]) {
         int option;
 
         // Crea Bots y Jugador
-        bots = GAME_create_bots(argv[1], &game);
-        player = GAME_create_player(argv[2], &game);
+        bots = FILE_create_bots(argv[1], &game);
+        player = FILE_create_player(argv[2], &game);
         players = GAME_create_player_list(bots, player, &game);
 
         do {

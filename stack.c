@@ -4,12 +4,22 @@
 
 #include "stack.h"
 
+/**
+ * Crea la estructura de datos Stack
+ * @return - Stack
+ */
 Stack STACK_create() {
     Stack s = {0, NULL};
 
     return s;
 }
 
+/**
+ * Inserta un elemento al Stack
+ * @param stack - Stack
+ * @param card - Carta
+ * @return - True/False
+ */
 int STACK_push(Stack *stack, Card card) {
     Node *node = (Node *) malloc(sizeof(Node));
 
@@ -22,8 +32,11 @@ int STACK_push(Stack *stack, Card card) {
     (stack->size)++;
     return 1;
 }
-
-// Pre: stack is not empty
+/**
+ * Elimina el ultimo elemento del Stack
+ * @param stack - Stack
+ * @return - Devuelve el elemento
+ */
 Card STACK_pop(Stack *stack) {
     if (stack->last == NULL) // vacía
         return stack->last->card;
@@ -35,6 +48,11 @@ Card STACK_pop(Stack *stack) {
     return tmp->card;
 }
 
+/**
+ * Devuelve el ultimo elemento del Stack
+ * @param stack - Stack
+ * @return - Devuelve el elemento
+ */
 Card STACK_top(Stack *stack) {
     if (stack->last == NULL)
         return stack->last->card;
@@ -42,6 +60,11 @@ Card STACK_top(Stack *stack) {
     return stack->last->card;
 }
 
+/**
+ * Comprueba si el Stack esta vacio
+ * @param stack - Stack
+ * @return - True/False
+ */
 int STACK_is_empty(Stack stack) {
     if(stack.last == NULL){
         return 1;
@@ -49,12 +72,21 @@ int STACK_is_empty(Stack stack) {
     return 0;
 }
 
+/**
+ * Elimina todos los elementos del Stack
+ * @param stack - Stack
+ */
 void STACK_delete(Stack *stack) {
     while (stack->last != NULL){
         STACK_pop(stack);
     }
 }
 
+/**
+ * No se requiere su utilización (Utilizado para testear)
+ * Muestra el contenido del stack
+ * @param stack - Stack
+ */
 void STACK_show_stack(Stack stack) {
     Node *aux = stack.last;
     int cont = 1;
@@ -66,6 +98,13 @@ void STACK_show_stack(Stack stack) {
     free(aux);
 }
 
+/**
+ * Permite la creación e insercion de un elemento
+ * @param stack - Stack
+ * @param value - Valor de la Carta
+ * @param type - Tipo de la Carta
+ * @param color - Color de la Carta
+ */
 void STACK_create_card(Stack *stack, int value, int type, char color[MAXC]){
     Card card;
     card.value = value;
@@ -74,6 +113,10 @@ void STACK_create_card(Stack *stack, int value, int type, char color[MAXC]){
     STACK_push(stack, card); // A cada push s'incrementa el stack.size +1
 }
 
+/**
+ * Llena el Stack con elementos (Baraja de Cartas)
+ * @return - Devuelve el Stack
+ */
 Stack STACK_fill_deck() {
     Stack stack = STACK_create();
     // Numbers
@@ -132,7 +175,11 @@ Stack STACK_fill_deck() {
     return stack;
 }
 
-//SIEMPRE SALE MISMA COMBINACIÓN DE RANDOM!!!
+/**
+ * Mezcla los elementos del Stack
+ * @param s - Stack
+ * @return - Devuelve el Stack
+ */
 Stack STACK_randomize(Stack *s){
     //Creo un array de nodos y lo lleno a partir del Stack (LIFO)
     Node *node = (Node *) malloc(sizeof(Node) * s->size);

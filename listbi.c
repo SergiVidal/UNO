@@ -5,6 +5,10 @@
 #include "listbi.h"
 #include "player.h"
 
+/**
+ * Crea la estructura de datos Lista Bidireccional
+ * @return - Lista Bidireccional
+ */
 ListBi LISTBI_create(){
     ListBi list;
 
@@ -32,7 +36,12 @@ ListBi LISTBI_create(){
 
     return list;
 }
-
+/**
+ * Permite insertar un elemento a la Lista Bidireccional
+ * @param list - Lista
+ * @param player - Player
+ * @return - True/False
+ */
 int LISTBI_insert(ListBi *list, Player *player){
     NodeBi *n = (NodeBi *) malloc(sizeof(NodeBi));
 
@@ -50,11 +59,19 @@ int LISTBI_insert(ListBi *list, Player *player){
     return 1;
 }
 
+/**
+ * Mueve el cursor al principio de la Lista Bidireccional
+ * @param list - Lista
+ */
 void LISTBI_go_first(ListBi *list){
     list->pdi = list->first->next;
 }
 
-//Util para pasar los turnos en direccion Horaria
+/**
+ * Desplaza el cursor una posición a la derecha
+ * @param list - Lista Bidireccional
+ * @return - True/False
+ */
 int LISTBI_next(ListBi *list){
     if (list->pdi != list->first && list->pdi != list->last) {
         if(list->pdi->next == list->last){
@@ -66,6 +83,11 @@ int LISTBI_next(ListBi *list){
     return 1;
 }
 
+/**
+ * Desplaza el cursor una posición a la izquierda
+ * @param list - Lista Bidireccional
+ * @return - True/False
+ */
 int LISTBI_previous(ListBi *list){
     if (list->pdi != list->first && list->pdi != list->last) {
         if(list->pdi->prev == list->first){
@@ -77,6 +99,11 @@ int LISTBI_previous(ListBi *list){
     return 1;
 }
 
+/**
+ * Obtiene el elemento donde apunta el cursor
+ * @param list - Lista Bidireccional
+ * @return - Devuelve el elemento
+ */
 Player LISTBI_get(ListBi *list){
     if (list->pdi == list->first || list->pdi == list->last) {
         printf("No existe ningun jugador!\n\n");
@@ -84,6 +111,11 @@ Player LISTBI_get(ListBi *list){
     return list->pdi->player;
 }
 
+/**
+ * Elimina un elemento de la lista
+ * @param list - Lista Bidireccional
+ * @return - True/False
+ */
 int LISTBI_remove(ListBi *list){
     if (list->pdi == list->first || list->pdi == list->last) { // No puedes eliminar los nodos fantasmas first o last
         //printf("Error no se ha podido eliminar la canción\n\n");
@@ -109,7 +141,11 @@ int LISTBI_remove(ListBi *list){
     free(tmp);
     return 1;
 }
-
+/**
+ * No se requiere su utilizacion
+ * Destruye la Lista Bidireccional
+ * @param list - Lista Bidireccional
+ */
 void LISTBI_destroy(ListBi *list){
     while (list->first->next != list->last) { // llista no buida
         LISTBI_remove(list);

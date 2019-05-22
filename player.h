@@ -15,9 +15,4 @@ typedef struct {
     int previous_games[MAXC];
 } Player;
 
-//typedef struct {
-//    char name[MAXC];
-//    int cartas_anteriores[MAXC];
-//} PlayerStat;
-
 #endif //UNO_PLAYER_H

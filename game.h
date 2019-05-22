@@ -14,13 +14,7 @@ typedef struct {
     Stack discard_deck;
 } Game;
 
-Player* GAME_create_bots(char * filename, Game *game);
-
-Player GAME_create_player(char * filename, Game *game);
-
 Player* GAME_create_player_list(Player *bots, Player player, Game *game);
-
-void GAME_refresh_file(Game *game, Player *players);
 
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game);
 

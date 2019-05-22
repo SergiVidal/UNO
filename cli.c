@@ -9,7 +9,9 @@
 int is_number(char *option);
 
 /* ***** PUBLIC ***** */
-
+/**
+ * Permite al programa esperar a que el usuario interactue para continuar la ejecución
+ */
 void CLI_wait(){
     char aux;
     do{
@@ -18,6 +20,10 @@ void CLI_wait(){
     }while(aux != '\n');
 }
 
+/**
+ * Muestra opciones y pide al usuario una eleccion
+ * @return - Opcion
+ */
 int CLI_get_option() {
     char str_option[5];
     int option;
@@ -38,6 +44,10 @@ int CLI_get_option() {
     return option;
 }
 
+/**
+ * Muestra opciones y pide al usuario una eleccion
+ * @return - Opcion
+ */
 int CLI_choose_card() {
     char str_option[5];
     int option;
@@ -55,6 +65,10 @@ int CLI_choose_card() {
     return option;
 }
 
+/**
+ * Muestra opciones y pide al usuario una eleccion
+ * @return - Opcion
+ */
 int CLI_which_color(){
     char str_option[5];
     int option;
@@ -76,7 +90,10 @@ int CLI_which_color(){
 
     return option;
 }
-
+/**
+ * Permite al usuario elegir una opcion
+ * @return - Opcion
+ */
 int CLI_want_throw(){
     char str_option[5];
     int option;
@@ -93,6 +110,10 @@ int CLI_want_throw(){
     return option;
 }
 
+/**
+ * Muestra opciones y pide al usuario una eleccion
+ * @return - Opcion
+ */
 int CLI_show_stats(){
     char str_option[5];
     int option;
@@ -116,6 +137,11 @@ int CLI_show_stats(){
 
 
 /* ***** PRIVADAS ***** */
+/**
+ * Comprueba si se introduce un numero
+ * @param option - Supuesto numero
+ * @return - True/False
+ */
 int is_number(char *option) {
     int i = 0;
 

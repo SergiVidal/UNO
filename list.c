@@ -2,6 +2,10 @@
 
 #include "list.h"
 
+/**
+ * Crea la estructura de datos LIST
+ * @return List
+ */
 PDIList LIST_create() {
     PDIList list;
 
@@ -17,6 +21,12 @@ PDIList LIST_create() {
     return list;
 }
 
+/**
+ * Permite insertar un elemento a la Lista
+ * @param list - Lista
+ * @param card - Carta
+ * @return - True/False
+ */
 int LIST_insert(PDIList *list, Card card) {
     Node *n = (Node *) malloc(sizeof(Node));
 
@@ -33,10 +43,19 @@ int LIST_insert(PDIList *list, Card card) {
     return 1;
 }
 
+/**
+ * Mueve el cursor al principio de la lista
+ * @param list - Lista
+ */
 void LIST_go_first(PDIList *list) {
     list->last = list->first;
 }
 
+/**
+ * Elimina un elemento de la lista
+ * @param list - Lista
+ * @return - True/False
+ */
 int LIST_remove(PDIList *list) {
     if (LIST_end(*list)) { // estem al final
         return 0;
@@ -49,22 +68,30 @@ int LIST_remove(PDIList *list) {
     return 1;
 }
 
-//Obte el element del punt de interes
+/**
+ * Obtiene el elemento donde apunta el cursor
+ * (Pre-condición: No esta vacia ni esta el cursor al final
+ * @param list - Lista
+ * @return - Devuelve el elemento
+ */
 Card LIST_get(PDIList *list) {
-//    if (list->last == NULL) { // estem al final
-//        return 0; // aka -1
-//    }
     return list->last->next->card;
 }
 
-// NULL = 0 (direccion memoria 0x00000)
+/**
+ * Comprueba si la Lista esta vacia
+ * @param list - Lista
+ * @return - True/False
+ */
 int LIST_is_empty(PDIList list) {
     return list.first->next == NULL; // Si es NULL retorna 1 (Si is empty)
 }
 
-
-//
-// Desplaça el last 1 posició
+/**
+ * Desplaza el cursor una posición a la derecha
+ * @param list - Lista
+ * @return - True/False
+ */
 int LIST_next(PDIList *list) {
     if (list->last->next == NULL) {
         return 0;
@@ -73,10 +100,19 @@ int LIST_next(PDIList *list) {
     return 1;
 }
 
+/**
+ * Comprueba si estas al final de la lista
+ * @param list - Lista
+ * @return - True/False
+ */
 int LIST_end (PDIList list){
     return list.last->next == NULL; // Si es NULL retorna 1 (Si is empty)
 }
 
+/**
+ * Destruye la Lista
+ * @param list - Lista
+ */
 void LIST_destroy (PDIList *list) {
     LIST_go_first(list);
     while (!LIST_is_empty(*list)) { // llista no buida

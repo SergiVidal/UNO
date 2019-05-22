@@ -5,9 +5,9 @@
 #include "game.h"
 #include "player.h"
 #include "cli.h"
+#include "file.h"
 
 /* ***** AUXILIAR FUNCTIONS ****** */
-
 char to_upper();
 
 void swap(Player *p1, Player *p2);
@@ -16,63 +16,13 @@ int roundnear(int n);
 
 /* ***** PUBLIC ***** */
 
-// /**
-Player *GAME_create_bots(char *filename, Game *game) {
-    FILE *f = NULL;
-    Player *players = NULL;
-    char skip;
-    int total = 0;
-    f = fopen(filename, "r");
-    if (f == NULL) {
-        printf("Error intentando abrir el fichero %s\n", filename);
-    } else {
-        fscanf(f, "%d", &total);
-        fscanf(f, "%c", &skip);
-        players = (Player *) realloc(players, sizeof(Player) * total);
-        for (int i = 0; i < total; i++) {
-            fgets(players[i].name, MAXC, f);
-            players[i].name[strlen(players[i].name) - 1] = '\0';
-            fgets(players[i].type, MAXC, f);
-            players[i].type[strlen(players[i].type) - 1] = '\0';
-            fscanf(f, "%d", &players[i].num_cards);
-            fscanf(f, "%c", &skip);
-            (game->total_players)++;
-            players[i].wins = 0;
-            players[i].loses = 0;
-        }
-        fclose(f);
-        if (total > 9) {
-            printf("Error, hay demasiados jugadores!\n");
-            exit(0);
-        }
-    }
-    return players;
-}
-
-Player GAME_create_player(char *filename, Game *game) {
-    FILE *f = NULL;
-    Player player;
-    int total = 0;
-    f = fopen(filename, "r");
-    if (f == NULL) {
-        printf("Error intentando abrir el fichero %s\n", filename);
-    } else {
-        fgets(player.name, MAXC, f);
-        player.name[strlen(player.name) - 1] = '\0';
-        fscanf(f, "%d", &player.wins);
-        fscanf(f, "%d", &player.loses);
-        total = player.wins + player.loses;
-        for (int i = 0; i < total; ++i) {
-            fscanf(f, "%d", &player.previous_games[i]);
-        }
-        strcpy(player.type, "Player");
-        player.num_cards = 7;
-        (game->total_players)++;
-        fclose(f);
-    }
-    return player;
-}
-
+/**
+ * Crea una lista de jugadores (incluido los bots y el player)
+ * @param bots - Lista de bots
+ * @param player - Player (Jugador != bot)
+ * @param game - Estructura de datos que contiene el estado del juego
+ * @return Lista que contiene todos los jugadores (unidos)
+ */
 Player *GAME_create_player_list(Player *bots, Player player, Game *game) {
     Player *players = NULL;
     players = (Player *) realloc(players, sizeof(Player) * game->total_players);
@@ -86,43 +36,11 @@ Player *GAME_create_player_list(Player *bots, Player player, Game *game) {
     return players;
 }
 
-void GAME_refresh_file(Game *game, Player *players) {
-    FILE *f = NULL;
-    Player player;
-
-    for (int i = 0; i < game->total_players; i++) {
-        if (strcmp(players[i].type, "Player") == 0) {
-            player = players[i];
-        }
-    }
-
-
-    int total = 0;
-    total = player.wins + player.loses;
-    f = fopen(PLAYER_FILE, "w");
-    if (f == NULL) {
-        printf("Error intentando abrir el fichero %s\n", PLAYER_FILE);
-    } else {
-
-        fprintf(f, "%s", player.name);
-        fprintf(f, "%s", "\n");
-
-        fprintf(f, "%d", player.wins);
-        fprintf(f, "%s", "\n");
-
-        fprintf(f, "%d", player.loses);
-        fprintf(f, "%s", "\n");
-        for (int i = 0; i < total; ++i) {
-            fprintf(f, "%d", player.previous_games[i]);
-            fprintf(f, "%s", "\n");
-
-        }
-
-    }
-
-    fclose(f);
-}
-
+/**
+ * Ordena los jugadores alfabeticamente por su nombre
+ * @param players - Lista de jugadores
+ * @param length - Jugadores totales
+ */
 void GAME_sort_by_name(Player *players, int length) {
     int min_pos;
 
@@ -137,6 +55,12 @@ void GAME_sort_by_name(Player *players, int length) {
     }
 }
 
+/**
+ * Reparte cartas a los jugadores
+ * @param stack - Estructura de datos que contiene la baraja
+ * @param player_list - Lista de jugadores
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
     Card card;
     PDIList *handList = NULL;
@@ -153,6 +77,11 @@ void GAME_init_hands(Stack *stack, Player *player_list, Game *game) {
     }
 }
 
+/**
+ * Inicializa el juego
+ * @param game - Estructura de datos que contiene el estado del juego
+ * @param players - Lista de jugadores
+ */
 void GAME_init_game(Game *game, Player *players) {
 
     // Init
@@ -185,7 +114,11 @@ void GAME_init_game(Game *game, Player *players) {
         STACK_push(&game->discard_deck, STACK_pop(&game->deck));
     } while (game->discard_deck.last->card.type != 0);
 }
-
+/**
+ * Muestra los jugadores existentes y sus cartas restantes
+ * (en el caso del player muestra tambien la dirección del juego)
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_show_player_list(Game *game) {
     Player player;
     NodeBi *n = game->player_list.first->next;
@@ -206,6 +139,11 @@ void GAME_show_player_list(Game *game) {
     }
 }
 
+/**
+ * Obtiene el player
+ * @param game - Estructura de datos que contiene el estado del juego
+ * @return player
+ */
 Player GAME_get_itself(Game *game) {
     NodeBi *n = game->player_list.first->next;
     while (n->next != NULL) {
@@ -216,7 +154,12 @@ Player GAME_get_itself(Game *game) {
     }
     return n->player;
 }
-
+/**
+ * Comprueba si se permite tirar una carta
+ * @param game - Estructura de datos que contiene el estado del juego
+ * @param card - Estructura de datos que forma una Carta
+ * @return
+ */
 int GAME_check_card(Game *game, Card card) {
     Card actual_card = game->discard_deck.last->card;
     // = Color o = Valor
@@ -228,6 +171,12 @@ int GAME_check_card(Game *game, Card card) {
     }
 }
 
+/**
+ * Comprueba si el juego ha terminado, si ha terminado actualiza las estructuras de datos de los jugadores
+ * @param game - Estructura de datos que contiene el estado del juego
+ * @param players - Lista de jugadores
+ * @return
+ */
 int GAME_is_end(Game *game, Player *players) {
     NodeBi *n = game->player_list.first->next;
     int total = 0;
@@ -278,7 +227,7 @@ int GAME_is_end(Game *game, Player *players) {
                     }
                 }
             }
-            GAME_refresh_file(game, players);
+            FILE_refresh_file(game, players);
             GAME_restart_game(game);
             return 1; // Empty
         }
@@ -287,6 +236,10 @@ int GAME_is_end(Game *game, Player *players) {
     return 0; // Not Empty
 }
 
+/**
+ * Muestra el estado del juego
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_display_game_status(Game *game) {
     Card card = STACK_top(&game->discard_deck);
     printf("\n");
@@ -327,6 +280,10 @@ void GAME_display_game_status(Game *game) {
 
 }
 
+/**
+ * Permite mmostrar y escoger la segunda opción al Player
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_choose_action(Game *game) {
     Player player = LISTBI_get(&game->player_list);
     char option;
@@ -351,6 +308,10 @@ void GAME_choose_action(Game *game) {
     } while (option != 'A' && option != 'B');
 }
 
+/**
+ * Muestra las cartas de la mano del Player
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_show_cards(Game *game) {
     Player player = LISTBI_get(&game->player_list);
     Card card;
@@ -405,6 +366,11 @@ void GAME_show_cards(Game *game) {
     GAME_choose_action(game);
 }
 
+/**
+ * Muestra las primeras acciones permitidas al usuario
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
+
 void GAME_display_actions(Game *game) {
     Player player = LISTBI_get(&game->player_list);
     char option;
@@ -430,6 +396,12 @@ void GAME_display_actions(Game *game) {
     } while (option != 'A' && option != 'B');
 }
 
+/**
+ * Permite lanzar una carta a los jugadores
+ * @param game - Estructura de datos que contiene el estado del juego
+ * @param player - Jugador
+ * @param card - Estructura de datos que forma una Carta
+ */
 void GAME_throw_card(Game *game, Player player, Card card) {
     STACK_push(&game->discard_deck, card);
     LIST_remove(player.handList);
@@ -437,6 +409,11 @@ void GAME_throw_card(Game *game, Player player, Card card) {
     GAME_card_behaviour(game);
 }
 
+/**
+ * Permite volcar las Cartas de la Baraja de Descarte, a la Baraja
+ * (Cuando la Baraja se queda sin cartas)
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_refill_deck(Game *game) {
     if (game->discard_deck.size == 1 && game->deck.size == 0) {
         printf("Error! Juego Finalizado! No hay cartas ni en la Deck ni en la Discard Deck!\n");
@@ -450,6 +427,10 @@ void GAME_refill_deck(Game *game) {
     STACK_push(&game->discard_deck, card);
 }
 
+/**
+ * Permite robar carta de la baraja
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_player_pick_card(Game *game) {
     char value[MAXC];
     int option;
@@ -508,6 +489,10 @@ void GAME_player_pick_card(Game *game) {
     printf("\n");
 }
 
+/**
+ * Cuenta cuantas cartas de cada color poseen los bots y cambiar el color segun el color mas poseido
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_count_cards(Game *game) {
     int red = 0, blue = 0, green = 0, yellow = 0;
     char color[MAXC];
@@ -543,12 +528,21 @@ void GAME_count_cards(Game *game) {
     printf("%s ha cambiado al color %s\n", player.name, color);
 }
 
+/**
+ * Inserta una carta en la mano del jugador
+ * @param game - Estructura de datos que contiene el estado del juego
+ * @param player - Jugador
+ * @param card - Estructura de datos que forma una Carta
+ */
 void GAME_get_card(Game *game, Player player, Card card) {
     LIST_insert(player.handList, card); // Inserta una carta en la PDIList
     (game->player_list.pdi->player.num_cards)++;
 }
 
-// Se ejecuta una vez la carta tirada esta en la pila de descarte
+/**
+ * Realiza el comportamiento de las Cartas una vez estas son tiradas por los jugadores
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_card_behaviour(Game *game) {
     Card card = game->discard_deck.last->card;
     Player player = LISTBI_get(&game->player_list);
@@ -668,6 +662,10 @@ void GAME_card_behaviour(Game *game) {
     }
 }
 
+/**
+ * Comprueba que puedes tirar alguna carta una vez seleccionada la opcion ThrowCard (Player)
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_check_card_to_throw(Game *game) {
     Player player = LISTBI_get(&game->player_list);
     Card card;
@@ -727,6 +725,10 @@ void GAME_check_card_to_throw(Game *game) {
  4.2 Agresivo - Si roba un comodin lo tirara
  */
 
+/**
+ * Establece el comportamiento de los bots segun sus preferencias
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_play_bot(Game *game) {
     Player player = LISTBI_get(&game->player_list);
     Card actual_card = game->discard_deck.last->card;
@@ -785,6 +787,11 @@ void GAME_play_bot(Game *game) {
     }
 }
 
+/**
+ * Motor del juego
+ * @param game - Estructura de datos que contiene el estado del juego
+ * @param players - Lista de jugadores
+ */
 void GAME_play(Game *game, Player *players) {
     Player player;
     LISTBI_go_first(&game->player_list);
@@ -811,6 +818,10 @@ void GAME_play(Game *game, Player *players) {
     }
 }
 
+/**
+ * Reinicia el juego
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_restart_game(Game *game) {
     game->direction = 0;
     STACK_delete(&game->deck);
@@ -825,6 +836,10 @@ void GAME_restart_game(Game *game) {
     }
 }
 
+/**
+ * Permite al usuario entrar en la sección de estadisticas
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_show_stats(Game *game){
     int option;
     printf("UNO - Stats\n");
@@ -848,6 +863,10 @@ void GAME_show_stats(Game *game){
     } while (option != CLI_BACK);
 }
 
+/**
+ * Muestra las estadisticas del Player
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_show_player_stats(Game *game) {
     Player player = GAME_get_itself(game);
     printf("Nombre: %s\n\n", player.name);
@@ -877,6 +896,10 @@ void GAME_show_player_stats(Game *game) {
 
 }
 
+/**
+ * Muestra las estadisticas de los Bots
+ * @param game - Estructura de datos que contiene el estado del juego
+ */
 void GAME_show_bots_stats(Game *game) {
     int aggree_wins = 0;
     int aggre_loses = 0;
@@ -944,6 +967,10 @@ void GAME_show_bots_stats(Game *game) {
 
 
 /* ***** PRIVADAS ***** */
+/**
+ * Convierte una letra Minuscula en Mayuscula
+ * @return Letra en Mayuscula
+ */
 char to_upper() {
     char input[5];
     fgets(input, 5, stdin);
@@ -955,12 +982,22 @@ char to_upper() {
     return input[0];
 }
 
+/**
+ * Intercambia 2 jugadores
+ * @param p1 - Jugador 1
+ * @param p2 - Jugador 2
+ */
 void swap(Player *p1, Player *p2) {
     Player tmp = *p1;
     *p1 = *p2;
     *p2 = tmp;
 }
 
+/**
+ * Redondea un numero al mutliplo de 10 mas cercano
+ * @param n - Numero
+ * @return - Numero multiplo de 10
+ */
 int roundnear(int n) {
     // Smaller multiple
     int a = (n / 10) * 10;
