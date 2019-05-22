@@ -5,10 +5,9 @@
 #include "stack.h"
 #include "player.h"
 #include "game.h"
+
 //uno fichero_bots.uno fichero_usuario.uno
 // /users/home/alumnes/LS/s.vidal/CLION/UNO
-
-// TODO: CLI_SHOW_STATS -> CLI_BACK
 
 int main(int argc, char *argv[]) {
     if (argc >= 3) {

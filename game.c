@@ -16,6 +16,7 @@ int roundnear(int n);
 
 /* ***** PUBLIC ***** */
 
+// /**
 Player *GAME_create_bots(char *filename, Game *game) {
     FILE *f = NULL;
     Player *players = NULL;
@@ -61,11 +62,9 @@ Player GAME_create_player(char *filename, Game *game) {
         fscanf(f, "%d", &player.wins);
         fscanf(f, "%d", &player.loses);
         total = player.wins + player.loses;
-//        printf("Total games (Create player): %d\n", total);
         for (int i = 0; i < total; ++i) {
             fscanf(f, "%d", &player.previous_games[i]);
         }
-
         strcpy(player.type, "Player");
         player.num_cards = 7;
         (game->total_players)++;
@@ -253,7 +252,7 @@ int GAME_is_end(Game *game, Player *players) {
 
                         //Add Cards
                         total = players[i].wins + players[i].loses;
-                        players[i].previous_games[total - 1] = players[i].num_cards;
+                        players[i].previous_games[total - 1] = n->player.num_cards;
                     }
                 }
                 printf("\n\n");
@@ -503,6 +502,7 @@ void GAME_player_pick_card(Game *game) {
                 }
             } while (option < 1 || option > 2);
         }
+        CLI_wait();
     }
     printf("\n");
 }
@@ -682,6 +682,7 @@ void GAME_check_card_to_throw(Game *game) {
     }
     if (cont == 0) {
         printf("\nNo puedes tirar ninguna carta, robando...\n");
+        CLI_wait();
         GAME_player_pick_card(game);
         return;
     }
@@ -795,7 +796,7 @@ void GAME_play(Game *game, Player *players) {
             GAME_display_actions(game);
             system("clear");
         } else {
-//            GAME_play_bot(game);
+            GAME_play_bot(game);
         }
         if (game->direction == 0) {
             LISTBI_next(&game->player_list);
@@ -857,19 +858,13 @@ void GAME_show_player_stats(Game *game) {
     char visual_wins[MAXC];
     char visual_loses[MAXC];
 
-//    int winpoints = (int)wins % 10;
-//    printf("%d\n", winpoints);
-
     int roundwins = roundnear((int) wins) / 10;
-//    printf("%d\n", roundwins);
     for (int i = 0; i < roundwins; i++) {
         visual_wins[i] = '.';
     }
     visual_wins[roundwins] = '\0';
 
-
     int roundloses = roundnear((int) loses) / 10;
-    printf("%d\n", roundloses);
     for (int i = 0; i < roundloses; i++) {
         visual_loses[i] = '.';
     }
