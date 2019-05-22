@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
                                 break;
                             case CLI_BOTS:
                                 printf("UNO - Bots Stats\n");
-                                GAME_show_bots_stats(bots, game.total_players);
+                                GAME_show_bots_stats(&game);
                                 break;
                             case CLI_BACK:
                                 break;

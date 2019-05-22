@@ -97,10 +97,10 @@ int CLI_show_stats(){
     char str_option[5];
     int option;
 
-    printf("Enter statistic option:\n");
     printf("1. Player\n");
     printf("2. Bots\n");
     printf("3. Back to menu\n");
+    printf("Enter statistic option:\n");
     fgets(str_option, 5, stdin);
     str_option[strlen(str_option) - 1] = '\0';
 

@@ -855,12 +855,11 @@ void GAME_show_player_stats(Game *game) {
 
 }
 
-// TODO: Change values to 0, cambiar bots por players
-void GAME_show_bots_stats(Player *bots, int total_players) {
-    int aggree_wins = 2;
-    int aggre_loses = 1;
-    int calm_wins = 3;
-    int calm_loses = 2;
+void GAME_show_bots_stats(Game *game) {
+    int aggree_wins = 0;
+    int aggre_loses = 0;
+    int calm_wins = 0;
+    int calm_loses = 0;
     int aggre_total = 0;
     int calm_total = 0;
     int total_wins = 0;
@@ -869,28 +868,46 @@ void GAME_show_bots_stats(Player *bots, int total_players) {
 
     printf("Name \t\t\t\t Wins \t\t\t\t Loses\n");
     printf("---------------------------------------------------------------------\n");
-    for (int i = 0; i < total_players - 1; ++i) {
-        printf("%s \t\t\t %d \t\t\t\t %d\n", bots[i].name, bots[i].wins, bots[i].loses);
-        if (strcmp(bots[i].type, "Agresivo") == 0) {
-            aggree_wins = aggree_wins + bots[i].wins;
-            aggre_loses = aggre_loses + bots[i].loses;
-        } else {
-            calm_wins = calm_wins + bots[i].wins;
-            calm_loses = calm_loses + bots[i].loses;
+    NodeBi *n = game->player_list.first->next;
+    while (n->next != NULL) {
+        if (strcmp(n->player.type, "Player") != 0) {
+            printf("%s \t\t\t %d \t\t\t\t %d\n", n->player.name, n->player.wins, n->player.loses);
+            if (strcmp(n->player.type, "Agresivo") == 0) {
+                aggree_wins = aggree_wins + n->player.wins;
+                aggre_loses = aggre_loses + n->player.loses;
+            } else {
+                calm_wins = calm_wins + n->player.wins;
+                calm_loses = calm_loses + n->player.loses;
+            }
         }
+        n = n->next;
     }
+
 
     aggre_total = aggree_wins + aggre_loses;
     calm_total = calm_wins + calm_loses;
     total_wins = aggree_wins + calm_wins;
     total_loses = aggre_loses + calm_loses;
     total = total_wins + total_loses;
-    float aggree_winsper = ((float) aggree_wins / aggre_total) * 100;
+
+    float aggree_winsper = (((float) aggree_wins / aggre_total) * 100);
+    aggree_winsper = aggree_winsper > 0 ? aggree_winsper : 0;
+
     float aggreelosesper = ((float) aggre_loses / aggre_total) * 100;
+    aggreelosesper = aggreelosesper > 0 ? aggreelosesper : 0;
+
     float calm_winsper = ((float) calm_wins / calm_total) * 100;
+    calm_winsper = calm_winsper > 0 ? calm_winsper : 0;
+
     float calm_losesper = ((float) calm_loses / calm_total) * 100;
+    calm_losesper = calm_losesper > 0 ? calm_losesper : 0;
+
     float total_winsper = ((float) total_wins / total) * 100;
+    total_winsper = total_winsper > 0 ? total_winsper : 0;
+
     float total_losesper = ((float) total_loses / total) * 100;
+    total_losesper = total_losesper > 0 ? total_losesper : 0;
+
     printf("---------------------------------------------------------------------\n");
     printf("Agresivo \t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", aggree_wins, aggree_winsper,
            aggre_loses,

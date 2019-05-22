@@ -64,6 +64,6 @@ void GAME_restart_game(Game *game);
 
 void GAME_show_player_stats(Game *game);
 
-void GAME_show_bots_stats(Player *bots, int total);
+void GAME_show_bots_stats(Game *game);
 
 #endif //UNO_GAME_H
