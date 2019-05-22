@@ -8,12 +8,13 @@
 //uno fichero_bots.uno fichero_usuario.uno
 // /users/home/alumnes/LS/s.vidal/CLION/UNO
 
+// TODO: CLI_SHOW_STATS -> CLI_BACK
+
 int main(int argc, char *argv[]) {
     if (argc >= 3) {
         Player *players;
         Player *bots;
         Player player;
-        Player aux;
         Game game = {0, 0, NULL, NULL, NULL};
         int option;
 
@@ -21,7 +22,6 @@ int main(int argc, char *argv[]) {
         bots = GAME_create_bots(argv[1], &game);
         player = GAME_create_player(argv[2], &game);
         players = GAME_create_player_list(bots, player, &game);
-
 
         do {
             CLI_wait();
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
                                 printf("Opcion incorrecta\n\n");
                                 break;
                         }
-                    } while (option != CLI_BACK);
+                    } while (option < 1 || option > 3);
                     break;
                 case CLI_EXIT:
                     printf("Fin del programa.\n");

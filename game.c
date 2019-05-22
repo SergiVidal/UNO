@@ -6,9 +6,6 @@
 #include "player.h"
 #include "cli.h"
 
-// TODO: Check robar carta()
-
-
 /* ***** AUXILIAR FUNCTIONS ****** */
 
 char to_upper();
@@ -39,6 +36,8 @@ Player *GAME_create_bots(char *filename, Game *game) {
             fscanf(f, "%d", &players[i].num_cards);
             fscanf(f, "%c", &skip);
             (game->total_players)++;
+            players[i].wins = 0;
+            players[i].loses = 0;
         }
         fclose(f);
         if (total > 9) {
@@ -187,21 +186,19 @@ int GAME_check_card(Game *game, Card card) {
     }
 }
 
+//TODO: Escribir en fichero los resultados
 int GAME_is_end(Game *game) {
     NodeBi *n = game->player_list.first->next;
     while (n->next != NULL) {
         if (n->player.num_cards == 0) {
             if (strcmp(n->player.type, "Player") == 0) {
                 printf("Has ganado la partida!\n");
+                n->player.wins++;
             } else {
                 printf("%s ha ganado la partida. Te quedaban %d en mano.\n", n->player.name,
                        GAME_get_itself(game).num_cards);
+                n->player.wins++;
             }
-            CLI_wait();
-//            LISTBI_destroy(&game->player_list);
-            game->direction = 0;
-            STACK_delete(&game->deck);
-            STACK_delete(&game->discard_deck);
             return 1; // Empty
         }
         n = n->next;
@@ -416,6 +413,7 @@ void GAME_player_pick_card(Game *game) {
                     printf("Opcion incorrecta!\n");
                 } else {
                     if (option == 1) {
+                        LIST_go_first(player.handList);
                         GAME_throw_card(game, player, card);
                     } else {
                         printf("Se ha terminado tu turno.\n");
@@ -706,14 +704,16 @@ void GAME_play_bot(Game *game) {
 void GAME_play(Game *game) {
     Player player;
     LISTBI_go_first(&game->player_list);
+    system("clear");
 
     while (!GAME_is_end(game)) {
         player = LISTBI_get(&game->player_list);
         if (strcmp(player.type, "Player") == 0) {
             GAME_display_game_status(game);
             GAME_display_actions(game);
+            system("clear");
         } else {
-            GAME_play_bot(game);
+//            GAME_play_bot(game);
         }
         if (game->direction == 0) {
             LISTBI_next(&game->player_list);
@@ -728,6 +728,9 @@ void GAME_play(Game *game) {
 }
 
 void GAME_restart_game(Game *game) {
+    game->direction = 0;
+    STACK_delete(&game->deck);
+    STACK_delete(&game->discard_deck);
     Player player;
     LISTBI_go_first(&game->player_list);
     for (int i = 0; i < game->total_players; i++) {
@@ -768,20 +771,50 @@ void GAME_show_player_stats(Player player) {
     printf("\t Wins: %s %d (%.2f percent)\n", visual_wins, player.wins, wins);
     printf("\t Loses: %s %d (%.2f percent)\n", visual_loses, player.loses, loses);
 
-    CLI_wait();
-
 }
 
-void GAME_show_bots_stats(Player *bots, int total) {
-    printf("Name \t\t\t Wins \t\t\t Loses\n");
-    printf("---------------------------------------------------------------------\n");
-    for (int i = 0; i < total; ++i) {
-        printf("%s \t\t\t \n", bots[i].name);
+// TODO: Change values to 0;
+void GAME_show_bots_stats(Player *bots, int total_players) {
+    int aggree_wins = 2;
+    int aggre_loses = 1;
+    int calm_wins = 3;
+    int calm_loses = 2;
+    int aggre_total = 0;
+    int calm_total = 0;
+    int total_wins = 0;
+    int total_loses = 0;
+    int total = 0;
 
+    printf("Name \t\t\t\t Wins \t\t\t\t Loses\n");
+    printf("---------------------------------------------------------------------\n");
+    for (int i = 0; i < total_players - 1; ++i) {
+        printf("%s \t\t\t %d \t\t\t\t %d\n", bots[i].name, bots[i].wins, bots[i].loses);
+        if(strcmp(bots[i].type, "Agresivo") == 0){
+            aggree_wins = aggree_wins + bots[i].wins;
+            aggre_loses = aggre_loses + bots[i].loses;
+        } else{
+            calm_wins = calm_wins + bots[i].wins;
+            calm_loses = calm_loses + bots[i].loses;
+        }
     }
+
+    aggre_total = aggree_wins + aggre_loses;
+    calm_total = calm_wins + calm_loses;
+    total_wins = aggree_wins + calm_wins;
+    total_loses = aggre_loses + calm_loses;
+    total = total_wins + total_loses;
+    float aggree_winsper = ((float) aggree_wins / aggre_total) * 100;
+    float aggreelosesper = ((float) aggre_loses / aggre_total) * 100;
+    float calm_winsper = ((float) calm_wins / calm_total) * 100;
+    float calm_losesper = ((float) calm_loses / calm_total) * 100;
+    float total_winsper = ((float) total_wins / total) * 100;
+    float total_losesper = ((float) total_loses / total) * 100;
     printf("---------------------------------------------------------------------\n");
-
-
+    printf("Agresivo \t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", aggree_wins, aggree_winsper, aggre_loses, aggreelosesper);
+    printf("Calmados \t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", calm_wins, calm_winsper, calm_loses, calm_losesper);
+    printf("---------------------------------------------------------------------\n");
+    printf("Total \t\t\t\t %d (%.2f percent) \t\t %d (%.2f percent)\n", total_wins, total_winsper, total_loses, total_losesper);
+    printf("---------------------------------------------------------------------\n");
 }
 
 
