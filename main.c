@@ -33,29 +33,9 @@ int main(int argc, char *argv[]) {
             switch (option) {
                 case CLI_PLAY:
                     GAME_play(&game, players);
-
                     break;
                 case CLI_SHOW_STATS:
-
-                    printf("UNO - Stats\n");
-                    do {
-                        option = CLI_show_stats();
-                        switch (option) {
-                            case CLI_PLAYER:
-                                printf("UNO - Player Stats\n");
-                                GAME_show_player_stats(&game);
-                                break;
-                            case CLI_BOTS:
-                                printf("UNO - Bots Stats\n");
-                                GAME_show_bots_stats(&game);
-                                break;
-                            case CLI_BACK:
-                                break;
-                            default:
-                                printf("Opcion incorrecta\n\n");
-                                break;
-                        }
-                    } while (option < 1 || option > 3);
+                    GAME_show_stats(&game);
                     break;
                 case CLI_EXIT:
                     printf("Fin del programa.\n");

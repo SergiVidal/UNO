@@ -823,6 +823,29 @@ void GAME_restart_game(Game *game) {
     }
 }
 
+void GAME_show_stats(Game *game){
+    int option;
+    printf("UNO - Stats\n");
+    do {
+        option = CLI_show_stats();
+        switch (option) {
+            case CLI_PLAYER:
+                printf("UNO - Player Stats\n");
+                GAME_show_player_stats(game);
+                break;
+            case CLI_BOTS:
+                printf("UNO - Bots Stats\n");
+                GAME_show_bots_stats(game);
+                break;
+            case CLI_BACK:
+                break;
+            default:
+                printf("Opcion incorrecta\n\n");
+                break;
+        }
+    } while (option != CLI_BACK);
+}
+
 void GAME_show_player_stats(Game *game) {
     Player player = GAME_get_itself(game);
     printf("Nombre: %s\n\n", player.name);
@@ -842,12 +865,15 @@ void GAME_show_player_stats(Game *game) {
     for (int i = 0; i < roundwins; i++) {
         visual_wins[i] = '.';
     }
+    visual_wins[roundwins] = '\0';
+
 
     int roundloses = roundnear((int) loses) / 10;
-//    printf("%d\n", roundloses);
+    printf("%d\n", roundloses);
     for (int i = 0; i < roundloses; i++) {
         visual_loses[i] = '.';
     }
+    visual_loses[roundloses] = '\0';
 
     printf("Games Stats:\n");
     printf("\t Wins: %s %d (%.2f percent)\n", visual_wins, player.wins, wins);

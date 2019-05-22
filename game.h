@@ -62,6 +62,8 @@ void GAME_get_card(Game *game, Player player, Card card);
 
 void GAME_restart_game(Game *game);
 
+void GAME_show_stats(Game *game);
+
 void GAME_show_player_stats(Game *game);
 
 void GAME_show_bots_stats(Game *game);
