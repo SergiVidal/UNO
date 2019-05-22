@@ -192,12 +192,10 @@ int GAME_is_end(Game *game, Player *players) {
                 for (int i = 0; i < game->total_players; i++) {
                     if (strcmp(players[i].type, "Player") != 0) {
                         players[i].loses++;
-                        printf("%s - Loses: %d\n", players[i].name, players[i].loses);
                     } else {
                         //Player
                         //Wins
                         players[i].wins++;
-                        printf("Wins: %d\n", players[i].wins);
 
                         //Add Cards
                         total = players[i].wins + players[i].loses;
@@ -212,10 +210,8 @@ int GAME_is_end(Game *game, Player *players) {
                         //Bot winner
                         //Wins
                         players[i].wins++;
-                        printf("%s - Wins: %d\n", players[i].name, players[i].wins);
                     } else {
                         players[i].loses++;
-                        printf("%s - Loses: %d\n", players[i].name, players[i].loses);
                         if (strcmp(players[i].type, "Player") == 0) {
                             printf("%s ha ganado la partida. Te quedaban %d en mano.\n", n->player.name,
                                    players[i].num_cards);

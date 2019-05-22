@@ -12,17 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4911799-ce69-47c3-8713-9da311e4f5df" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli.c" beforeDir="false" afterPath="$PROJECT_DIR$/cli.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file.c" beforeDir="false" afterPath="$PROJECT_DIR$/file.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.h" beforeDir="false" afterPath="$PROJECT_DIR$/file.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.c" beforeDir="false" afterPath="$PROJECT_DIR$/game.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.h" beforeDir="false" afterPath="$PROJECT_DIR$/game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/list.c" beforeDir="false" afterPath="$PROJECT_DIR$/list.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/listbi.c" beforeDir="false" afterPath="$PROJECT_DIR$/listbi.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/player.h" beforeDir="false" afterPath="$PROJECT_DIR$/player.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stack.c" beforeDir="false" afterPath="$PROJECT_DIR$/stack.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stack.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="589">
@@ -115,17 +106,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="69" />
+            <state relative-caret-position="102">
+              <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="929">
-              <caret line="998" column="34" selection-start-line="998" selection-start-column="34" selection-end-line="998" selection-end-column="34" />
+            <state relative-caret-position="442">
+              <caret line="198" selection-start-line="198" selection-end-line="198" />
             </state>
           </provider>
         </entry>
@@ -214,13 +205,13 @@
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/game.h" />
         <option value="$PROJECT_DIR$/file.h" />
-        <option value="$PROJECT_DIR$/file.c" />
-        <option value="$PROJECT_DIR$/game.c" />
         <option value="$PROJECT_DIR$/cli.c" />
         <option value="$PROJECT_DIR$/list.c" />
         <option value="$PROJECT_DIR$/listbi.c" />
         <option value="$PROJECT_DIR$/player.h" />
         <option value="$PROJECT_DIR$/stack.c" />
+        <option value="$PROJECT_DIR$/file.c" />
+        <option value="$PROJECT_DIR$/game.c" />
       </list>
     </option>
   </component>
@@ -323,12 +314,12 @@
       <workItem from="1558518163859" duration="4472000" />
       <workItem from="1558522727596" duration="3170000" />
       <workItem from="1558536168218" duration="14553000" />
-      <workItem from="1558562941864" duration="3189000" />
+      <workItem from="1558562941864" duration="3510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170400000" />
+    <option name="totallyTimeSpent" value="170721000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -344,10 +335,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1554054" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.1554054" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32969603" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49960256" weight="0.20732658" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49960256" visible="true" weight="0.20732658" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50039744" side_tool="true" weight="0.20888543" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.3289689" />
@@ -510,20 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/game.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="929">
-          <caret line="998" column="34" selection-start-line="998" selection-start-column="34" selection-end-line="998" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cli.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -573,6 +550,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="180" column="30" selection-start-line="180" selection-start-column="30" selection-end-line="180" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
         </state>
       </provider>
     </entry>

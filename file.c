@@ -66,7 +66,7 @@ Player FILE_create_player(char *filename, Game *game) {
             fscanf(f, "%d", &player.previous_games[i]);
         }
         strcpy(player.type, "Player");
-        player.num_cards = 0;
+        player.num_cards = 7;
         (game->total_players)++;
         fclose(f);
     }
