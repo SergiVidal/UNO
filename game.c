@@ -481,6 +481,7 @@ void GAME_player_pick_card(Game *game) {
 
         if (!GAME_check_card(game, card)) {
             printf("Se ha robado un %s - %s. No se puede jugar.\n\n", value, card.color);
+            CLI_wait();
             return;
         } else {
             if (card.type == 4 || card.type == 5) {
